@@ -1,0 +1,68 @@
+SCR_MapEntity MapEntity_Everon1 : "{E1B88C66BF6CA1F9}Prefabs/World/Game/MapEntity_Everon.et" {
+ coords 4690.741 27.935 11165.05
+}
+PerceptionManager PerceptionManager1 : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
+ coords 4691.039 27.938 11161.191
+}
+SCR_BaseGameMode GameMode_Wasteland1 : "{2E59B96BE0446D05}Prefabs/MP/Modes/Plain/GameMode_Wasteland.et" {
+ components {
+  SCR_NotificationSenderComponent "{56FA84B04BE7D4C0}" {
+   m_iKillFeedType FULL
+   m_iReceiveKillFeedType ALL
+  }
+  SCR_RespawnBriefingComponent "{59695E0AF2C6CBE8}" {
+   m_Info SCR_UIInfo "{59695E0709BC7DC4}" {
+    Name "Wasteland Reforged"
+    Description "Wasteland Reforged: The legacy of wasteland continues in Arma Reforger using the new built in systems to streamline the experience and remove some of that classic wasteland jankiness. Town spawn points become available when a friendly is in the territory, the random spawn option is always available and will spawn you in a random town or base."
+    Icon "{DA2E2B3161095972}UI/Textures/Common/GenericProfileIcon_UI.edds"
+   }
+   m_SimpleBriefingBackground "{321677A470D2CE64}UI/Textures/wastelandbanner1.png"
+  }
+ }
+ coords 4689.231 27.89 11161.868
+}
+SCR_CameraManager SCR_CameraManager1 : "{33F9FD881E3700CC}Prefabs/World/Game/SCR_CameraManager.et" {
+ coords 4690.861 27.938 11165.091
+}
+TimeAndWeatherManagerEntity : "{A3BAF78F6F03315B}Prefabs/World/Game/TimeAndWeatherManager.et" {
+ coords 4690.029 27.914 11163.596
+ "Internal variant transition" 0
+ "Internal subvariant 0" 0
+ "Internal subvariant 1" 0
+}
+ProjectileSoundsManager : "{B4DA8B0024536625}Prefabs/World/Game/ProjectileSoundsManager.et" {
+ coords 4691.376 27.929 11163.248
+}
+RadioManagerEntity : "{B8E09FAB91C4ECCD}Prefabs/Radio/RadioManager.et" {
+ coords 4688.496 27.86 11165.5
+}
+SCR_CampaignFactionManager CampaignFactionManager1 : "{F1AC26310BAE3788}Prefabs/MP/Campaign/CampaignFactionManager.et" {
+ coords 4690.431 27.938 11161.092
+ Factions {
+  SCR_CampaignFaction "{56F0C3A6336375DC}" {
+   m_bIsPlayable 1
+  }
+  SCR_CampaignFaction "{597061838D1394EF}" {
+   FactionKey "Inactive"
+   FactionColor 0 0 0 1
+   UIInfo SCR_FactionUIInfo "{59706185AD9B773A}" {
+    Name "#AR-Faction_FIA"
+    Icon "{BD2E2F871E6A3EBF}UI/Textures/Flags/Flag_Faction_Base.edds"
+   }
+   "Identity of soldiers" FactionIdentity "{59706185AC2A5438}" {
+   }
+   m_OutlineFactionColor 0 0 0 1
+   m_bIsPlayable 0
+   m_sFactionFlag "{BD2E2F871E6A3EBF}UI/Textures/Flags/Flag_Faction_Base.edds"
+  }
+ }
+}
+ScriptedChatEntity : "{F69BC912AC8236F9}Prefabs/MP/ScriptedChatEntity.et" {
+ coords 4690.619 27.917 11163.818
+}
+HitRegistrationManager HitRegManager1 : "{0EDA3D48791120DD}Prefabs/MP/HitRegManager.et" {
+ coords 4689.605 27.904 11163
+}
+SCR_MPDestructionManager : "{9BB369F2803C6F71}Prefabs/MP/MPDestructionManager.et" {
+ coords 4690.321 27.918 11164.381
+}

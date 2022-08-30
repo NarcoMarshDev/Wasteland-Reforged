@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{7587316A9116641A}Prefabs/Structures/Military/Bunkers/Bunker_01/Bunker_01_3fp_FactionLockable.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

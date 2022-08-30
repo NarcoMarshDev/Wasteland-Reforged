@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{DFCA07A2BA5402A2}Prefabs/Vehicles/Wheeled/M151A2/M151A2_gun_mount_RPG7.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,71 @@
+SCR_CampaignFactionManager : "{A242612865F2A48E}Prefabs/MP/Managers/Factions/FactionManager_Base.et" {
+ ID "56B2B4776E6E4499"
+ components {
+ }
+ coords 0 0 0
+ Factions {
+  SCR_CampaignFaction "{50B30C3AF4BFD934}" : "{15B582F8FA0B0940}Configs/Factions/USSR_Campaign.conf" {
+   m_sFactionFlag "{50824EB9F2C215AB}UI/Textures/Flags/USSR-flag-base-3it.edds"
+   m_sFactionRadioEncryptionKey "coldBorscht"
+   m_aCampaignSlotCompositions {
+   }
+  }
+  SCR_CampaignFaction "{50B30C3ADB052C80}" : "{ADFDBDA163950168}Configs/Factions/US_Campaign.conf" {
+   m_sFactionFlag "{46FB2FB2C2125A3C}UI/Textures/Flags/US-flag-base-3it.edds"
+   m_sFactionRadioEncryptionKey "chickenNuggets"
+  }
+  SCR_CampaignFaction "{56F0C3A6336375DC}" : "{CF9447B87AB774DB}Configs/Factions/FIA_Campaign.conf" {
+   m_sFactionRadioEncryptionKey "freedomSauce"
+  }
+ }
+ m_bCanChangeFactionsPlayable 0
+ m_aRanks {
+  SCR_RankIDCampaign "{596AE3FF20D0026A}" {
+   m_iRank RENEGADE
+   m_bIsRenegade 1
+   m_iXP -51
+   m_iRequestCD -1
+  }
+  SCR_RankIDCampaign "{596AE3FF20D00262}" {
+   m_iXP -50
+   m_iRequestCD 105
+   m_iRadioRespawnCooldown 45
+  }
+  SCR_RankIDCampaign "{596AE3FF20D00263}" {
+   m_iRank CORPORAL
+   m_iXP 250
+   m_iRequestCD 75
+   m_iRadioRespawnCooldown 42
+  }
+  SCR_RankIDCampaign "{596AE3FF20D0027C}" {
+   m_iRank SERGEANT
+   m_iXP 650
+   m_iRequestCD 50
+   m_iRadioRespawnCooldown 39
+  }
+  SCR_RankIDCampaign "{596AE3FF20D0027D}" {
+   m_iRank LIEUTENANT
+   m_iXP 1200
+   m_iRequestCD 30
+   m_iRadioRespawnCooldown 36
+  }
+  SCR_RankIDCampaign "{596AE3FF20D0027E}" {
+   m_iRank CAPTAIN
+   m_iXP 1900
+   m_iRequestCD 15
+   m_iRadioRespawnCooldown 33
+  }
+  SCR_RankIDCampaign "{596AE3FF20D00278}" {
+   m_iRank MAJOR
+   m_iXP 2750
+   m_iRequestCD 5
+  }
+ }
+ m_VehicleAssetList "{6F6A5B76C7F75ED3}Configs/Campaign/VehicleAssetList.conf"
+ m_SlotFlatSmall "{588A3DAF0296B0C1}PrefabsEditable/Slots/Flat/E_SlotFlatSmall.et"
+ m_SlotFlatMedium "{4B1C4BDDF6683101}PrefabsEditable/Slots/Flat/E_SlotFlatMedium.et"
+ m_SlotFlatLarge "{055DDE93F47A6A1D}PrefabsEditable/Slots/Flat/E_SlotFlatLarge.et"
+ m_SlotCheckpointSmall "{66265A506DF1FE2B}PrefabsEditable/Slots/Road/E_SlotRoadSmall.et"
+ m_SlotCheckpointMedium "{F4066B8425BEC47C}PrefabsEditable/Slots/Road/E_SlotRoadMedium.et"
+ m_SlotCheckpointLarge "{881CE7B0098504C2}PrefabsEditable/Slots/Road/E_SlotRoadLarge.et"
+}

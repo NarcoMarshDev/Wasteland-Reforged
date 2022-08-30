@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{7D85E3807EA86C70}Prefabs/Characters/Factions/OPFOR/Character_OPFOR_Sidearm.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,16 @@
+GenericEntity {
+ components {
+  MeshObject "{597E03F6EE31CBC2}" {
+   Object "{CD7B21DA4D8AE5FB}Assets/Props/Commercial/CashierShop_01/CashierShop_01.xob"
+  }
+ }
+ coords 4974.359 3.19 3859.227
+ {
+  GenericEntity : "{547D462165B175C2}Prefabs/Props/Furniture/CupboardOld_01_small.et" {
+   coords 0.3 -1.001 -0.287
+  }
+ }
+}
+Wasteland_MoneyBag : "{927D8B7B6B11BA38}Prefabs/Items/Wasteland_MoneyBag.et" {
+ coords 4976.806 2.188 3866.43
+}

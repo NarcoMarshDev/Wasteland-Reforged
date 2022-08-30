@@ -1,0 +1,18 @@
+SCR_ChimeraCharacter : "{B25749EAA33CA8DD}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Test2.et" {
+ ID "52092032B0E62200"
+ coords 0 0 0
+ {
+  SCR_SiteSlotEntity {
+   ID "599059F8854E0D2D"
+   components {
+    Hierarchy "{5990D0ED71BCDA35}" {
+    }
+    RplComponent "{5990D0ED7883B95C}" {
+    }
+    SCR_EditableEntityComponent "{5990DE773B23783B}" {
+     m_EntityType SLOT
+    }
+   }
+  }
+ }
+}

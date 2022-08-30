@@ -1,0 +1,10 @@
+SCR_ChimeraCharacter : "{57CB0513AFD93FB6}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Test3.et" {
+ ID "52092032B0E62200"
+ coords 0 0 0
+ {
+  GenericEntity : "{092FE092D6DF1EB3}Prefabs/Props/Military/AmmoBoxes/AmmoBox_556x45_1680rnd.et" {
+   ID "5990DE777C085DAF"
+   coords 0 0.25 3
+  }
+ }
+}

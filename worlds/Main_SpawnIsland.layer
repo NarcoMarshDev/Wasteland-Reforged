@@ -1,0 +1,94 @@
+SCR_BaseTriggerEntity Trigger_RandomSpawnTeleport {
+ coords 10911.234 19.525 8806.887
+ userScript "	SCR_ChimeraCharacter cc;"\
+ "	//ref array<IEntity> entities = new array<IEntity>();"\
+ "	array<SCR_SpawnPoint> spawnPoints = SCR_SpawnPoint.GetSpawnPoints();"\
+ "	"\
+ "	override bool ScriptedEntityFilterForQuery(IEntity ent)"\
+ "	{"\
+ "		SCR_ChimeraCharacter temp = SCR_ChimeraCharacter.Cast(ent);"\
+ "		if (temp != null)"\
+ "		{"\
+ "			cc = temp;"\
+ "			return true;"\
+ "		}"\
+ "		else return false;		"\
+ "	}"\
+ "	int random;"\
+ "	vector tpTransform[4];"\
+ "	"\
+ "	override void OnActivate(IEntity ent)"\
+ "	{"\
+ "		// replace with SCR_SpawnPoint.GetRandomSpawnPointDeathmatch()"\
+ "		"\
+ "		random = Math.RandomInt(0, spawnPoints.Count());"\
+ "		spawnPoints[random].GetTransform(tpTransform);"\
+ "		cc.Teleport(tpTransform);"\
+ "	}"
+ TriggerShapeType "Oriented Bounding Box"
+ BoxMaxs 6.5 4 6.5
+ DrawShape 1
+ TriggerActivationType "Every query"
+ PeriodicQueries 1
+ UpdatePeriod 0.7
+}
+SCR_SpawnPoint Spawn_Random_FIA : "{2B1758F237E4820E}Prefabs/MP/Spawning/SpawnPoint_FIA.et" {
+ coords 10914.153 19.517 8809.439
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+  Name "Random Spawn"
+ }
+}
+SCR_SpawnPoint Spawn_Random_USSR : "{4FEA25583D0975F7}Prefabs/MP/Spawning/SpawnPoint_USSR.et" {
+ coords 10913.136 19.519 8810.655
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+  Name "Random Spawn"
+ }
+}
+$grp SCR_SpawnPoint : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ Spawn_Random_US {
+  coords 10915.44 19.507 8808.475
+  m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+   Name "Random Spawn"
+  }
+ }
+ Spawn_Test_US {
+  coords 10901.512 19.153 8808.905
+  m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+   Name "Test"
+  }
+ }
+}
+$grp StaticModelEntity : "{879865F07EA907B0}Prefabs/Structures/Walls/Concrete/ConcreteWall_02_4m.et" {
+ {
+  coords 10912.309 1.671 8813.624
+  angleY 0
+ }
+ {
+  coords 10910.552 1.753 8811.849
+  angleY -90.295
+ }
+ {
+  coords 10912.337 1.796 8806.119
+  angleY 179.852
+ }
+ {
+  coords 10910.567 1.763 8807.882
+  angleY -89.853
+ }
+ {
+  coords 10918.001 1.659 8807.896
+  angleY 89.81
+ }
+ {
+  coords 10916.241 1.688 8806.122
+  angleY -179.895
+ }
+ {
+  coords 10916.228 1.596 8813.63
+  angleY -0.043
+ }
+ {
+  coords 10917.992 1.595 8811.862
+  angleY 90.252
+ }
+}

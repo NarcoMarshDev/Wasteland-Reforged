@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{371849B8D8BAACBB}Prefabs/Weapons/HeavyWeapons/HMG_M2HB_Mod.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

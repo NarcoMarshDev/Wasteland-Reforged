@@ -1,0 +1,553 @@
+GenericEntity TownManager {
+ coords 2749.934 84.258 6191.021
+ userScript "	"\
+ "	"\
+ ""\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	"\
+ "	private void GetAllChildren(IEntity parent, notnull inout array<IEntity> allChildren)"\
+ "	{"\
+ "		if (!parent)"\
+ "			return;"\
+ "		"\
+ "		IEntity child = parent.GetChildren();"\
+ "		"\
+ "		while (child)"\
+ "		{"\
+ "			allChildren.Insert(child);"\
+ "			child = child.GetSibling();"\
+ "		}"\
+ "	}"
+ {
+  GenericEntity SpawnVilleneuve {
+   components {
+    Hierarchy "{596EF289DC5D5DBC}" {
+    }
+   }
+   coords 96.056 -1.172 145.564
+   {
+    $grp SCR_BaseTriggerEntity {
+     TeleportTriggerVilleneuve {
+      userScript "	SCR_ChimeraCharacter cc;"\
+      "	ref array<IEntity> teleportPoints = new array<IEntity>();"\
+      "	"\
+      "	protected override void EOnInit(IEntity owner)"\
+      "	{"\
+      "		GetAllChildren(this, teleportPoints);"\
+      "	}"\
+      "		"\
+      "	private void GetAllChildren(IEntity parent, notnull inout array<IEntity> allChildren)"\
+      "	{"\
+      "		if (!parent)"\
+      "			return;"\
+      "		"\
+      "		IEntity child = parent.GetChildren();"\
+      "		"\
+      "		while (child)"\
+      "		{"\
+      "			allChildren.Insert(child);"\
+      "			child = child.GetSibling();"\
+      "		}"\
+      "	}"\
+      "	"\
+      "	override bool ScriptedEntityFilterForQuery(IEntity ent)"\
+      "	{"\
+      "		SCR_ChimeraCharacter temp = SCR_ChimeraCharacter.Cast(ent);"\
+      "		"\
+      "		if (temp != null)"\
+      "		{"\
+      "			cc = temp;"\
+      "			return true;"\
+      "		}"\
+      "		return false;		"\
+      "	}"\
+      "	"\
+      "	// --------------------------------------------------------------------------- //"\
+      "	"\
+      "	vector tpTransform[4];"\
+      "	"\
+      "	override void OnActivate(IEntity ent)"\
+      "	{	"\
+      "		IEntity temp = teleportPoints.GetRandomElement();"\
+      "		temp.GetTransform(tpTransform);"\
+      "		cc.Teleport(tpTransform);"\
+      "	}"
+      TriggerShapeType "Oriented Bounding Box"
+      BoxMins -3 -0.5 -1
+      BoxMaxs 3 2 1
+      DrawShape 1
+      ShapeColor 0 0 0 1
+      TriggerActivationType "Every query"
+      PeriodicQueries 1
+      {
+       $grp GenericEntity {
+        {
+         components {
+          Hierarchy "{596EF2C4A1C364E3}" {
+          }
+         }
+         coords -64.318 -1.161 82.202
+        }
+        {
+         components {
+          Hierarchy "{596EF2C4A701F258}" {
+          }
+         }
+         coords 88.566 -6.454 160.717
+        }
+        {
+         components {
+          Hierarchy "{596EF2C4A4CFA3B7}" {
+          }
+         }
+         coords 92.13 -3.065 95.748
+        }
+        {
+         components {
+          Hierarchy "{596EF2C4A84DBCEB}" {
+          }
+         }
+         coords 93.28 5.37 6.376
+        }
+        {
+         components {
+          Hierarchy "{596EF2C4AD8DBAA4}" {
+          }
+         }
+         coords 27.166 14.031 -82.72
+        }
+        {
+         components {
+          Hierarchy "{596EF2C4B3DA3480}" {
+          }
+         }
+         coords -39.102 7.502 -87.681
+        }
+        {
+         components {
+          Hierarchy "{596EF2C4B1CB2A62}" {
+          }
+         }
+         coords -72.798 -0.378 6.835
+        }
+        {
+         components {
+          Hierarchy "{596EF2C4B7F50753}" {
+          }
+         }
+         coords 20.823 3.04 64.276
+        }
+       }
+      }
+     }
+     PlayerDetectorVilleneuve {
+      components {
+       Hierarchy "{596EF28836A867CF}" {
+       }
+      }
+      coords 0 3.477 0
+      userScript "	ref array<SCR_SpawnPoint> spawnPoints = new array<SCR_SpawnPoint>();"\
+      "	"\
+      "	ref array<string> factionsKeys = {\"US\", \"USSR\", \"FIA\"};"\
+      "	"\
+      "	protected override void EOnInit(IEntity owner)"\
+      "	{"\
+      "		// maybe add random query time to avoid update stacking"\
+      "		"\
+      "		// Gets siblings of trigger including itself, then filters itself out leaving only spawns."\
+      "		// If you want to add other entities to the spawn prefab, make sure they either dont have"\
+      "		// hierarchy or are under a sub entity or this will break currently."\
+      "		GetAllSpawns(GetParent(), spawnPoints);"\
+      "		"\
+      "		for (int i = 0; i < spawnPoints.Count(); i++)"\
+      "		{"\
+      "			spawnPoints[i].SetFactionKey(factionsKeys[i]);"\
+      "		}"\
+      "		"\
+      "	}"\
+      "	// modified GetAllChildren() that sorts non SCR_SpawnPoint entities out of the output array"\
+      "	private void GetAllSpawns(IEntity parent, notnull inout array<SCR_SpawnPoint> allChildren)"\
+      "	{"\
+      "		if (!parent)"\
+      "			return;"\
+      "		"\
+      "		IEntity child = parent.GetChildren();"\
+      "		"\
+      "		while (child)"\
+      "		{"\
+      "			if (child.ClassName() == \"SCR_SpawnPoint\")"\
+      "			{"\
+      "				SCR_SpawnPoint spawn = SCR_SpawnPoint.Cast(child);"\
+      "				allChildren.Insert(spawn);"\
+      "			}"\
+      "			child = child.GetSibling();"\
+      "		}"\
+      "	}"\
+      "		"\
+      "	override bool ScriptedEntityFilterForQuery(IEntity ent)"\
+      "	{"\
+      "		SCR_ChimeraCharacter cc = SCR_ChimeraCharacter.Cast(ent);"\
+      "		if (!cc) return false;"\
+      "		if (!IsAlive(cc)) return false;"\
+      "		return true;"\
+      "	}"\
+      "	"\
+      "	// playerCount holds values for number of each faction in trigger, always US, USSR, FIA same as factionsKeys"\
+      "	ref array<IEntity> allEntities = new array<IEntity>();"\
+      "	ref array<int> playerCount = {0,0,0};"\
+      "	int totalPlayerCount = 0;"\
+      "	"\
+      "	private void UpdateDetector()"\
+      "	{"\
+      "		// Update spawns based on playerCount"\
+      "		"\
+      "		if (!totalPlayerCount)"\
+      "		{"\
+      "			for (int i = 0; i < spawnPoints.Count(); i++)"\
+      "			{"\
+      "				spawnPoints[i].SetFactionKey(\"Inactive\"); // Deactivate"\
+      "			}"\
+      "		}"\
+      "		else"\
+      "		{"\
+      "			for (int i = 0; i < spawnPoints.Count(); i++)"\
+      "			{"\
+      "				if (playerCount[i] >= Math.Ceil(totalPlayerCount / 2)) spawnPoints[i].SetFactionKey(factionsKeys[i]); // Activate"\
+      "				else spawnPoints[i].SetFactionKey(\"Inactive\"); // Deactivate"\
+      "			}"\
+      "		}"\
+      "	}"\
+      "	"\
+      "	protected override void OnActivate(IEntity ent)"\
+      "	{"\
+      "		Print(\"Villeneuve Active\");"\
+      "		// get all entities in trigger and find all SCR_ChimeraCharacter's"\
+      "		// loop over factionsKeys and if the character faction matches the key, add 1 to that faction's playerCount"\
+      "		playerCount = {0,0,0};"\
+      "		totalPlayerCount = 0;"\
+      "		"\
+      "		GetEntitiesInside(allEntities);"\
+      "		//Print(\"Total Entities: \" + allEntities.Count());"\
+      "		for (int entCount = 0; entCount < allEntities.Count(); entCount++)"\
+      "		{"\
+      "			if (allEntities[entCount].ClassName() == \"SCR_ChimeraCharacter\")"\
+      "			{"\
+      "				totalPlayerCount++;"\
+      "				for (int i = 0; i < factionsKeys.Count(); i++)"\
+      "				{"\
+      "					if (SCR_ChimeraCharacter.Cast(allEntities[entCount]).GetFactionKey() == factionsKeys[i]) playerCount[i] = playerCount[i] + 1; //operator ++ not supported on temporary variables (TODO)"\
+      "				}"\
+      "			}"\
+      "		}"\
+      "		Print(\"=========================\");"\
+      "		Print(\"US: \" + playerCount[0] + \" USSR: \" + playerCount[1] + \" FIA: \" + playerCount[2]);"\
+      "		Print(\"Total Players: \" + totalPlayerCount);"\
+      "		UpdateDetector();"\
+      "	}"\
+      "	"\
+      "	protected override void OnDeactivate(IEntity ent)"\
+      "	{"\
+      "		Print(\"Villeneuve Deactivate: \" + ent.ClassName());"\
+      "		//UpdateDetector();		"\
+      "		totalPlayerCount--;"\
+      "		for (int i = 0; i < factionsKeys.Count(); i++)"\
+      "				{"\
+      "					if (SCR_ChimeraCharacter.Cast(ent).GetFactionKey() == factionsKeys[i]) playerCount[i] = playerCount[i] - 1; //operator ++ not supported on temporary variables (TODO)"\
+      "				}"\
+      "		Print(\"=========================\");"\
+      "		Print(\"US: \" + playerCount[0] + \" USSR: \" + playerCount[1] + \" FIA: \" + playerCount[2]);"\
+      "		Print(\"Total Players: \" + totalPlayerCount);"\
+      "		UpdateDetector();"\
+      "	}"
+      TriggerShapeType Sphere
+      SphereRadius 120
+      DrawShape 1
+      ShapeColor 0 0.182 0.379 0
+      TriggerActivationType "Every query"
+      PeriodicQueries 1
+      UpdatePeriod 1.5
+      ClassFilter "SCR_ChimeraCharacter"
+     }
+    }
+    SCR_SpawnPoint : "{2B1758F237E4820E}Prefabs/MP/Spawning/SpawnPoint_FIA.et" {
+     m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+      Name "Villeneuve"
+     }
+    }
+    StaticModelEntity : "{35E14C4C60C4A4F3}Prefabs/Structures/Agriculture/WeightStation/WeightStation_01_platform.et" {
+     coords 0 -0.5 0
+     angleY 90
+     scale 0.5
+    }
+    SCR_SpawnPoint : "{4FEA25583D0975F7}Prefabs/MP/Spawning/SpawnPoint_USSR.et" {
+     coords 2 0 0
+     m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+      Name "Villeneuve"
+     }
+    }
+    SCR_SpawnPoint : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+     coords -2 0 0
+     m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+      Name "Villeneuve"
+     }
+    }
+   }
+  }
+  GenericEntity SpawnLeMoule : "{52B363A819390009}Prefabs/MP/Spawns/Town/WastelandTownSpawnFinal.et" {
+   coords -134.751 3.932 -811.085
+   {
+    SCR_SpawnPoint {
+     ID "5970618C511E7B73"
+     m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+      Name "LeMoule"
+     }
+    }
+    SCR_SpawnPoint {
+     ID "5970618C511E90FF"
+     m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+      Name "LeMoule"
+     }
+    }
+    SCR_SpawnPoint {
+     ID "5970618C511F0879"
+     m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+      Name "LeMoule"
+     }
+    }
+    SCR_BaseTriggerEntity PlayerDetectorLeMoule {
+     ID "5970618C511E7B6D"
+     coords -22.17 3.838 50.766
+     userScript "	ref array<SCR_SpawnPoint> spawnPoints = new array<SCR_SpawnPoint>();"\
+     "	"\
+     "	ref array<string> factionsKeys = {\"US\", \"USSR\", \"FIA\"};"\
+     "	"\
+     "	protected override void EOnInit(IEntity owner)"\
+     "	{"\
+     "		// maybe add random query time to avoid update stacking"\
+     "		"\
+     "		// Gets siblings of trigger including itself, then filters itself out leaving only spawns."\
+     "		// If you want to add other entities to the spawn prefab, make sure they either dont have"\
+     "		// hierarchy or are under a sub entity or this will break currently."\
+     "		GetAllSpawns(GetParent(), spawnPoints);"\
+     "		"\
+     "		for (int i = 0; i < spawnPoints.Count(); i++)"\
+     "		{"\
+     "			spawnPoints[i].SetFactionKey(factionsKeys[i]);"\
+     "		}"\
+     "		"\
+     "	}"\
+     "	// modified GetAllChildren() that sorts non SCR_SpawnPoint entities out of the output array"\
+     "	private void GetAllSpawns(IEntity parent, notnull inout array<SCR_SpawnPoint> allChildren)"\
+     "	{"\
+     "		if (!parent)"\
+     "			return;"\
+     "		"\
+     "		IEntity child = parent.GetChildren();"\
+     "		"\
+     "		while (child)"\
+     "		{"\
+     "			if (child.ClassName() == \"SCR_SpawnPoint\")"\
+     "			{"\
+     "				SCR_SpawnPoint spawn = SCR_SpawnPoint.Cast(child);"\
+     "				allChildren.Insert(spawn);"\
+     "			}"\
+     "			child = child.GetSibling();"\
+     "		}"\
+     "	}"\
+     "		"\
+     "	override bool ScriptedEntityFilterForQuery(IEntity ent)"\
+     "	{"\
+     "		SCR_ChimeraCharacter cc = SCR_ChimeraCharacter.Cast(ent);"\
+     "		if (!cc) return false;"\
+     "		if (!IsAlive(cc)) return false;"\
+     "		return true;"\
+     "	}"\
+     "	"\
+     "	// playerCount holds values for number of each faction in trigger, always US, USSR, FIA same as factionsKeys"\
+     "	ref array<IEntity> allEntities = new array<IEntity>();"\
+     "	ref array<int> playerCount = {0,0,0};"\
+     "	int totalPlayerCount = 0;"\
+     "	"\
+     "	private void UpdateDetector()"\
+     "	{"\
+     "		// Update spawns based on playerCount"\
+     "		"\
+     "		if (!totalPlayerCount)"\
+     "		{"\
+     "			for (int i = 0; i < spawnPoints.Count(); i++)"\
+     "			{"\
+     "				spawnPoints[i].SetFactionKey(\"Inactive\"); // Deactivate"\
+     "			}"\
+     "		}"\
+     "		else"\
+     "		{"\
+     "			for (int i = 0; i < spawnPoints.Count(); i++)"\
+     "			{"\
+     "				if (playerCount[i] >= Math.Ceil(totalPlayerCount / 2)) spawnPoints[i].SetFactionKey(factionsKeys[i]); // Activate"\
+     "				else spawnPoints[i].SetFactionKey(\"Inactive\"); // Deactivate"\
+     "			}"\
+     "		}"\
+     "	}"\
+     "	"\
+     "	protected override void OnActivate(IEntity ent)"\
+     "	{"\
+     "		Print(\"LeMoule Active\");"\
+     "		// get all entities in trigger and find all SCR_ChimeraCharacter's"\
+     "		// loop over factionsKeys and if the character faction matches the key, add 1 to that faction's playerCount"\
+     "		playerCount = {0,0,0};"\
+     "		totalPlayerCount = 0;"\
+     "		"\
+     "		GetEntitiesInside(allEntities);"\
+     "		//Print(\"Total Entities: \" + allEntities.Count());"\
+     "		for (int entCount = 0; entCount < allEntities.Count(); entCount++)"\
+     "		{"\
+     "			if (allEntities[entCount].ClassName() == \"SCR_ChimeraCharacter\")"\
+     "			{"\
+     "				totalPlayerCount++;"\
+     "				for (int i = 0; i < factionsKeys.Count(); i++)"\
+     "				{"\
+     "					if (SCR_ChimeraCharacter.Cast(allEntities[entCount]).GetFactionKey() == factionsKeys[i]) playerCount[i] = playerCount[i] + 1; //operator ++ not supported on temporary variables (TODO)"\
+     "				}"\
+     "			}"\
+     "		}"\
+     "		Print(\"=========================\");"\
+     "		Print(\"US: \" + playerCount[0] + \" USSR: \" + playerCount[1] + \" FIA: \" + playerCount[2]);"\
+     "		Print(\"Total Players: \" + totalPlayerCount);"\
+     "		UpdateDetector();"\
+     "	}"\
+     "	"\
+     "	protected override void OnDeactivate(IEntity ent)"\
+     "	{"\
+     "		Print(\"LeMoule Deactivate: \" + ent.ClassName());"\
+     "		//UpdateDetector();		"\
+     "		totalPlayerCount--;"\
+     "		for (int i = 0; i < factionsKeys.Count(); i++)"\
+     "				{"\
+     "					if (SCR_ChimeraCharacter.Cast(ent).GetFactionKey() == factionsKeys[i]) playerCount[i] = playerCount[i] - 1; //operator ++ not supported on temporary variables (TODO)"\
+     "				}"\
+     "		Print(\"=========================\");"\
+     "		Print(\"US: \" + playerCount[0] + \" USSR: \" + playerCount[1] + \" FIA: \" + playerCount[2]);"\
+     "		Print(\"Total Players: \" + totalPlayerCount);"\
+     "		UpdateDetector();"\
+     "	}"
+     SphereRadius 140
+    }
+    SCR_BaseTriggerEntity TeleportTriggerLeMoule {
+     ID "5970618C5119DEC9"
+     userScript "	SCR_ChimeraCharacter cc;"\
+     "	ref array<IEntity> teleportPoints = new array<IEntity>();"\
+     "	"\
+     "	protected override void EOnInit(IEntity owner)"\
+     "	{"\
+     "		GetAllChildren(this, teleportPoints);"\
+     "	}"\
+     "		"\
+     "	private void GetAllChildren(IEntity parent, notnull inout array<IEntity> allChildren)"\
+     "	{"\
+     "		if (!parent)"\
+     "			return;"\
+     "		"\
+     "		IEntity child = parent.GetChildren();"\
+     "		"\
+     "		while (child)"\
+     "		{"\
+     "			allChildren.Insert(child);"\
+     "			child = child.GetSibling();"\
+     "		}"\
+     "	}"\
+     "	"\
+     "	override bool ScriptedEntityFilterForQuery(IEntity ent)"\
+     "	{"\
+     "		SCR_ChimeraCharacter temp = SCR_ChimeraCharacter.Cast(ent);"\
+     "		"\
+     "		if (temp != null)"\
+     "		{"\
+     "			cc = temp;"\
+     "			return true;"\
+     "		}"\
+     "		return false;		"\
+     "	}"\
+     "	"\
+     "	// --------------------------------------------------------------------------- //"\
+     "	"\
+     "	vector tpTransform[4];"\
+     "	"\
+     "	override void OnActivate(IEntity ent)"\
+     "	{	"\
+     "		IEntity temp = teleportPoints.GetRandomElement();"\
+     "		temp.GetTransform(tpTransform);"\
+     "		cc.Teleport(tpTransform);"\
+     "	}"
+     {
+      GenericEntity {
+       ID "5970618C5119D1E9"
+       coords -20.984 4.182 19.038
+      }
+      GenericEntity {
+       ID "5970618C5119D1EE"
+       coords -106.063 20.942 145.278
+      }
+      GenericEntity {
+       ID "5970618C5119DECA"
+       coords -33.127 17.535 171.302
+      }
+      GenericEntity {
+       ID "5970618C5119EA1F"
+       coords 60.402 17.555 124.998
+      }
+      GenericEntity {
+       ID "5970618C511E3084"
+       coords 94.205 13.705 68.665
+      }
+      GenericEntity {
+       ID "5970618C511E3085"
+       coords 31.548 2.437 -49.561
+      }
+      GenericEntity {
+       ID "5970618C511E6308"
+       coords -9.616 1.09 -50.041
+      }
+      GenericEntity {
+       ID "5970618C511E7B6E"
+       coords -63.879 5.187 27.22
+      }
+     }
+    }
+   }
+  }
+ }
+}
+Vehicle UAZ1 : "{259EE7B78C51B624}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469.et" {
+ components {
+  SCR_VehicleDamageManagerComponent "{141326E9FD94FE40}" {
+   m_fVehicleDestroyDamage 11880.1
+  }
+ }
+ coords 2831.51 86.084 6340.655
+}

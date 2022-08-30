@@ -1,0 +1,13 @@
+SCR_BaseGameMode GameMode_Plain2 : "{1B76F75A3175E85C}Prefabs/MP/Modes/Plain/GameMode_Plain.et" {
+ components {
+  SCR_AutomaticRespawnHandlerComponent "{56B4EA4DA0EEFF85}" {
+  }
+  SCR_CompositionSlotManagerComponent "{5A3D398146E91793}" {
+  }
+ }
+ coords 125.923 1.001 130.804
+}
+GenericEntity : "{193EF363CD35FDA7}Prefabs/Structures/Moveable/WRB_SilageWall_02_12m.et" {
+ coords 129.859 1.001 140
+ angleY 0
+}

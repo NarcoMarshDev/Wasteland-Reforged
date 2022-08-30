@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{08285F5CEBE8C011}UI/layouts/HUD/WR_MainHUD.layout"
+ Configurations {
+  LayoutResourceClass PC {
+  }
+  LayoutResourceClass XBOX_ONE : PC {
+  }
+  LayoutResourceClass XBOX_SERIES : PC {
+  }
+  LayoutResourceClass PS4 : PC {
+  }
+  LayoutResourceClass HEADLESS : PC {
+  }
+ }
+}

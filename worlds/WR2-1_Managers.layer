@@ -1,0 +1,115 @@
+SCR_MapEntity MapEntity_Everon1 : "{E1B88C66BF6CA1F9}Prefabs/World/Game/MapEntity_Everon.et" {
+ coords 4782.231 27.855 11154.022
+}
+PerceptionManager PerceptionManager1 : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
+ coords 4782.376 27.855 11154.68
+}
+SCR_BaseGameMode WR_GameMode : "{2E59B96BE0446D05}Prefabs/MP/Modes/Plain/GameMode_Wasteland.et" {
+ components {
+  SCR_RespawnTimerComponent "{59695E091194ADF6}" {
+   m_fRespawnTime 3
+  }
+  WR_GameModeComponent "{5A2F220044161C0C}" {
+  }
+ }
+ coords 4781.441 27.855 11154.432
+}
+SCR_CameraManager SCR_CameraManager1 : "{33F9FD881E3700CC}Prefabs/World/Game/SCR_CameraManager.et" {
+ coords 4781.658 27.855 11154.577
+}
+SCR_FactionManager FactionManager_WR : "{589540B35EBA8CDC}Prefabs/MP/Managers/Factions/FactionManager_USxUSSR.et" {
+ coords 4783.008 27.855 11154.936
+ Factions {
+  SCR_CampaignFaction "{56B2B46E999BF3BF}" {
+   UIInfo SCR_FactionUIInfo "{528C961236B7DCD3}" {
+   }
+   m_sFactionFlag "{CF4545F580A34FA7}Assets/Props/Fabric/Flags/Data/Flag_1_2_Blue_BCR.edds"
+  }
+  SCR_Faction "{56B2B46E9AF80999}" {
+   UIInfo SCR_FactionUIInfo "{528C96127F8B6B08}" {
+    Name "OPFOR"
+    m_sNameUpper "OPFOR"
+   }
+   m_sFactionFlag "{2B67EAC609C89A0A}Assets/Props/Fabric/Flags/Data/Flag_1_2_Red_BCR.edds"
+  }
+  SCR_FreeForAllFaction "{5A0B1197D64C4DA6}" {
+   FactionKey "FIA"
+   FactionColor 0 0.44 0.078 1
+   UIInfo SCR_FactionUIInfo "{5A0B119627F2A2B7}" {
+    Name "INDFOR"
+    Icon "{FB266CDD4502D60B}UI/Textures/Editor/EditableEntities/Factions/EditableEntity_Faction_Fia.edds"
+    m_sNameUpper "INDFOR"
+   }
+   m_sFactionFlag "{E8279570E36057C2}Assets/Props/Fabric/Flags/Data/Flag_1_2_Green_BCR.edds"
+  }
+  SCR_Faction "{5A370B89622213BA}" {
+   FactionKey "DISABLED"
+   UIInfo SCR_FactionUIInfo "{5A370B896A183133}" {
+    Name "DISABLED"
+    Icon "{BD2E2F871E6A3EBF}UI/Textures/Flags/Flag_Faction_Base.edds"
+    m_sNameUpper "DISABLED"
+   }
+   m_bIsPlayable 0
+   m_sFactionFlag "{B3D6CD3B4512CE03}Assets/Props/Fabric/Flags/Data/Flag_2_3_RedCross_BCR.edds"
+  }
+ }
+}
+TimeAndWeatherManagerEntity : "{A3BAF78F6F03315B}Prefabs/World/Game/TimeAndWeatherManager.et" {
+ coords 4782.426 27.855 11154.838
+ "Internal variant transition" 0
+ "Internal subvariant 0" 0
+ "Internal subvariant 1" 0
+}
+ProjectileSoundsManager : "{B4DA8B0024536625}Prefabs/World/Game/ProjectileSoundsManager.et" {
+ coords 4782.494 27.855 11154.463
+}
+RadioManagerEntity : "{B8E09FAB91C4ECCD}Prefabs/Radio/RadioManager.et" {
+ coords 4782.244 27.855 11155.142
+}
+ScriptedChatEntity : "{F69BC912AC8236F9}Prefabs/MP/ScriptedChatEntity.et" {
+ coords 4781.587 27.855 11154.627
+}
+GenericEntity Managers {
+ coords 4709.803 27.845 11156.989
+}
+HitRegistrationManager HitRegManager1 : "{0EDA3D48791120DD}Prefabs/MP/HitRegManager.et" {
+ coords 4782.315 27.855 11154.639
+}
+SCR_MPDestructionManager : "{9BB369F2803C6F71}Prefabs/MP/MPDestructionManager.et" {
+ coords 4781.824 27.855 11154.511
+}
+SCR_LoadoutManager : "{AA4E7419A1FF65B0}Prefabs/MP/Managers/Loadouts/LoadoutManager_Base.et" {
+ coords 4783.006 27.855 11154.795
+ m_aPlayerLoadouts {
+  SCR_FactionPlayerLoadout "{5A0B11952821EFBA}" {
+   m_sLoadoutName "Unarmed - 1000 Money"
+   m_sLoadoutResource "{63429BF41BFED1D9}Prefabs/Characters/Factions/BLUFOR/Character_BLUFOR_Unarmed.et"
+   m_sAffiliatedFaction "US"
+  }
+  SCR_FactionPlayerLoadout "{5A0B11952E704894}" {
+   m_sLoadoutName "Sidearm - 600 Money"
+   m_sLoadoutResource "{51DAE5CA5C92FBB7}Prefabs/Characters/Factions/BLUFOR/Character_BLUFOR_Sidearm.et"
+   m_sAffiliatedFaction "US"
+  }
+  SCR_FactionPlayerLoadout "{5A0B11952D79587E}" {
+   m_sLoadoutName "Unarmed - 1000 Money"
+   m_sLoadoutResource "{981A09CB1ED85BAD}Prefabs/Characters/Factions/OPFOR/Character_OPFOR_Unarmed.et"
+   m_sAffiliatedFaction "USSR"
+  }
+  SCR_FactionPlayerLoadout "{5A0B11952C64F568}" {
+   m_sLoadoutName "Sidearm - 600 Money"
+   m_sLoadoutResource "{7D85E3807EA86C70}Prefabs/Characters/Factions/OPFOR/Character_OPFOR_Sidearm.et"
+   m_sAffiliatedFaction "USSR"
+  }
+  SCR_FactionPlayerLoadout "{5A0B119532B8D72E}" {
+   m_sLoadoutName "Unarmed - 1000 Money"
+   m_sLoadoutResource "{09542DEEBA857706}Prefabs/Characters/Factions/INDFOR/Character_INDFOR_Unarmed.et"
+   m_sAffiliatedFaction "FIA"
+  }
+  SCR_FactionPlayerLoadout "{5A0B11953255A12D}" {
+   m_sLoadoutName "Sidearm - 600 Money"
+   m_sLoadoutResource "{DF1A766EE2D48F7B}Prefabs/Characters/Factions/INDFOR/Character_INDFOR_Sidearm.et"
+   m_sAffiliatedFaction "FIA"
+  }
+ }
+}

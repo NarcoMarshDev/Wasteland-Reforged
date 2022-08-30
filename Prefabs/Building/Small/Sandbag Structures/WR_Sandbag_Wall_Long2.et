@@ -1,0 +1,16 @@
+GenericEntity : "{E34B115572F1335E}Prefabs/Building/Small/Sandbag Structures/WR_Sandbag_Wall_Port_Wire.et" {
+ ID "F0DBA538AC2A0552"
+ coords 2.728 2.507 5.99
+ {
+  $grp GenericEntity : "{E820A9FC857510B6}Prefabs/Building/Small/Sandbag Structures/WR_Sandbag_Wall_Solid_Wire.et" {
+   {
+    ID "5A3B326807E45BC0"
+    coords -2.6 0 0
+   }
+   {
+    ID "5A3B326807E45BC4"
+    coords 2.6 0 0
+   }
+  }
+ }
+}

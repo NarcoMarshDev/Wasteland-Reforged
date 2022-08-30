@@ -1,0 +1,114 @@
+GenericEntity {
+ coords 4670.085 34.417 11166.465
+}
+SCR_SpawnPoint {
+ components {
+  Hierarchy "{597149805D54B354}" {
+  }
+  SCR_MapDescriptorComponent "{5971498064CC48FE}" {
+   DisplayName "5"
+   MainType Spawnpoint
+  }
+  RplComponent "{59714980982EC025}" {
+   "Self Insert" 0
+   Streamable Disabled
+  }
+ }
+ coords 4771.882 27.855 11073.364
+ m_fNoPlayerRadius 2
+ m_fNoSightRadius 0
+ m_sFaction "BLUFOR"
+ m_Info Wasteland_UIInfo "{597370B93C888F04}" {
+  Name "Generic"
+ }
+}
+WR_TownTrigger {
+ components {
+  Hierarchy "{5A24C7531BEBEEB0}" {
+  }
+  RplComponent "{5A3A19D78EEFE238}" {
+  }
+ }
+ coords 4468.686 13.136 10717.512
+ TriggerShapeType Sphere
+ SphereRadius 100
+ DrawShape 1
+ ShapeColor 1 0 0 0
+ TriggerActivationType "Every query"
+ PeriodicQueries 1
+ UpdatePeriod 5
+ ClassFilter "ChimeraCharacter"
+ m_sTownName "FUCKING TOWN"
+ {
+  $grp WR_SpawnPoint {
+   {
+    components {
+     Hierarchy "{5A24C750A47CB358}" {
+     }
+     SCR_MapDescriptorComponent "{5A24C750A9568AFF}" {
+      DisplayName "5"
+      MainType Spawnpoint
+     }
+     RplComponent "{5A24C750AD464FB8}" {
+      "Self Insert" 0
+     }
+    }
+    coords 0 750 0
+    m_sFaction "US"
+    m_Info SCR_UIInfo "{5A24C750346C364B}" {
+    }
+   }
+   {
+    components {
+     Hierarchy "{5A24C750A47CB358}" {
+     }
+     SCR_MapDescriptorComponent "{5A24C750A9568AFF}" {
+      DisplayName "5"
+      MainType Spawnpoint
+     }
+     RplComponent "{5A24C750AD464FB8}" {
+      "Self Insert" 0
+     }
+    }
+    coords 0 750 0
+    m_sFaction "USSR"
+    m_Info SCR_UIInfo "{5A24C750346C364B}" {
+    }
+   }
+   {
+    components {
+     Hierarchy "{5A24C750A47CB358}" {
+     }
+     SCR_MapDescriptorComponent "{5A24C750A9568AFF}" {
+      DisplayName "5"
+      MainType Spawnpoint
+     }
+     RplComponent "{5A24C750AD464FB8}" {
+      "Self Insert" 0
+     }
+    }
+    coords 0 750 0
+    m_sFaction "FIA"
+    m_Info SCR_UIInfo "{5A24C750346C364B}" {
+    }
+   }
+  }
+ }
+}
+SCR_SpawnPoint : "{2B1758F237E4820E}Prefabs/MP/Spawning/SpawnPoint_FIA.et" {
+ coords 4451.809 9.417 10829.579
+}
+SCR_SpawnPoint : "{4FEA25583D0975F7}Prefabs/MP/Spawning/SpawnPoint_USSR.et" {
+ coords 4444.885 9.426 10827.723
+}
+$grp SCR_SpawnPoint : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ {
+  coords 4550.751 16.324 10838.377
+ }
+ {
+  coords 4699.652 27.845 11181.767
+ }
+ {
+  coords 4759.974 27.855 11193.223
+ }
+}

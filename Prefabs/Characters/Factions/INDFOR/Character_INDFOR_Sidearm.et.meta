@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{DF1A766EE2D48F7B}Prefabs/Characters/Factions/INDFOR/Character_INDFOR_Sidearm.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

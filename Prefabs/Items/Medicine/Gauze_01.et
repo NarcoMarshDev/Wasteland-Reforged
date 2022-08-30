@@ -1,0 +1,41 @@
+GenericEntity : "{0845FCD5D1E53541}Prefabs/Items/Core/FieldDressing_Base.et" {
+ ID "51F66EC33748B84D"
+ components {
+  SoundComponent "{597B31AC1B0CF052}" {
+   Filenames {
+    "{02B22546DD1483B8}Sounds/Items/_SharedData/PickUp/Items_PickUp_FieldDressing_US.acp"
+   }
+   OnFrameUpdate 0
+  }
+  InventoryItemComponent "{5222EB4D0C73006B}" {
+   Attributes SCR_ItemAttributeCollection "{5222EB4D0A2B466B}" {
+    ItemDisplayName UIInfo "{5222EB4D07D865FA}" {
+     Name "#AR-Item_Gauze_01_Name"
+     Description "#AR-Item_Gauze_01_Description"
+    }
+    ItemPhysAttributes ItemPhysicalAttributes PhysicalAttributes {
+     Weight 0.05
+     SizeSetupStrategy Volume
+     ItemVolume 150
+    }
+    CustomAttributes {
+     PreviewRenderAttributes "{597B31AC1B0CF07F}" {
+      CameraPreset Top
+      CameraOrbitAngles 0 0 0
+      CameraDistanceToItem 0.3
+      FOV 30
+     }
+    }
+   }
+  }
+  MeshObject "{51F66EC3C5BC700D}" {
+   Object "{9EF00D573FC5604A}Assets/Items/Medicine/Gauze_01/Gauze_01_packed.xob"
+  }
+  Hierarchy "{597B31AC1B0CF074}" {
+  }
+  ActionsManagerComponent "{508AB5952B584B2E}" {
+   additionalActions {
+   }
+  }
+ }
+}

@@ -1,0 +1,9 @@
+GameEntity : "{E5FD4B2CA9AB10C6}Prefabs/Vehicles/Wheeled/M151A2/M151A2_gun_mount_M249.et" {
+ ID "6D6D283656DBA232"
+ components {
+  WeaponSlotComponent "{51ACD09C6BFEEE6A}" {
+   useAimingType Weapon
+  }
+ }
+ coords 0 0 0
+}

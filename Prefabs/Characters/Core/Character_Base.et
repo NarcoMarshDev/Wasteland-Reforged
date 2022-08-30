@@ -1,0 +1,12 @@
+SCR_ChimeraCharacter {
+ ID "520EC961A090B1EE"
+ components {
+  SlotManagerComponent "{5A3D53A4133461F5}" {
+   Slots {
+    EntitySlotInfo BuildingSlot {
+     Offset 0 0.25 3
+    }
+   }
+  }
+ }
+}

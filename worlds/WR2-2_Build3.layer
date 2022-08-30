@@ -1,0 +1,42 @@
+$grp GenericEntity : "{A953A256EB23A795}Prefabs/Building/Small/Sandbag Structures/WR_Sandbag_Wall_Solid.et" {
+ {
+  coords 4591.396 17.954 10767.928
+  angleY -12.462
+ }
+ {
+  coords 4594.009 18.018 10768.548
+  angleY -12.462
+ }
+ {
+  coords 4596.563 18.143 10769.238
+  angleY -12.462
+ }
+ {
+  coords 4599.079 18.159 10770.003
+  angleY -12.462
+ }
+ {
+  coords 4601.713 18.224 10770.599
+  angleY -12.462
+ }
+ {
+  coords 4604.265 18.331 10771.185
+  angleY -12.462
+ }
+ {
+  coords 4605.412 18.558 10769.657
+  angleY 78.992
+ }
+ {
+  coords 4605.898 18.518 10767.039
+  angleY 78.992
+ }
+ {
+  coords 4606.364 18.639 10764.487
+  angleY 80.342
+ }
+ {
+  coords 4606.757 18.94 10761.828
+  angleY 78.992
+ }
+}

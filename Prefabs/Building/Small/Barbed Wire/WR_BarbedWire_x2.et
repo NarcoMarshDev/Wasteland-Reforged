@@ -1,0 +1,11 @@
+StaticModelEntity : "{F261C1F4466EC383}Prefabs/Building/Small/WR_BarbedWire_Small.et" {
+ ID "51E2F0F0E96F07CE"
+ coords 4480.252 4.126 10794.405
+ angleY 78.127
+ {
+  StaticModelEntity : "{F261C1F4466EC383}Prefabs/Building/Small/WR_BarbedWire_Small.et" {
+   ID "5A3A19C963EDF135"
+   coords 0 0 -3.45
+  }
+ }
+}

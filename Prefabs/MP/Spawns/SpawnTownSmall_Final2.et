@@ -1,0 +1,43 @@
+GenericEntity : "{8C1E3F06D0942969}Prefabs/MP/Spawns/SpawnTownSmall_Final.et" {
+ ID "596AF3A8EB12AB5E"
+ coords 0 0 0
+ {
+  SCR_BaseTriggerEntity SpawnTriggerTown {
+   ID "596AF3A8EB12D5B9"
+   {
+    GenericEntity TP_B {
+     ID "596AF3A8EB122D36"
+     coords 100 10 0
+    }
+    GenericEntity TP_C {
+     ID "596AF3A8EB122D37"
+     coords 100 10 -100
+    }
+    GenericEntity TP_D {
+     ID "596AF3A8EB1235E4"
+     coords 0 10 -100
+    }
+    GenericEntity TP_G {
+     ID "596AF3A8EB139C4A"
+     coords -100 10 100
+    }
+    GenericEntity TP_F {
+     ID "596AF3A8EB13AB27"
+     coords -100 10 0
+    }
+    GenericEntity TP_E {
+     ID "596AF3A8EB13AB38"
+     coords -100 10 -100
+    }
+    GenericEntity TP_A {
+     ID "596AF3A8EB13EE6C"
+     coords 100 10 100
+    }
+    GenericEntity TP_H {
+     ID "596AF3A8EB13EE6D"
+     coords 0 10 100
+    }
+   }
+  }
+ }
+}

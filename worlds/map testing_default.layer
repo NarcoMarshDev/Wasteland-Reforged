@@ -1,0 +1,70 @@
+SCR_MapEntity MapEntity_Everon1 : "{E1B88C66BF6CA1F9}Prefabs/World/Game/MapEntity_Everon.et" {
+ coords 4766.088 27.855 11165.402
+}
+PerceptionManager PerceptionManager1 : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
+ coords 4766.275 27.855 11166.949
+}
+SCR_BaseGameMode GameMode_Base1 : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
+ components {
+  SCR_RespawnBriefingComponent "{5A370BB2FFE0026E}" {
+  }
+  SCR_RespawnMenuHandlerComponent "{5A370BBD04BEE5B4}" {
+  }
+  SCR_RespawnTimerComponent "{5A370BB2FB6BC190}" {
+  }
+ }
+ coords 4763.215 27.855 11166.454
+}
+SCR_CameraManager SCR_CameraManager1 : "{33F9FD881E3700CC}Prefabs/World/Game/SCR_CameraManager.et" {
+ coords 4763.813 27.855 11167.426
+}
+SCR_FactionManager FactionManager_USxUSSR1 : "{589540B35EBA8CDC}Prefabs/MP/Managers/Factions/FactionManager_USxUSSR.et" {
+ coords 4765.531 27.855 11168.071
+ Factions {
+  SCR_Faction "{56B2B46E999BF3BF}" {
+   FactionKey "BLUFOR"
+  }
+  SCR_Faction "{56B2B46E9AF80999}" {
+   FactionKey "OPFOR"
+  }
+ }
+}
+TimeAndWeatherManagerEntity : "{A3BAF78F6F03315B}Prefabs/World/Game/TimeAndWeatherManager.et" {
+ coords 4765.154 27.855 11165.193
+}
+ProjectileSoundsManager : "{B4DA8B0024536625}Prefabs/World/Game/ProjectileSoundsManager.et" {
+ coords 4766.597 27.855 11164.817
+}
+RadioManagerEntity : "{B8E09FAB91C4ECCD}Prefabs/Radio/RadioManager.et" {
+ coords 4767.263 27.855 11164.641
+}
+ScriptedChatEntity : "{F69BC912AC8236F9}Prefabs/MP/ScriptedChatEntity.et" {
+ coords 4764.45 27.855 11165.109
+}
+HitRegistrationManager HitRegManager1 : "{0EDA3D48791120DD}Prefabs/MP/HitRegManager.et" {
+ coords 4764.713 27.855 11165.808
+}
+SCR_SpawnPoint : "{4FEA25583D0975F7}Prefabs/MP/Spawning/SpawnPoint_USSR.et" {
+ coords 4780.942 27.855 11184.679
+ m_sFaction "OPFOR"
+}
+SCR_SpawnPoint : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ coords 4756.703 27.855 11181.243
+ m_sFaction "BLUFOR"
+}
+SCR_MPDestructionManager : "{9BB369F2803C6F71}Prefabs/MP/MPDestructionManager.et" {
+ coords 4763.511 27.855 11164.878
+}
+SCR_LoadoutManager : "{AA4E7419A1FF65B0}Prefabs/MP/Managers/Loadouts/LoadoutManager_Base.et" {
+ coords 4762.729 27.855 11170.651
+ m_aPlayerLoadouts {
+  SCR_FactionPlayerLoadout "{5A370BB2A0C4C4B6}" {
+   m_sLoadoutResource "{26A9756790131354}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Rifleman.et"
+   m_sAffiliatedFaction "BLUFOR"
+  }
+  SCR_FactionPlayerLoadout "{5A370BB2B0AAB781}" {
+   m_sLoadoutResource "{DCB41B3746FDD1BE}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_USSR_Rifleman.et"
+   m_sAffiliatedFaction "OPFOR"
+  }
+ }
+}

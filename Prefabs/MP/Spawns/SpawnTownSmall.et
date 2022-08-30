@@ -1,0 +1,130 @@
+GenericEntity {
+ ID "596AF3A8EB12AB5E"
+ coords 2.5 200 0
+ {
+  SCR_BaseTriggerEntity SpawnTownTeleport {
+   ID "596AF3A8EB12D5B9"
+   coords -5 200 -2.5
+   userScript "	SCR_ChimeraCharacter cc;"\
+   "	ref array<IEntity> teleportPoints = new array<IEntity>();"\
+   "		"\
+   "	private void GetAllChildren(IEntity parent, notnull inout array<IEntity> allChildren)"\
+   "	{"\
+   "		if (!parent)"\
+   "			return;"\
+   "		"\
+   "		IEntity child = parent.GetChildren();"\
+   "		"\
+   "		while (child)"\
+   "		{"\
+   "			allChildren.Insert(child);"\
+   "			child = child.GetSibling();"\
+   "		}"\
+   "	}"\
+   "	"\
+   "	override bool ScriptedEntityFilterForQuery(IEntity ent)"\
+   "	{"\
+   "		SCR_ChimeraCharacter temp = SCR_ChimeraCharacter.Cast(ent);"\
+   "		//Print(this);"\
+   "		//Print(teleportPoints);"\
+   "		GetAllChildren(this, teleportPoints);"\
+   "		if (temp != null)"\
+   "		{"\
+   "			cc = temp;"\
+   "			return true;"\
+   "		}"\
+   "		else return false;		"\
+   "	}"\
+   "	"\
+   "	protected ref RandomGenerator m_pRandomGenerator = new RandomGenerator();"\
+   "	int random;"\
+   "	vector tpTransform[4];"\
+   "	"\
+   "	override void OnActivate(IEntity ent)"\
+   "	{	"\
+   "		//Print(teleportPoints);"\
+   "		IEntity temp = teleportPoints.GetRandomElement();"\
+   "		//Print(temp);"\
+   "		//Print(cc);"\
+   "		temp.GetTransform(tpTransform);"\
+   "		cc.Teleport(tpTransform);"\
+   "	}"
+   TriggerShapeType "Oriented Bounding Box"
+   BoxMins 0 -15 0
+   BoxMaxs 10 5 5
+   DrawShape 1
+   ShapeColor 0 0 0 0.235
+   TriggerActivationType "Every query"
+   PeriodicQueries 1
+   UpdatePeriod 0.5
+   {
+    $grp GenericEntity {
+     Town_Teleport_B {
+      ID "596AF3A8EB122D36"
+      components {
+       Hierarchy "{596AF3AAE3AAF274}" {
+       }
+      }
+      coords 105 -200 2.5
+     }
+     Town_Teleport_C {
+      ID "596AF3A8EB122D37"
+      components {
+       Hierarchy "{596AF3AAE1AF56A9}" {
+       }
+      }
+      coords 105 -200 -97.5
+     }
+     Town_Teleport_D {
+      ID "596AF3A8EB1235E4"
+      components {
+       Hierarchy "{596AF3AAE787A9FE}" {
+       }
+      }
+      coords 5 -200 -97.5
+     }
+     Town_Teleport_G {
+      ID "596AF3A8EB139C4A"
+      components {
+       Hierarchy "{596AF3AAEFE1C2AB}" {
+       }
+      }
+      coords -95 -200 102.5
+     }
+     Town_Teleport_F {
+      ID "596AF3A8EB13AB27"
+      components {
+       Hierarchy "{596AF3AAEB386BC0}" {
+       }
+      }
+      coords -95 -200 2.5
+     }
+     Town_Teleport_E {
+      ID "596AF3A8EB13AB38"
+      components {
+       Hierarchy "{596AF3AAE53DC613}" {
+       }
+      }
+      coords -95 -200 -97.5
+     }
+     Town_Teleport_A {
+      ID "596AF3A8EB13EE6C"
+      components {
+       Hierarchy "{596AF3AAA898CB8A}" {
+       }
+      }
+      coords 105 -200 102.5
+     }
+     Town_Teleport_H {
+      ID "596AF3A8EB13EE6D"
+      components {
+       Hierarchy "{596AF3AAEDC1C068}" {
+       }
+      }
+      coords 5 -200 102.5
+     }
+    }
+   }
+  }
+ }
+}

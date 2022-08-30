@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{1A9EF3F8EFEFB341}Prefabs/Building/Small/WR_BarbedWire_x3.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

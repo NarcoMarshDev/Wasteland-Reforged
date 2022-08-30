@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{3C482D0C8FDC31F6}Prefabs/MP/Campaign/Bases/WastelandMainBaseEntityFinal.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

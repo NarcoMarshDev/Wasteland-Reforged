@@ -1,0 +1,17 @@
+SCR_BaseGameMode : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
+ ID "56B2B479C6B96951"
+ components {
+  SCR_RespawnBriefingComponent "{59695E0AF2C6CBE8}" {
+   m_Info SCR_UIInfo "{59695E0709BC7DC4}" {
+    Name "Greg"
+    Description "Jeff"
+   }
+  }
+  SCR_RespawnMenuHandlerComponent "{59695E090DA70F7B}" {
+  }
+  SCR_RespawnTimerComponent "{59695E091194ADF6}" {
+  }
+ }
+ coords 4781.441 27.855 11154.433
+ m_bAutoPlayerRespawn 0
+}

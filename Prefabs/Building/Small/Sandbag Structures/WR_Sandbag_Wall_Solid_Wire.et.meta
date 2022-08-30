@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{E820A9FC857510B6}Prefabs/Building/Small/Sandbag Structures/WR_Sandbag_Wall_Solid_Wire.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

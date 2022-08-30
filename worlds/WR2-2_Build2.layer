@@ -1,0 +1,116 @@
+$grp StaticModelEntity : "{1A9EF3F8EFEFB341}Prefabs/Building/Small/Barbed Wire/WR_BarbedWire_x3.et" {
+ {
+  coords 4558.531 1.959 10755.959
+  angleY -8.247
+  scale 0.5
+ }
+ {
+  coords 4537.489 2.567 10756.988
+  angleY -10.507
+  scale 0.5
+ }
+}
+$grp GenericEntity : "{1F533670ECFC9182}Prefabs/Building/Small/Sandbag Structures/WR_Sandbag_Wall_Port.et" {
+ {
+  coords 4537.951 20.702 10764.202
+  angleY -11.32
+ }
+ {
+  coords 4536.45 20.727 10762.985
+  angleY 80.148
+ }
+}
+Vehicle UAZ1 : "{259EE7B78C51B624}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469.et" {
+ components {
+  SCR_VehicleDamageManagerComponent "{141326E9FD94FE40}" {
+   m_fVehicleDestroyDamage 11880.1
+  }
+ }
+ coords 4550.893 17.084 10764.804
+ angleY 137.083
+}
+GenericEntity : "{31014908382FE618}Prefabs/Building/Small/Sandbag Structures/WR_Sandbag_Bunker.et" {
+ coords 4541.764 20.684 10763.183
+ angleY 80.159
+}
+Vehicle M1025_armed_M2HB1 : "{3EA6F47D95867114}Prefabs/Vehicles/Wheeled/M998/M1025_armed_M2HB.et" {
+ components {
+  SCR_VehicleDamageManagerComponent "{141326E9FD94FE40}" {
+   m_fVehicleDestroyDamage 17639.4
+  }
+ }
+ coords 4547.943 17.193 10763.509
+ angleY 132.76
+}
+Vehicle Ural4320_tanker1 : "{4C81D7ED8F8C0D87}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_tanker.et" {
+ components {
+  SCR_VehicleDamageManagerComponent "{141326E9FD94FE40}" {
+   m_fVehicleDestroyDamage 21809.699
+  }
+ }
+ coords 4543.672 16.67 10753.432
+ angleX 6.92
+ angleY 45.777
+ angleZ 0.722
+}
+StaticModelEntity : "{6FFD54071AD89DAC}Prefabs/Props/Military/Furniture/TableMilitary_US_02_cabinet.et" {
+ coords 4558.567 18.236 10751.481
+ angleY -99.163
+ {
+  GenericEntity : "{34736979381CA219}Prefabs/Props/Military/Radios/RadioStation_ANGRC160_01.et" {
+   coords 0.546 0.908 -0.229
+  }
+ }
+}
+$grp GenericEntity : "{A953A256EB23A795}Prefabs/Building/Small/Sandbag Structures/WR_Sandbag_Wall_Solid.et" {
+ {
+  coords 4536.705 20.707 10761.183
+  angleY 81.816
+ }
+ {
+  coords 4539.885 20.724 10761.076
+  angleY -9.602
+ }
+}
+Vehicle BTR1 : "{C012BB3488BEA0C2}Prefabs/Vehicles/Wheeled/BTR70/BTR70.et" {
+ components {
+  SCR_VehicleDamageManagerComponent "{141326E9FD94FE40}" {
+   m_fVehicleDestroyDamage 22624.699
+  }
+ }
+ coords 4542.751 16.952 10757.98
+ angleX 4.26
+ angleY 77.561
+ angleZ 2.716
+}
+GameEntity : "{FCC9A062B697948E}Prefabs/Structures/BuildingParts/Ladders/Ladder_Pier_520_B.et" {
+ coords 4538.11 3.956 10759.967
+ angleY 168.828
+}
+$grp StaticModelEntity : "{FF02BF01E30A242A}Prefabs/Building/Small/Barbed Wire/WR_BarbedWire_x2.et" {
+ {
+  coords 4557.893 1.944 10760.549
+  angleY -8.696
+  scale 0.5
+ }
+ {
+  coords 4556.797 1.956 10767.277
+  angleY -8.696
+  scale 0.5
+ }
+ {
+  coords 4545.341 2.079 10766.232
+  angleY 80.826
+  scale 0.5
+ }
+ {
+  coords 4545.385 2.123 10748.738
+  angleY 85.472
+  scale 0.5
+ }
+ {
+  coords 4542.06 2.288 10748.513
+  angleY 85.472
+  scale 0.5
+ }
+}

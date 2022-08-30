@@ -1,0 +1,25 @@
+SCR_DestructibleBuildingEntity : "{4DD5F16D919A99F4}Prefabs/Structures/Military/Bunkers/Bunker_01/Bunker_01_3fp_Base.et" {
+ ID "5272E317ABDAFB18"
+ components {
+  MeshObject "{506EDA9D46FC6C06}" {
+   Object "{A8F8DBDFC154B585}Assets/Structures/Military/Bunkers/Bunker_01/Bunker_01_3fp.xob"
+  }
+ }
+ coords -17.663 -8.919 66.073
+ {
+  GenericEntity {
+   ID "5588AA8272965278"
+   {
+    GenericEntity {
+     ID "568C83902CFE34E2"
+     components {
+      SlidingDoorComponent "{52846A0FE5325CBA}" {
+       DoorAction SCR_FactionLadderDoorUserAction "{52846A0FE4C9AC92}" {
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

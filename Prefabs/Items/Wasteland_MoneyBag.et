@@ -1,0 +1,38 @@
+Wasteland_MoneyBag {
+ ID "5984AEC7724126B5"
+ components {
+  MeshObject "{597C769731F1B750}" {
+   Object "{5A8FB8F81E2ECC9D}Assets/Props/Civilian/SackUniversal_01/SackUniversal_01.xob"
+  }
+  RigidBody "{597C7697367918E0}" {
+   LinearDamping 0.5
+   AngularDamping 0.5
+   ModelGeometry 1
+  }
+  ActionsManagerComponent "{597C769738C6B61E}" {
+   ActionContexts {
+    UserActionContext "{597C7697764BA3AC}" {
+     ContextName "default"
+     Position PointInfo "{597C76977D5D2A4A}" {
+     }
+     Radius 0.5
+    }
+   }
+   additionalActions {
+    Wasteland_PickupItem "{597C769781D0D420}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{597C769786A6B295}" {
+      Name "Money (Pickup)"
+     }
+     Duration 1.2
+    }
+   }
+  }
+  RplComponent "{597C76973E933278}" {
+  }
+ }
+ coords 4975.099 2.188 3862.485
+ scale 0.5
+}

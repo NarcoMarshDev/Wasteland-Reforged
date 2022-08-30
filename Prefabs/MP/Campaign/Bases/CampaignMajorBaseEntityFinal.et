@@ -1,0 +1,38 @@
+SCR_CampaignBase : "{DEA36E19A8F6FDFD}Prefabs/MP/Campaign/Bases/CampaignMainBaseEntityFinal.et" {
+ ID "524ED87DCD09FA58"
+ components {
+  BaseRadioComponent "{524EBE6BCFD951EB}" {
+   "Transmitting Range" 2000
+   "Is relay" 1
+  }
+ }
+ m_eType MAJOR
+ m_iBaseID 0
+ {
+  SCR_CampaignDeliveryPoint {
+   ID "524ED87DCD09FF64"
+   components {
+    RplComponent "{52E6F8D611B2776A}" {
+     Streamable Disabled
+    }
+   }
+  }
+  SCR_CampaignDeliveryPoint {
+   ID "5474B1E95B395C8F"
+   components {
+    SCR_CampaignSuppliesComponent "{549503C60B5D5840}" {
+     m_iSupplies 10000
+     m_iSuppliesMax 10000
+    }
+   }
+  }
+  SCR_SpawnPoint {
+   ID "56DEEDF0B121F0E8"
+   components {
+    RplComponent "{56DEEDF096E8BB0C}" {
+     Streamable Disabled
+    }
+   }
+  }
+ }
+}

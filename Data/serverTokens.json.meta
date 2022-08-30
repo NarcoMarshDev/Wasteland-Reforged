@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{6C050E5B0BA97FD6}Data/serverTokens.json"
+ Configurations {
+  JSONResourceClass PC {
+  }
+  JSONResourceClass XBOX_ONE : PC {
+  }
+  JSONResourceClass XBOX_SERIES : PC {
+  }
+  JSONResourceClass PS4 : PC {
+  }
+  JSONResourceClass HEADLESS : PC {
+  }
+ }
+}

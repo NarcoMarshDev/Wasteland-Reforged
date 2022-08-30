@@ -1,0 +1,54 @@
+GenericEntity {
+ ID "59B1244FF94FDBB4"
+ components {
+  ActionsManagerComponent "{5990DE6D8AAE80D9}" {
+   ActionContexts {
+    UserActionContext "{5990DE6D8893ED72}" {
+     ContextName "default"
+     Position PointInfo "{5990DE6D8C466E79}" {
+     }
+     Radius 10
+    }
+   }
+   additionalActions {
+    WR_BuildingPickupAction "{5990DE6D97545DC6}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{5990DE6D9A3764F8}" {
+      Name "Pickup Object"
+     }
+     VisibilityRange 5
+     Duration 0.5
+    }
+   }
+  }
+  RplComponent "{5990DE524239F888}" {
+  }
+ }
+ coords 4979.322 2.912 3876.888
+ angleY -54.063
+ {
+  StaticModelEntity : "{3AB68F44A671469E}Prefabs/Structures/Walls/Concrete/SilageWall_02_12m_A.et" {
+   ID "59B1244FF94FDBB6"
+   components {
+    Hierarchy "{5990DE6D87D4328A}" {
+    }
+    SCR_DestructionMultiPhaseComponent "{51E2F0F0DB178D38}" {
+     m_bPassDamageToChildren 1
+    }
+   }
+   coords -6.6 0 1
+   {
+    StaticModelEntity : "{EE12FABB2ECF3F01}Prefabs/Structures/Walls/Concrete/SilageWall_02_pole.et" {
+     ID "59B1244FF94FB233"
+     components {
+      Hierarchy "{5990DE6059083C5F}" {
+      }
+     }
+     coords 13.25 0 0
+    }
+   }
+  }
+ }
+}

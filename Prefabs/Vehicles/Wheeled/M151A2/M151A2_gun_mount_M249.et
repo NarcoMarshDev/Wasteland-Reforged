@@ -1,0 +1,92 @@
+GameEntity : "{FA592DE93894B876}Prefabs/Vehicles/Wheeled/M151A2/M151A2_gun_mount.et" {
+ ID "6D6D283656DBA232"
+ components {
+  SCR_BaseCompartmentManagerComponent "{51ACFBB07A14CFA6}" {
+   CompartmentSlots {
+    TurretCompartmentSlot TurretCompartment {
+     CompartmentAction SCR_GetInUserAction "{5086CC2CFDD3A05A}" {
+      UIInfo UIInfo "{5086CC2CF6E6E730}" {
+       Name "#AR-UserAction_GetIn"
+      }
+     }
+     GetOutAction SCR_GetOutAction "{509D56664FF79DDB}" {
+      UIInfo UIInfo "{509D566643F0DEA8}" {
+       Name "#AR-UserAction_GetOut"
+      }
+     }
+     PassengerPositionInfo EntitySlotInfo "{B1CB25848A3D93A8}" {
+      Offset 0 0.875 -1.2
+     }
+     DoorInfoList {
+      CompartmentDoorInfo "{50B917CA9C90BD91}" {
+       ContextName "default"
+       EntryPositionInfo PointInfo "{50B917CA96E757AA}" {
+        Offset 0 0.9273 -2.7325
+       }
+      }
+     }
+     AllowAiming 1
+     CharacterWeaponHandling 1
+    }
+   }
+  }
+  SCR_BaseHUDComponent "{51ACD09C5E194510}" {
+   InfoDisplays {
+    SCR_WeaponInfoVehicle "{5194B831C2F89FB5}" {
+    }
+   }
+  }
+  UniversalInventoryStorageComponent "{548680978A2448D1}" {
+   Attributes SCR_ItemAttributeCollection "{5916ADF7BDCBDD9F}" {
+    ItemDisplayName UIInfo "{59912EE45DCFF80E}" {
+     Name "#AR-Inventory_Turret"
+    }
+    CustomAttributes {
+     PreviewRenderAttributes "{5916ADF7B598056F}" {
+      CameraPreset Right
+      PreviewModel "{E71679A4B28D5B23}Assets/Weapons/HeavyWeapons/M2HB/M2.xob"
+     }
+     SCR_InventoryVehicleVisibilityAttribute "{5916ADF796FF6A88}" {
+      m_bShowForVehicleFactionOnly 1
+     }
+    }
+    m_Size SLOT_3x3
+   }
+   InitialStorageSlots {
+    InventoryStorageSlot MagStartSlot {
+     Prefab "{32E12D322E107F1C}Prefabs/Weapons/Ammo/Ammo_Rocket_PG7VM.et"
+    }
+    InventoryStorageSlot Ammo {
+     Prefab "{32E12D322E107F1C}Prefabs/Weapons/Ammo/Ammo_Rocket_PG7VM.et"
+    }
+    InventoryStorageSlot Ammo2 {
+     Prefab "{32E12D322E107F1C}Prefabs/Weapons/Ammo/Ammo_Rocket_PG7VM.et"
+    }
+    InventoryStorageSlot Ammo4 {
+     Prefab "{32E12D322E107F1C}Prefabs/Weapons/Ammo/Ammo_Rocket_PG7VM.et"
+    }
+   }
+  }
+  WeaponSlotComponent "{51ACD09C6BFEEE6A}" {
+   AttachType InventoryStorageSlot "{0AACE7470E421D82}" {
+    Offset 0 1.99 -0.48
+   }
+   WeaponTemplate "{BD048236F83D85DA}Prefabs/Weapons/Launchers/RPG7/Launcher_RPG7_base.et"
+  }
+  ActionsManagerComponent "{51ACD09C7181BA0B}" {
+   additionalActions {
+    SCR_OpenVehicleStorageAction "{59912EE45DCFF802}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{59912EE45DCFF803}" {
+      Name "#AR-Inventory_OpenTurret"
+     }
+     "Sort Priority" 1
+     m_bShowInside 0
+    }
+   }
+   AllowCrossHierarchy 1
+  }
+ }
+}

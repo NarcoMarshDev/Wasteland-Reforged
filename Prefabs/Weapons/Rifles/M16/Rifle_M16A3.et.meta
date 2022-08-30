@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{9C38B35C2CC96D4B}Prefabs/Weapons/Rifles/M16/Rifle_M16A3.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

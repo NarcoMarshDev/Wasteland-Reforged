@@ -1,0 +1,349 @@
+SCR_CampaignDeliveryPoint {
+ ID "596641F422004654"
+ components {
+  MeshObject "{596641F422052CE8}" {
+   Object "{39BB919FFAB4C9CB}Assets/Structures/Industrial/Garages/Garage_E_02/Garage_E_02.xob"
+  }
+  Hierarchy "{596641F422052CF3}" {
+  }
+  RigidBody "{596641F422052D10}" {
+   LayerPreset "BuildingFireView"
+   ModelGeometry 1
+   Static 1
+  }
+ }
+ coords 195.619 0.985 741.77
+ Flags 1027
+ {
+  $grp BaseGameTriggerEntity {
+   {
+    ID "596641F422000F26"
+    components {
+     Hierarchy "{596641F422052D15}" {
+     }
+    }
+    coords 9.5 0 30
+    TriggerShapeType Sphere
+    SphereRadius 3
+    ClassFilter "Vehicle"
+   }
+   {
+    ID "596641F422000F27"
+    components {
+     Hierarchy "{596641F422052D1D}" {
+     }
+    }
+    coords 3 0 30
+    TriggerShapeType Sphere
+    SphereRadius 3
+    ClassFilter "Vehicle"
+   }
+   {
+    ID "596641F42205A6DC"
+    components {
+     Hierarchy "{596641F422052D3C}" {
+     }
+     SCR_CampaignAIVehicleSpawnComponent "{596641F422052D3F}" {
+     }
+    }
+    coords -35 0 0
+    angleY -180
+    TriggerShapeType Sphere
+    SphereRadius 3
+    ClassFilter "Vehicle"
+   }
+   {
+    ID "596641F422061AFC"
+    components {
+     Hierarchy "{596641F422052D3A}" {
+     }
+    }
+    coords 9.5 0 15
+    TriggerShapeType Sphere
+    SphereRadius 3
+    ClassFilter "Vehicle"
+   }
+   {
+    ID "596641F422068D6C"
+    components {
+     Hierarchy "{596641F422052D38}" {
+     }
+    }
+    coords -9.5 0 15
+    TriggerShapeType Sphere
+    SphereRadius 3
+    ClassFilter "Vehicle"
+   }
+   {
+    ID "596641F42206E980"
+    components {
+     Hierarchy "{596641F422052D33}" {
+     }
+     SCR_CampaignAIVehicleSpawnComponent "{596641F422052D36}" {
+     }
+    }
+    coords -40 0 0
+    angleY -180
+    TriggerShapeType Sphere
+    SphereRadius 3
+    ClassFilter "Vehicle"
+   }
+   {
+    ID "596641F42206E981"
+    components {
+     Hierarchy "{596641F422052D2C}" {
+     }
+     SCR_CampaignAIVehicleSpawnComponent "{596641F422052D31}" {
+     }
+    }
+    coords -30 0 0
+    angleY 180
+    TriggerShapeType Sphere
+    SphereRadius 3
+    ClassFilter "Vehicle"
+   }
+   {
+    ID "596641F422075931"
+    components {
+     Hierarchy "{596641F422052D29}" {
+     }
+    }
+    coords -3.5 0 30
+    TriggerShapeType Sphere
+    SphereRadius 3
+    ClassFilter "Vehicle"
+   }
+   {
+    ID "596641F42207A4C9"
+    components {
+     Hierarchy "{596641F422052D26}" {
+     }
+    }
+    coords -9.5 0 30
+    TriggerShapeType Sphere
+    SphereRadius 3
+    ClassFilter "Vehicle"
+   }
+   {
+    ID "596641F42207A4CA"
+    components {
+     Hierarchy "{596641F422052D24}" {
+     }
+    }
+    coords 3 0 15
+    TriggerShapeType Sphere
+    SphereRadius 3
+    ClassFilter "Vehicle"
+   }
+   {
+    ID "596641F42207DCD1"
+    components {
+     Hierarchy "{596641F422052D21}" {
+     }
+    }
+    coords -3.5 0 15
+    TriggerShapeType Sphere
+    SphereRadius 3
+    ClassFilter "Vehicle"
+   }
+  }
+  GenericEntity {
+   ID "596641F42205A6DB"
+   components {
+    MeshObject "{596641F422052D42}" {
+     Object "{76F0ACAB4239B3D5}Assets/Props/Furniture/MeetingTable_01/MeetingTable_01.xob"
+    }
+    Hierarchy "{596641F422052D44}" {
+    }
+    RigidBody "{596641F422052D47}" {
+     ModelGeometry 1
+     Static 1
+    }
+    SCR_DestructionMultiPhaseComponent "{596641F422052D4A}" {
+     "Additional hit zones" {
+      ScriptedHitZone Default {
+       HZDefault 1
+      }
+     }
+     m_fBaseHealth 1500
+     m_fDamageThresholdMinimum 5
+     m_DestroySpawnObjects {
+      SCR_DebrisSpawnable "{596641F422052D54}" {
+       m_ModelPrefabs {
+        "{91F02D1C701DF532}Assets/Props/Furniture/MeetingTable_01/Dst/MeetingTable_01_dst_02.xob" "{08EE94856DFAC4A2}Assets/Props/Furniture/MeetingTable_01/Dst/MeetingTable_01_dst_01.xob"
+       }
+       m_fRandomVelocityLinear 5
+      }
+     }
+    }
+   }
+   coords 0.11 0 1.027
+   {
+    GenericEntity {
+     ID "596641F422052CDC"
+     components {
+      MeshObject "{596641F422052D58}" {
+       Object "{DBE3AEFE90AC25D0}Assets/Props/Military/Radios/RadioStation_R123M_01.xob"
+      }
+      Hierarchy "{596641F422052D5A}" {
+      }
+      RigidBody "{596641F422052D5C}" {
+       LayerPreset "PropFireView"
+       ModelGeometry 1
+       Static 1
+      }
+      ActionsManagerComponent "{596641F422052D5F}" {
+       ActionContexts {
+        UserActionContext "{596641F422052D64}" {
+         ContextName "CampaignRequestVehicle"
+         Position PointInfo "{596641F422052D68}" {
+          Offset 0 0.1 0
+         }
+        }
+       }
+       additionalActions {
+        SCR_CampaignRequestVehicleAssetUserAction "{596641F422052D6D}" {
+         ParentContextList {
+          "CampaignRequestVehicle"
+         }
+         UIInfo UIInfo "{596641F422052D6F}" {
+         }
+         VisibilityRange 10
+         Duration 1
+        }
+        SCR_CampaignRequestVehicleAssetUserAction "{596641F422052D71}" {
+         ParentContextList {
+          "CampaignRequestVehicle"
+         }
+         UIInfo UIInfo "{596641F422052D74}" {
+         }
+         VisibilityRange 10
+         Duration 1
+        }
+        SCR_CampaignRequestVehicleAssetUserAction "{596641F422052D75}" {
+         ParentContextList {
+          "CampaignRequestVehicle"
+         }
+         UIInfo UIInfo "{596641F422052D76}" {
+         }
+         VisibilityRange 10
+         Duration 1
+        }
+        SCR_CampaignRequestVehicleAssetUserAction "{596641F422052D77}" {
+         ParentContextList {
+          "CampaignRequestVehicle"
+         }
+         UIInfo UIInfo "{596641F422052D7C}" {
+         }
+         VisibilityRange 10
+         Duration 1
+        }
+        SCR_CampaignRequestVehicleAssetUserAction "{596641F422052D7F}" {
+         ParentContextList {
+          "CampaignRequestVehicle"
+         }
+         UIInfo UIInfo "{596641F422052D81}" {
+         }
+         VisibilityRange 10
+         Duration 1
+        }
+        SCR_CampaignRequestVehicleAssetUserAction "{596641F422052D82}" {
+         ParentContextList {
+          "CampaignRequestVehicle"
+         }
+         UIInfo UIInfo "{596641F422052D84}" {
+         }
+         VisibilityRange 10
+         Duration 1
+        }
+        SCR_CampaignRequestVehicleAssetUserAction "{596641F422052D87}" {
+         ParentContextList {
+          "CampaignRequestVehicle"
+         }
+         UIInfo UIInfo "{596641F422052D89}" {
+         }
+         VisibilityRange 10
+         Duration 1
+        }
+        SCR_CampaignRequestVehicleAssetUserAction "{596641F422052D8B}" {
+         ParentContextList {
+          "CampaignRequestVehicle"
+         }
+         UIInfo UIInfo "{596641F4220525A8}" {
+         }
+         VisibilityRange 10
+         Duration 1
+        }
+        SCR_CampaignRequestVehicleAssetUserAction "{596641F4220525AE}" {
+         ParentContextList {
+          "CampaignRequestVehicle"
+         }
+         UIInfo UIInfo "{596641F4220525AC}" {
+         }
+         VisibilityRange 10
+         Duration 1
+        }
+        SCR_CampaignRequestVehicleAssetUserAction "{596641F42204DED9}" {
+         ParentContextList {
+          "CampaignRequestVehicle"
+         }
+         UIInfo UIInfo "{596641F42204DEC7}" {
+         }
+         VisibilityRange 10
+         Duration 1
+        }
+        SCR_CampaignRequestVehicleAssetUserAction "{596641F42204DEC4}" {
+         ParentContextList {
+          "CampaignRequestVehicle"
+         }
+         UIInfo UIInfo "{596641F42204DEC2}" {
+         }
+         VisibilityRange 10
+         Duration 1
+        }
+        SCR_CampaignRequestVehicleAssetUserAction "{596641F42204DEC0}" {
+         ParentContextList {
+          "CampaignRequestVehicle"
+         }
+         UIInfo UIInfo "{596641F42204DECE}" {
+         }
+         VisibilityRange 10
+         Duration 1
+        }
+        SCR_CampaignRequestVehicleAssetUserAction "{596641F42204DECC}" {
+         ParentContextList {
+          "CampaignRequestVehicle"
+         }
+         UIInfo UIInfo "{596641F42204DECA}" {
+         }
+         VisibilityRange 10
+         Duration 1
+        }
+        SCR_CampaignRequestVehicleAssetUserAction "{596641F42204DEC8}" {
+         ParentContextList {
+          "CampaignRequestVehicle"
+         }
+         UIInfo UIInfo "{596641F42204DEF6}" {
+         }
+         VisibilityRange 10
+         Duration 1
+        }
+       }
+      }
+     }
+     coords 0.008 1.024 0.163
+    }
+   }
+  }
+  SCR_TimedWaypoint : "{531EC45063C1F57B}Prefabs/AI/Waypoints/AIWaypoint_Wait.et" {
+   ID "596641F422052CDE"
+   components {
+    Hierarchy "{596641F42204DEF2}" {
+    }
+   }
+   coords -25 0 0
+   Autocomplete 1
+   m_holdingTime 2
+  }
+ }
+}

@@ -1,0 +1,30 @@
+StaticModelEntity : "{DDF59362051B28BC}Prefabs/Props/Military/Fortification/BarbedTape_KnifeRest.et" {
+ coords 4477.334 4.017 10793.789
+ angleY 78.155
+ {
+  $grp StaticModelEntity : "{DDF59362051B28BC}Prefabs/Props/Military/Fortification/BarbedTape_KnifeRest.et" {
+   {
+    coords 0 0 3.47
+   }
+   {
+    coords 0 0 -3.47
+   }
+  }
+ }
+}
+StaticModelEntity : "{F261C1F4466EC383}Prefabs/Building/Small/WR_BarbedWire.et" {
+ coords 4483.928 2.848 10795.195
+ angleX -14.903
+ angleY 78.154
+ angleZ 0.018
+}
+$grp StaticModelEntity : "{FF02BF01E30A242A}Prefabs/Building/Small/Barbed Wire/WR_BarbedWire_x2.et" {
+ {
+  coords 4470.533 4.176 10792.354
+  angleY 77.963
+ }
+ {
+  coords 4466.473 2.413 10786.923
+  angleY 165.956
+ }
+}

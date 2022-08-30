@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{14ADEAC538771B56}Prefabs/Building/Small/Sandbag Structures/WR_Sandbag_Wall_Long2.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

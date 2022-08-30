@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{812FB9671C198FAB}Prefabs/Building/Small/Sandbag Structures/WR_Sandbag_Bunker_Camonet.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

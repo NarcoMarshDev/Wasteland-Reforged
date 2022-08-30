@@ -1,0 +1,16 @@
+StaticModelEntity : "{DDF59362051B28BC}Prefabs/Props/Military/Fortification/BarbedTape_KnifeRest.et" {
+ ID "51E2F0F0E96F07CE"
+ coords 4477.723 4.199 10794.057
+ {
+  $grp StaticModelEntity : "{DDF59362051B28BC}Prefabs/Props/Military/Fortification/BarbedTape_KnifeRest.et" {
+   {
+    ID "5A3A489201E909A6"
+    coords 0 0 3.47
+   }
+   {
+    ID "5A3A489201E909A7"
+    coords 0 0 -3.47
+   }
+  }
+ }
+}

@@ -1,0 +1,56 @@
+SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
+ coords 10300.986 1.274 1476.241
+}
+TagManager : "{2FA9E172CAB1857A}Prefabs/MP/Managers/TagManager.et" {
+ coords 10299.613 1.063 1474.223
+}
+ScriptedChatEntity : "{536D80EB494DDC43}Prefabs/MP/Campaign/CampaignMPChatEntity.et" {
+ coords 10301.516 1.216 1475.683
+}
+SCR_GameModeCampaignMP CampaignMPGameMode1 : "{59121DD52FF62112}Prefabs/MP/Campaign/CampaignMPGameMode.et" {
+ coords 10298.273 1.316 1476.485
+}
+RadioManagerEntity : "{B8E09FAB91C4ECCD}Prefabs/Radio/RadioManager.et" {
+ coords 10299.235 0.871 1471.931
+}
+SCR_CampaignFactionManager CampaignFactionManager1 : "{F1AC26310BAE3788}Prefabs/MP/Campaign/CampaignFactionManager.et" {
+ coords 10297.165 1.264 1475.593
+ Factions {
+  SCR_CampaignFaction "{50B30C3ADB052C80}" {
+  }
+ }
+ m_bCanChangeFactionsPlayable 1
+ m_VehicleAssetList "{AA9EC70C6E2AC40F}Configs/Campaign/WastelandVehicleAssetList.conf"
+}
+BasePreloadManager CampaignPreloadManager1 : "{0ECEC6225B1326C2}Prefabs/MP/Campaign/CampaignPreloadManager.et" {
+ coords 10297.851 1.177 1474.993
+}
+HitRegistrationManager HitRegManager1 : "{0EDA3D48791120DD}Prefabs/MP/HitRegManager.et" {
+ coords 10299.392 1.266 1476.073
+}
+SCR_CampaignBase USMainBase : "{3C482D0C8FDC31F6}Prefabs/MP/Campaign/Bases/WastelandMainBaseEntityFinal.et" {
+ coords 4770.805 27.955 11187.344
+ angleY 0
+ m_sBaseName "US Main Base"
+ m_sBaseNameUpper "US MAIN BASE"
+ m_eStartingBaseOwner BLUFOR
+ m_bPrebuilt 1
+ m_bSpawnNoSlotComposition 1
+ {
+  SCR_SpawnPoint {
+   ID "59663245095E6F6B"
+   components {
+    SCR_MapDescriptorComponent "{596632450950F297}" {
+     VisibleOnMap 1
+     UnitType Infantry
+    }
+   }
+   coords 8.497 0 13.044
+   m_fSpawnRadius 2
+   m_sFaction "US"
+  }
+ }
+}
+SCR_LoadoutManager : "{58FBD035E53D95C1}Prefabs/MP/Campaign/CampaignLoadoutManager.et" {
+ coords 10303.331 1.016 1473.831
+}

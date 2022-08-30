@@ -1,0 +1,183 @@
+Wasteland_Town {
+ ID "59737099199D4E01"
+ coords 5112.868 164.848 7284.654
+ m_sTownName "EntreDeux"
+ {
+  GenericEntity SpawnGeneric {
+   ID "59737099199AE74D"
+   components {
+    Hierarchy "{5971498EA998EFDE}" {
+    }
+   }
+   coords 0 0 0
+   {
+    $grp SCR_SpawnPoint {
+     {
+      ID "59737099199AABB2"
+      components {
+       Hierarchy "{597149805D54B354}" {
+       }
+       SCR_MapDescriptorComponent "{5971498064CC48FE}" {
+        DisplayName "5"
+        MainType Spawnpoint
+       }
+       RplComponent "{59714980982EC025}" {
+        "Self Insert" 0
+        Streamable Disabled
+       }
+      }
+      coords 0 0 0
+      m_fNoPlayerRadius 2
+      m_fNoSightRadius 0
+      m_Info Wasteland_UIInfo "{597370B93C888F04}" {
+       Name "Generic"
+      }
+     }
+     {
+      ID "59737099199AABB3"
+      components {
+       Hierarchy "{597149805D54B354}" {
+       }
+       SCR_MapDescriptorComponent "{5971498064CC48FE}" {
+        DisplayName "6"
+        MainType Spawnpoint
+       }
+       RplComponent "{59714980982EC025}" {
+        "Self Insert" 0
+        Streamable Disabled
+       }
+      }
+      coords -2 0 0
+      m_fNoPlayerRadius 2
+      m_fNoSightRadius 0
+      m_Info Wasteland_UIInfo "{597370B941BB3D4B}" {
+       Name "Generic"
+      }
+     }
+     {
+      ID "59737099199AE74E"
+      components {
+       Hierarchy "{597149805D54B354}" {
+       }
+       SCR_MapDescriptorComponent "{5971498064CC48FE}" {
+        DisplayName "4"
+        MainType Spawnpoint
+       }
+       RplComponent "{59714980982EC025}" {
+        "Self Insert" 0
+        Streamable Disabled
+       }
+      }
+      coords 2 0 0
+      m_fNoPlayerRadius 2
+      m_fNoSightRadius 0
+      m_Info Wasteland_UIInfo "{597370B93A0C889D}" {
+       Name "Generic"
+      }
+     }
+    }
+    Wasteland_PlayerDetector {
+     ID "59737099199A91AB"
+     components {
+      Hierarchy "{5971498EAC6243C2}" {
+      }
+      RplComponent "{5971498EB16EACBC}" {
+       Streamable Disabled
+      }
+     }
+     coords 0 0 0
+     TriggerShapeType Sphere
+     SphereRadius 140
+     DrawShape 1
+     ShapeColor 1 0 0 0
+     TriggerActivationType "Every query"
+     PeriodicQueries 1
+    }
+    Wasteland_TeleportTrigger {
+     ID "59737099199A6322"
+     components {
+      Hierarchy "{5971498ECA397FC2}" {
+      }
+      RplComponent "{5971498ECFECC4A1}" {
+       Streamable Disabled
+      }
+     }
+     coords 0 0 0
+     TriggerShapeType "Oriented Bounding Box"
+     BoxMins -3 -0.5 -1
+     BoxMaxs 3 3 1
+     DrawShape 1
+     ShapeColor 0 0 0 1
+     TriggerActivationType "Every query"
+     PeriodicQueries 1
+     {
+      $grp GenericEntity {
+       {
+        ID "59737099199A0E2E"
+        components {
+         Hierarchy "{597149EDA6FDEEA9}" {
+         }
+        }
+       }
+       {
+        ID "59737099199A0E2F"
+        components {
+         Hierarchy "{597149EDA1488318}" {
+         }
+        }
+       }
+       {
+        ID "59737099199A6107"
+        components {
+         Hierarchy "{597149EDA432E78B}" {
+         }
+        }
+       }
+       {
+        ID "59737099199A633D"
+        components {
+         Hierarchy "{597149EDA9AFC522}" {
+         }
+        }
+       }
+       {
+        ID "59737099199B8E48"
+        components {
+         Hierarchy "{597149ED980687A5}" {
+         }
+        }
+       }
+       {
+        ID "59737099199B8E4B"
+        components {
+         Hierarchy "{597149ED9A9D42A0}" {
+         }
+        }
+       }
+       {
+        ID "59737099199B98BC"
+        components {
+         Hierarchy "{597149ED9D8074A2}" {
+         }
+        }
+       }
+       {
+        ID "59737099199BEE11"
+        components {
+         Hierarchy "{597149EDA304144E}" {
+         }
+        }
+       }
+      }
+     }
+    }
+    StaticModelEntity : "{35E14C4C60C4A4F3}Prefabs/Structures/Agriculture/WeightStation/WeightStation_01_platform.et" {
+     ID "59737099199B8E4D"
+     coords 0 -0.2 0
+     angleY 90
+     scale 0.5
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,20 @@
+FrameWidgetClass {
+ Name "rootFrame"
+ "Is Visible" 0
+ {
+  ImageWidgetClass "{59A2F95CD4671E08}" {
+   Name "Image0"
+   Slot FrameWidgetSlot "{59A2F95CD4671E2A}" {
+    Anchor 0.476 0.456 0.476 0.456
+    OffsetLeft 0
+    OffsetTop 0
+    SizeX 32
+    OffsetRight -32
+    SizeY 32
+    OffsetBottom -32
+   }
+   Texture "{6A9B68EBD4F71992}playerIcon_blufor.edds"
+   Image ""
+  }
+ }
+}

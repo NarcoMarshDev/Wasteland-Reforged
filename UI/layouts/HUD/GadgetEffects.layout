@@ -1,0 +1,26 @@
+FrameWidgetClass "{59A2F95C558BC671}" {
+ Name "rootFrame"
+ "Z Order" 5
+ Color 1 1 1 0
+ {
+  ImageWidgetClass "{59A2F95C558BC672}" {
+   Name "Fade"
+   Slot FrameWidgetSlot "{529CF71A57F1FFA2}" {
+    Anchor 0 0 1 1
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    SizeX -1820
+    OffsetRight 0
+    SizeY -1050
+    OffsetBottom 0
+   }
+   Opacity 0
+   Color 0 0 0 1
+   Size 1920 1080
+   "Transition width" 0
+   Progress 0
+  }
+ }
+}

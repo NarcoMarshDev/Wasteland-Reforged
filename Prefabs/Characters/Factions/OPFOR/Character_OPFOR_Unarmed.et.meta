@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{981A09CB1ED85BAD}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_OPFOR_Unarmed.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

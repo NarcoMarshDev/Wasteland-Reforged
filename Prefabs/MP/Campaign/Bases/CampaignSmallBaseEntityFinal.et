@@ -1,0 +1,127 @@
+SCR_CampaignBase {
+ ID "596AF3F85C29B109"
+ components {
+  BaseRadioComponent "{596AF3F85C2E7D0A}" {
+   "Transmitting Range" 2000
+   "Frequency resolution" 1
+   Transceivers {
+    BaseTransceiver "{596AF3F85C2E7D04}" {
+     ChannelFrequency 42000
+    }
+   }
+   "Is relay" 1
+  }
+  SCR_EditableEntityComponent "{596AF3F85C2E7D38}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{596AF3F85C2E7D30}" {
+    Name "#AR-Campaign_GenericBaseName"
+    Icon "{FA9496F0FA63886B}UI/Textures/Icons/Campaign_Small.edds"
+   }
+   m_bAutoRegister ALWAYS
+   m_Flags NON_INTERACTIVE
+  }
+  SCR_MapDescriptorComponent "{596AF3F85C2E7D29}" {
+   MainType "Radio/ Tower"
+  }
+  RplComponent "{596AF3F85C2E7D2F}" {
+   Streamable Disabled
+  }
+ }
+ coords 262.038 0 211.287
+ m_eType SMALL
+ m_fRadioRangeAlpha 0.4
+ m_GraphLinesData SCR_GraphLinesData "{54E4D77E86387FBF}" : "{C35F29E48086221A}Configs/Campaign/CampaignGraphLinesConfig.conf" {
+ }
+ m_iBaseID 0
+ {
+  SCR_CampaignDeliveryPoint {
+   ID "596AF3F85C29F567"
+   components {
+    Hierarchy "{596AF3F85C2E7D22}" {
+    }
+    SCR_CampaignServiceMapDescriptorComponent "{596AF3F85C2E7D20}" {
+     MapItemDescriptor 1
+     MainType "Icon (generic)"
+     m_sMarkerActive "Slot_Supplies"
+     m_sMarkerInactive "Slot_Supplies_Inactive"
+    }
+    SCR_CampaignSuppliesComponent "{596AF3F85C2E7D25}" {
+     m_iSupplies 250
+     m_iSuppliesMax 5000
+    }
+   }
+   coords 0 0 0
+   m_eType SUPPLY_DEPOT
+  }
+  SCR_CampaignTriggerEntity {
+   ID "596AF3F85C29F564"
+   components {
+    Hierarchy "{596AF3F85C2E7D5B}" {
+    }
+   }
+   TriggerShapeType Sphere
+   SphereRadius 160
+   UpdatePeriod 99999
+   ClassFilter "ChimeraCharacter"
+  }
+  SCR_SpawnPoint {
+   ID "596AF3F85C2E1FEA"
+   components {
+    Hierarchy "{596AF3F85C2E7D5A}" {
+    }
+    SCR_MapDescriptorComponent "{596AF3F85C2E7D59}" {
+     VisibleOnMap 0
+     MainType Spawnpoint
+    }
+    RplComponent "{596AF3F85C2E7D58}" {
+     Streamable Disabled
+    }
+   }
+   coords 0 0 0
+   m_fSpawnRadius 10
+   m_fNoPlayerRadius 5
+   m_fNoSightRadius 0
+   m_sFaction ""
+  }
+  SCR_CampaignDeliveryPoint : "{1F2077F3D10480AE}Prefabs/MP/Campaign/Bases/CampaignServiceFuelDepot.et" {
+   ID "596AF3F85C2E1FE4"
+   components {
+    SCR_CampaignServiceMapDescriptorComponent "{596AF3F85C2E7D5D}" {
+     MapItemDescriptor 1
+     MainType "Icon (generic)"
+     m_sMarkerActive "Slot_Fuel"
+     m_sMarkerInactive "Slot_Fuel_Inactive"
+    }
+   }
+   coords 0 0 0
+  }
+  SCR_CampaignDeliveryPoint : "{A8FDE8C9B2DA6E1B}Prefabs/MP/Campaign/Bases/CampaignServiceArmory.et" {
+   ID "596AF3F85C2E1FE5"
+   components {
+    SCR_CampaignServiceMapDescriptorComponent "{596AF3F85C2E7D53}" {
+     MapItemDescriptor 1
+     MainType "Icon (generic)"
+     m_sMarkerActive "Slot_Armory"
+     m_sMarkerInactive "Slot_Armory_Inactive"
+    }
+   }
+   coords 0 0 0
+  }
+  SCR_CampaignDeliveryPoint : "{B27D51606A8ED6E8}Prefabs/MP/Campaign/Bases/CampaignServiceRepairDepot.et" {
+   ID "596AF3F85C2E7D12"
+   components {
+    SCR_CampaignServiceMapDescriptorComponent "{596AF3F85C2E7D51}" {
+     MapItemDescriptor 1
+     MainType "Icon (generic)"
+     m_sMarkerActive "Slot_Repair"
+     m_sMarkerInactive "Slot_Repair_Inactive"
+    }
+   }
+   coords 0 0 0
+  }
+  SCR_CampaignRemnantsSpawnPoint : "{DE7ABA5055B00185}Prefabs/MP/Campaign/Bases/CampaignRemnantsSpawnPointEntity.et" {
+   ID "596AF3F85C2E7D11"
+   coords 0 0 12
+   m_eGroupType PATROL
+  }
+ }
+}

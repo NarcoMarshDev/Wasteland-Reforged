@@ -1,0 +1,141 @@
+GenericEntity {
+ ID "596EF2DE9A9E7B2F"
+ coords 2845.99 90.676 6336.585
+ {
+  SCR_BaseTriggerEntity spawnTriggerVilleneuve {
+   ID "596EF2DE9A9E2FEA"
+   userScript "	SCR_ChimeraCharacter cc;"\
+   "	ref array<IEntity> teleportPoints = new array<IEntity>();"\
+   "		"\
+   "	private void GetAllChildren(IEntity parent, notnull inout array<IEntity> allChildren)"\
+   "	{"\
+   "		if (!parent)"\
+   "			return;"\
+   "		"\
+   "		IEntity child = parent.GetChildren();"\
+   "		"\
+   "		while (child)"\
+   "		{"\
+   "			allChildren.Insert(child);"\
+   "			child = child.GetSibling();"\
+   "		}"\
+   "	}"\
+   "	"\
+   "	override bool ScriptedEntityFilterForQuery(IEntity ent)"\
+   "	{"\
+   "		SCR_ChimeraCharacter temp = SCR_ChimeraCharacter.Cast(ent);"\
+   "		"\
+   "		GetAllChildren(this, teleportPoints);"\
+   "		if (temp != null)"\
+   "		{"\
+   "			cc = temp;"\
+   "			return true;"\
+   "		}"\
+   "		else return false;		"\
+   "	}"\
+   "	"\
+   "	protected ref RandomGenerator m_pRandomGenerator = new RandomGenerator();"\
+   "	vector tpTransform[4];"\
+   "	"\
+   "	override void OnActivate(IEntity ent)"\
+   "	{	"\
+   "		IEntity temp = teleportPoints.GetRandomElement();"\
+   "		temp.GetTransform(tpTransform);"\
+   "		cc.Teleport(tpTransform);"\
+   "	}"
+   TriggerShapeType "Oriented Bounding Box"
+   BoxMins -3 -0.5 -1
+   BoxMaxs 3 2 1
+   DrawShape 1
+   ShapeColor 0 0 0 1
+   TriggerActivationType "Every query"
+   PeriodicQueries 1
+   {
+    $grp GenericEntity {
+     {
+      ID "596EF2DE9A98FD81"
+      components {
+       Hierarchy "{596EF2C4B7F50753}" {
+       }
+      }
+     }
+     {
+      ID "596EF2DE9A9916A2"
+      components {
+       Hierarchy "{596EF2C4B1CB2A62}" {
+       }
+      }
+     }
+     {
+      ID "596EF2DE9A9993BC"
+      components {
+       Hierarchy "{596EF2C4A84DBCEB}" {
+       }
+      }
+     }
+     {
+      ID "596EF2DE9A99B0CC"
+      components {
+       Hierarchy "{596EF2C4AD8DBAA4}" {
+       }
+      }
+     }
+     {
+      ID "596EF2DE9A99B0CF"
+      components {
+       Hierarchy "{596EF2C4B3DA3480}" {
+       }
+      }
+     }
+     {
+      ID "596EF2DE9A99D7A8"
+      components {
+       Hierarchy "{596EF2C4A4CFA3B7}" {
+       }
+      }
+     }
+     {
+      ID "596EF2DE9A99D7A9"
+      components {
+       Hierarchy "{596EF2C4A701F258}" {
+       }
+      }
+     }
+     {
+      ID "596EF2DE9A9E2FED"
+      components {
+       Hierarchy "{596EF2C4A1C364E3}" {
+       }
+      }
+     }
+    }
+   }
+  }
+  SCR_SpawnPoint : "{2B1758F237E4820E}Prefabs/MP/Spawning/SpawnPoint_FIA.et" {
+   ID "596EF2DE9A98FD8F"
+   m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+    Name "Villeneuve"
+   }
+  }
+  StaticModelEntity : "{35E14C4C60C4A4F3}Prefabs/Structures/Agriculture/WeightStation/WeightStation_01_platform.et" {
+   ID "596EF2DE9A986EC3"
+   coords 0 -0.5 0
+   angleY 90
+   scale 0.5
+  }
+  SCR_SpawnPoint : "{4FEA25583D0975F7}Prefabs/MP/Spawning/SpawnPoint_USSR.et" {
+   ID "596EF2DE9A98FD8E"
+   coords 2 0 0
+   m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+    Name "Villeneuve"
+   }
+  }
+  SCR_SpawnPoint : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+   ID "596EF2DE9A986EC0"
+   coords -2 0 0
+   m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+    Name "Villeneuve"
+   }
+  }
+ }
+}

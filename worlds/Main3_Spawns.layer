@@ -1,0 +1,16 @@
+$grp SCR_SpawnPoint : "{4FEA25583D0975F7}Prefabs/MP/Spawning/SpawnPoint_USSR.et" {
+ Airfield_Spawn_USSR1 {
+  coords 4697.363 27.884 11178.146
+ }
+ Airfield_Spawn_FIA1 {
+  coords 4709.323 27.771 11161.981
+  m_sFaction "FIA"
+  m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+   Name "FIA Point"
+   Icon "{B784E694BA4A7D40}UI/Textures/Flags/Everon-flag-base-3it.edds"
+  }
+ }
+}
+SCR_SpawnPoint Airfield_Spawn_US1 : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ coords 4697.154 27.845 11145
+}

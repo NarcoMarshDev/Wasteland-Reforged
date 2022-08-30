@@ -1,0 +1,85 @@
+SCR_PlayerController {
+ ID "1A9BA6BEFA06E3B1"
+ components {
+  SCR_ReloadRadialMenuComponent "{59A560DD883648D9}" {
+   Enabled 0
+   m_pRadialMenu SCR_RadialMenuHandler "{59A560DD97D6B511}" {
+   }
+   m_RadialMenuVisuals SCR_RadialMenuVisuals "{59A560DD94FA7A02}" {
+    m_LayoutPath "{C967377E3D96107D}UI/layouts/Common/RadialMenu/RadialMenuVisuals.layout"
+    m_eLayer HIGH
+    m_rElementLayoutPath "{95123068DC2C2ECF}UI/layouts/Common/RadialMenu/radialElementIcon.layout"
+    m_rBorderLinePath "{639717DA6610F1C1}UI/layouts/Common/RadialMenu/RadialMenuBorderLine.layout"
+    m_sPageIndicationLayout "{595FE46A06BE9DB3}UI/layouts/Common/RadialMenu/MenuPageIndication.layout"
+    m_sPageIconsSet "{1F0A6C9C19E131C6}UI/Textures/Icons/icons_wrapperUI.imageset"
+    m_sTxtAction "TxtAction"
+    m_sTxtItemName "TxtItemName"
+    m_sImageSelector "ImgSelector"
+    m_sSelectLast "SelectLast"
+    m_fSizeMenu 660
+    m_fRadiusEntries 250
+    m_fSelectorDistance 185
+   }
+   m_iHandlerId 2
+   m_sInput_Toggle "CharacterReloadMenu"
+   m_bHoldToggleToOpen 1
+   m_sInputPageNext "OnClose"
+   m_sInputPagePrevious "OnClose"
+   m_bEvenlyPlacedEntries 1
+   m_fEntryDistance 30
+   m_iSelectionBehavior FreeMove
+   m_fSelectFreeDelay 0
+  }
+  WR_BuildingRadialMenuComponent "{59ACD3AE138DE557}" {
+   m_pRadialMenu SCR_RadialMenuHandler "{59ACD3AE18313E40}" {
+   }
+   m_RadialMenuVisuals SCR_RadialMenuVisuals "{59ACD3AE2B802449}" {
+    m_LayoutPath "{C967377E3D96107D}UI/layouts/Common/RadialMenu/RadialMenuVisuals.layout"
+    m_eLayer HIGH
+    m_rElementLayoutPath "{95123068DC2C2ECF}UI/layouts/Common/RadialMenu/radialElementIcon.layout"
+    m_rBorderLinePath "{639717DA6610F1C1}UI/layouts/Common/RadialMenu/RadialMenuBorderLine.layout"
+    m_sPageIndicationLayout "{595FE46A06BE9DB3}UI/layouts/Common/RadialMenu/MenuPageIndication.layout"
+    m_sPageIconsSet "{1F0A6C9C19E131C6}UI/Textures/Icons/icons_wrapperUI.imageset"
+    m_sTxtAction "TxtAction"
+    m_sTxtItemName "TxtItemName"
+    m_sImageSelector "ImgSelector"
+    m_sSelectLast "SelectLast"
+    m_fSizeMenu 660
+    m_fRadiusEntries 250
+    m_fSelectorDistance 185
+   }
+   m_iHandlerId 2
+   m_sInput_Toggle "CharacterReloadMenu"
+   m_bHoldToggleToOpen 1
+   m_sInputPageNext "OnClose"
+   m_sInputPagePrevious "OnClose"
+   m_bEvenlyPlacedEntries 1
+   m_iSelectionBehavior FreeMove
+   m_fSelectFreeDelay 0
+  }
+  WR_DebugComponent "{5A25250A90C47ADB}" {
+  }
+  SlotManagerComponent "{5A3B326D249311EA}" {
+   Slots {
+    EntitySlotInfo BuildingObjectSlot {
+     Offset 0 0.25 3
+    }
+   }
+  }
+ }
+ coords 0 0 0
+ {
+  SCR_SiteSlotEntity {
+   ID "5A3B326FD86C2E81"
+   components {
+    Hierarchy "{5A3B326FCCFA16AC}" {
+    }
+    SCR_EditableEntityComponent "{5A3B326FD279D35A}" {
+    }
+    RplComponent "{5A3B326FD664B00E}" {
+    }
+   }
+   coords 0 0 3
+  }
+ }
+}

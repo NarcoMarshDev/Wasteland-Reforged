@@ -1,0 +1,12 @@
+GenericEntity : "{CD67070EFAFC28C7}Prefabs/Props/Military/Sandbags/Sandbag_01_wall_burlap.et" {
+ ID "F0DBA538AC2A0552"
+ coords 0 0 0
+ {
+  StaticModelEntity : "{F261C1F4466EC383}Prefabs/Building/Small/Barbed Wire/WR_BarbedWire.et" {
+   ID "5A3B326AAAE576AA"
+   coords 0 1.9 0
+   angleY 90
+   scale 0.8
+  }
+ }
+}
