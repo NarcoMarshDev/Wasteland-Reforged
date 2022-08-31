@@ -11,42 +11,6 @@ class WR_BuildingPickupAction: ScriptedUserAction
 	
 	override event void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
 	{
-		#ifdef WR_BROKEN
-		if (!m_Entity)
-			return;
-		
-		SCR_SiteSlotEntity buildingSlotEntity;
-		if (pUserEntity.GetChildren())
-		{
-			IEntity child = pUserEntity.GetChildren();
-			while (child)
-			{
-				if (child.IsInherited(SCR_SiteSlotEntity))
-				{
-					buildingSlotEntity = SCR_SiteSlotEntity.Cast(child);
-					break;
-				}
-				child = child.GetSibling();
-			}
-		}
-		
-		if (!buildingSlotEntity)
-		{
-			Print("no valid slot entity");
-			return;
-		}
-		
-		if (buildingSlotEntity.IsOccupied())
-		{
-			Print("building slot occupied");
-			return;
-		}
-		
-		buildingSlotEntity.SetOccupant(pOwnerEntity);
-		Print("slot occupant set to " + pOwnerEntity);
-		#endif
-		// ---------------- OLD CODE OBSOLETE ---------------- //
-		
 		if (!m_Entity)
 			return;
 		

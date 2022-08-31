@@ -6,20 +6,20 @@ class WR_BuildMenuEntry : ScriptedSelectionMenuEntry
 	protected string m_pIconPath;
 	protected string m_pName;
 	protected string m_pDescription;
+	protected Color m_IconColor;
 	
 	//------------------------------------------------------------------------------------------------
 	//! Callback for when this entry is supposed to be performed
 	override void OnPerform(IEntity user, BaseSelectionMenu sourceMenu)
 	{
 		SlotManagerComponent slotManager = SlotManagerComponent.Cast(m_pCharacter.FindComponent(SlotManagerComponent));
-		Print(slotManager);
 		if (!slotManager)
 			return;
 		
 		array<EntitySlotInfo> slotInfos = new array<EntitySlotInfo>;
 		slotManager.GetSlotInfos(slotInfos);
-		Print(slotInfos);
 		
+		// this may be able to be replaced by just referencing slotInfos[0] instead of using a normally single loop foreach loop
 		foreach (EntitySlotInfo slot : slotInfos)
 		{
 			IEntity ent = slot.GetAttachedEntity();
@@ -49,164 +49,41 @@ class WR_BuildMenuEntry : ScriptedSelectionMenuEntry
 					break;
 			
 				case BuildMenuEntryType.LEFT:
-			
-					vector entAngles;
-					entAngles = ent.GetAngles();
-					Print("old angle: " + entAngles[1]);
-					entAngles[1] = ent.GetAngles()[1] - 45;
-					ent.SetAngles(entAngles);
-					Print("new angle: " + entAngles[1]);
+					
+					vector mat[4];
+					ent.GetWorldTransform(mat);
+					vector entAngles = Math3D.MatrixToAngles(mat);
+					Print("old angles: " + entAngles);
+
+					entAngles[0] = entAngles[0] - 45;
+					if 		(entAngles[0] > 180) 	{entAngles[0] = entAngles[0] - 360;}
+					else if (entAngles[0] < -180) 	{entAngles[0] = entAngles[0] + 360;}
+					
+					Math3D.AnglesToMatrix(entAngles, mat);
+					ent.SetWorldTransform(mat);
 					break;
 			
 				case BuildMenuEntryType.RIGHT:
 			
-					vector entAngles;
-					entAngles = ent.GetAngles();
-					Print("old angle: " + entAngles[1]);
-					entAngles[1] = ent.GetAngles()[1] + 45;
-					ent.SetAngles(entAngles);
-					Print("new angle: " + entAngles[1]);
-					break;
+					vector mat[4];
+					ent.GetWorldTransform(mat);
+					vector entAngles = Math3D.MatrixToAngles(mat);
+					Print("old angles: " + entAngles);
+
+					entAngles[0] = entAngles[0] + 45;
+					if 		(entAngles[0] > 180) 	{entAngles[0] = entAngles[0] - 360;}
+					else if (entAngles[0] < -180) 	{entAngles[0] = entAngles[0] + 360;}
+					
+					Math3D.AnglesToMatrix(entAngles, mat);
+					ent.SetWorldTransform(mat);
+					break;		
 			
 				default:
 					Print("No BuildMenuEntryType found", LogLevel.WARNING);
 					break;
-			}		
+			}	
 		}
-		
-		
-		
-		
-		#ifdef WR_BROKEN
-		if (!m_pCharacter.GetChildren())
-			return;
-		
-		SCR_SiteSlotEntity buildingSlot = SCR_SiteSlotEntity.Cast( m_pCharacter.GetChildren() );
-		
-		if (!buildingSlot)
-			return;
-		
-		IEntity ent = buildingSlot.GetOccupant();
-		
-		if (!ent)
-			return;
-		
-		switch (m_pEntryType)
-		{
-			case BuildMenuEntryType.PLACE:
-			
-				vector entTransform[4];
-				buildingSlot.SetOccupant(null);
-				ent.GetWorldTransform(entTransform);
-				ent.GetParent().RemoveChild(ent);
-				ent.SetWorldTransform(entTransform);
-				break;
-			
-			case BuildMenuEntryType.SNAP:
-			
-				vector entTransform[4];
-				vector entAngles[3];
-				buildingSlot.SetOccupant(null);
-				ent.GetWorldTransform(entTransform);
-				SCR_TerrainHelper.SnapToTerrain(entTransform, GetGame().GetWorld(), true);
-				ent.GetParent().RemoveChild(ent);
-				ent.SetWorldTransform(entTransform);
-				break;
-			
-			case BuildMenuEntryType.LEFT:
-			
-				vector entAngles;
-				entAngles = ent.GetAngles();
-				Print("old angle: " + entAngles[1]);
-				entAngles[1] = ent.GetAngles()[1] - 45;
-				ent.SetAngles(entAngles);
-				Print("new angle: " + entAngles[1]);
-				break;
-			
-			case BuildMenuEntryType.RIGHT:
-			
-				vector entAngles;
-				entAngles = ent.GetAngles();
-				Print("old angle: " + entAngles[1]);
-				entAngles[1] = ent.GetAngles()[1] + 45;
-				ent.SetAngles(entAngles);
-				Print("new angle: " + entAngles[1]);
-				break;
-			
-			default:
-				Print("No BuildMenuEntryType found", LogLevel.WARNING);
-				break;
-		}
-		
-		SCR_CharacterControllerComponent.Cast(m_pCharacter.FindComponent(SCR_CharacterControllerComponent)).SetDynamicSpeed(1.0);
-		
-		super.OnPerform(user, sourceMenu);
-		
-		#endif
-				
-		// ---------------- OLD CODE OBSOLETE ---------------- //
-		
-		#ifdef WR_OBSOLETE
-		SlotManagerComponent slotManager = SlotManagerComponent.Cast(m_pCharacter.FindComponent(SlotManagerComponent));
-		Print(slotManager);
-		if (!slotManager)
-			return;
-		
-		array<EntitySlotInfo> slots = new array<EntitySlotInfo>;
-		slotManager.GetSlotInfos(slots);
-		Print(slots);
-		for (int i = 0; i < slots.Count(); i++)
-		{
-			// thanks to alnyan in the arma discord for this (discord id: 394764165392105472)
-			IEntity ent = slots[i].GetAttachedEntity();
-			if (!ent)
-				continue;
-			
-			if (m_pEntryType == BuildMenuEntryType.PLACE)
-			{
-				vector entTransform[4];
-				slots[i].DetachEntity(false);
-				ent.GetWorldTransform(entTransform);
-				ent.GetParent().RemoveChild(ent);
-				ent.SetWorldTransform(entTransform);
-			}
-			
-			else if (m_pEntryType == BuildMenuEntryType.SNAP)
-			{
-				vector entTransform[4];
-				vector entAngles[3];
-				slots[i].DetachEntity(false);
-				ent.GetWorldTransform(entTransform);
-				SCR_TerrainHelper.SnapToTerrain(entTransform, GetGame().GetWorld(), true);
-				ent.GetParent().RemoveChild(ent);
-				ent.SetWorldTransform(entTransform);
-			}
-			
-			else if (m_pEntryType == BuildMenuEntryType.LEFT)
-			{
-				vector entAngles;
-				entAngles = ent.GetAngles();
-				Print("old angle: " + entAngles[1]);
-				entAngles[1] = ent.GetAngles()[1] - 45;
-				ent.SetAngles(entAngles);
-				Print("new angle: " + entAngles[1]);
-			}
-			
-			else if (m_pEntryType == BuildMenuEntryType.RIGHT)
-			{
-				vector entAngles;
-				entAngles = ent.GetAngles();
-				Print("old angle: " + entAngles[1]);
-				entAngles[1] = ent.GetAngles()[1] + 45;
-				ent.SetAngles(entAngles);
-				Print("new angle: " + entAngles[1]);
-			}
-		}
-		
-		SCR_CharacterControllerComponent.Cast(m_pCharacter.FindComponent(SCR_CharacterControllerComponent)).SetDynamicSpeed(1.0);
-		
-		super.OnPerform(user, sourceMenu);
-		#endif
+		SCR_CharacterControllerComponent.Cast( m_pCharacter.FindComponent(SCR_CharacterControllerComponent) ).SetDynamicSpeed(1.0);
 	}
 	//------------------------------------------------------------------------------------------------
 	//! Can this entry be shown?
@@ -255,68 +132,52 @@ class WR_BuildMenuEntry : ScriptedSelectionMenuEntry
 			{
 				img.SetOpacity(0.5);
 
-				Color col = GetColor();
+				Color col = m_IconColor;
 				img.SetColor(col);
 			}
 		}
 		return entry;
 	}
-	
-	//------------------------------------------------------------------------------------------------
-	
-	protected Color GetColor()
-	{
-		if (m_pEntryType == BuildMenuEntryType.PLACE)
-			return Color.Green;
-
-		if (m_pEntryType == BuildMenuEntryType.SNAP)
-			return Color.Yellow;
-
-		if (m_pEntryType == BuildMenuEntryType.LEFT)
-			return Color.Orange;
-
-		if (m_pEntryType == BuildMenuEntryType.RIGHT)
-			return Color.Orange;
-
-		return Color.Black;
-	}
-	
+		
 	//------------------------------------------------------------------------------------------------
 	void WR_BuildMenuEntry(notnull ChimeraCharacter character, BuildMenuEntryType entryType)
 	{
 		m_pCharacter = character;
 		m_pEntryType = entryType;
-		
 		m_pDescription = "Left Click To Select";
 		
-		// set entry icon and name depending on entry type
+		// set entry icon, name and color depending on entry type
 		
-		if (m_pEntryType == BuildMenuEntryType.PLACE)
+		switch (m_pEntryType)
 		{
-			m_pIconPath = "{8657510D7940031F}UI/Textures/Workshop/DownloadManager/DownloadManager_DownloadingIcon_UI.edds";
-			m_pName = "Place As Is";
-		}
-		else if (m_pEntryType == BuildMenuEntryType.SNAP)
-		{
-			m_pIconPath = "{BBA44B0A0EEFB9D9}UI/Textures/icon_snaptosurface.edds";
-			m_pName = "Snap To Surface";
-		}
-		else if (m_pEntryType == BuildMenuEntryType.LEFT)
-		{
-			m_pIconPath = "{93C33F624F012AAA}UI/Textures/icon_right.edds";
-			m_pName = "Rotate Anti-Clockwise";
-		}
-		else if (m_pEntryType == BuildMenuEntryType.RIGHT)
-		{
-			m_pIconPath = "{5D33E0725DB71976}UI/Textures/icon_left.edds";
-			m_pName = "Rotate Clockwise";
-		}
-		
-		
-		
-		else
-		{
-			m_pIconPath = "{A3D157619860A564}UI/Textures/Editor/Attributes/Arsenal/Attribute_Arsenal_Magazines.edds";
+			case BuildMenuEntryType.PLACE:
+				m_pIconPath = "{8657510D7940031F}UI/Textures/Workshop/DownloadManager/DownloadManager_DownloadingIcon_UI.edds";
+				m_pName = "Place As Is";
+				m_IconColor = Color.Green;
+				break;
+			
+			case BuildMenuEntryType.SNAP:
+				m_pIconPath = "{BBA44B0A0EEFB9D9}UI/Textures/icon_snaptosurface.edds";
+				m_pName = "Snap To Surface";
+				m_IconColor = Color.Yellow;
+				break;
+			
+			case BuildMenuEntryType.LEFT:
+				m_pIconPath = "{93C33F624F012AAA}UI/Textures/icon_right.edds";
+				m_pName = "Rotate Anti-Clockwise";
+				m_IconColor = Color.Orange;
+				break;
+			
+			case BuildMenuEntryType.RIGHT:
+				m_pIconPath = "{5D33E0725DB71976}UI/Textures/icon_left.edds";
+				m_pName = "Rotate Clockwise";
+				m_IconColor = Color.Orange;
+				break;
+			
+			default:
+				m_pIconPath = "{A3D157619860A564}UI/Textures/Editor/Attributes/Arsenal/Attribute_Arsenal_Magazines.edds";
+				m_IconColor = Color.Black;
+				break;
 		}
 	}
 
