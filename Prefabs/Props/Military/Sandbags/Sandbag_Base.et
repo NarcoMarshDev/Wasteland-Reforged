@@ -1,0 +1,29 @@
+GenericEntity : "{4CC2C69DE1AEF103}Prefabs/Props/Core/Destructible_Props_Base.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  ActionsManagerComponent "{5A3E848811CA1234}" {
+   ActionContexts {
+    UserActionContext "{5A3E848810749A30}" {
+     ContextName "default"
+     Position PointInfo "{5A3E848819A0AD94}" {
+     }
+     Radius 5
+    }
+   }
+   additionalActions {
+    WR_BuildingPickupAction "{5A3E848828DC5323}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{5A3E84883359D5AF}" {
+      Name "Pickup Object"
+     }
+     Duration 0.5
+    }
+   }
+  }
+  RplComponent "{5624A88DC2D9928D}" {
+   Enabled 1
+  }
+ }
+}

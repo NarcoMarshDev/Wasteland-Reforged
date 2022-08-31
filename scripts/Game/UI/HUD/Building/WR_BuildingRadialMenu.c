@@ -27,11 +27,9 @@ class WR_BuildingRadialMenuComponent : SCR_RadialMenuComponent
 	SCR_CharacterControllerComponent characterController;
 	BaseWeaponComponent lastWeapon;
 	
-	ref array<ResourceName> m_CurrentModelPaths = new array<ResourceName>();
-	
-	void SetCurrentModelPaths(array<ResourceName> paths)
+	void SetCharacterController(SCR_CharacterControllerComponent controller)
 	{
-		m_CurrentModelPaths = paths;
+		characterController = controller;
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -43,7 +41,6 @@ class WR_BuildingRadialMenuComponent : SCR_RadialMenuComponent
 
 		m_pRadialMenu.Init(owner);
 		m_pRadialMenu.m_OnActionPerformed.Insert(OnSelection);
-		Print("EOnInit owner: " + owner);
 	}
 
 	//------------------------------------------------------------------------------------------------
@@ -56,23 +53,23 @@ class WR_BuildingRadialMenuComponent : SCR_RadialMenuComponent
 		bool canOpen = CanOpen(owner);
 		
 		if (canOpen)
-		{	
-			if (!characterController)
-				characterController = SCR_CharacterControllerComponent.Cast(GetCharacter(owner).FindComponent(SCR_CharacterControllerComponent));
-			
+		{			
 			characterController.SetDynamicSpeed(0.55);
 			
 			BaseWeaponComponent currentWeapon = characterController.GetWeaponManagerComponent().GetCurrentWeapon();
 			if (currentWeapon)
+			{
 				lastWeapon = currentWeapon;
-			
+			}
 			characterController.SelectWeapon(null);
 		}
 		else if (lastWeapon)
 		{
 			// for some reason this just doesn't work, lastWeapon exists and is correct, 
 			// it returns true saying it's equipped the weapon, but it just doesnt
-			bool weaponSelected = characterController.SelectWeapon(lastWeapon);
+			Print("lastWeapon: " + lastWeapon);
+			
+			bool weaponSelected = characterController.SelectWeapon(BaseWeaponComponent.Cast(lastWeapon));
 			lastWeapon = null;
 		}
 
@@ -135,10 +132,10 @@ class WR_BuildingRadialMenuComponent : SCR_RadialMenuComponent
 		
 		// TODO move all these to EOnInit, they're static so don't need to be remade every frame;
 		
-		WR_BuildMenuEntry placeEntry 	= new WR_BuildMenuEntry(controlledCharacter, m_CurrentModelPaths, BuildMenuEntryType.PLACE);
-		WR_BuildMenuEntry snapEntry 	= new WR_BuildMenuEntry(controlledCharacter, m_CurrentModelPaths, BuildMenuEntryType.SNAP);
-		WR_BuildMenuEntry leftEntry		= new WR_BuildMenuEntry(controlledCharacter, m_CurrentModelPaths, BuildMenuEntryType.LEFT);
-		WR_BuildMenuEntry rightEntry 	= new WR_BuildMenuEntry(controlledCharacter, m_CurrentModelPaths, BuildMenuEntryType.RIGHT);
+		WR_BuildMenuEntry placeEntry 	= new WR_BuildMenuEntry(controlledCharacter, BuildMenuEntryType.PLACE);
+		WR_BuildMenuEntry snapEntry 	= new WR_BuildMenuEntry(controlledCharacter, BuildMenuEntryType.SNAP);
+		WR_BuildMenuEntry leftEntry		= new WR_BuildMenuEntry(controlledCharacter, BuildMenuEntryType.LEFT);
+		WR_BuildMenuEntry rightEntry 	= new WR_BuildMenuEntry(controlledCharacter, BuildMenuEntryType.RIGHT);
 		
 		m_pRadialMenu.AddEntry(placeEntry, 0);
 		m_pRadialMenu.AddEntry(rightEntry, 0);

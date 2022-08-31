@@ -7,7 +7,6 @@ class WR_BuildMenuEntry : ScriptedSelectionMenuEntry
 	protected string m_pName;
 	protected string m_pDescription;
 	protected Color m_IconColor;
-	protected array<ResourceName> m_OriginalModelPaths;
 	
 	//------------------------------------------------------------------------------------------------
 	//! Callback for when this entry is supposed to be performed
@@ -141,12 +140,11 @@ class WR_BuildMenuEntry : ScriptedSelectionMenuEntry
 	}
 		
 	//------------------------------------------------------------------------------------------------
-	void WR_BuildMenuEntry(notnull ChimeraCharacter character, array<ResourceName> resNames, BuildMenuEntryType entryType)
+	void WR_BuildMenuEntry(notnull ChimeraCharacter character, BuildMenuEntryType entryType)
 	{
 		m_pCharacter = character;
 		m_pEntryType = entryType;
 		m_pDescription = "Left Click To Select";
-		m_OriginalModelPaths = resNames;
 		
 		// set entry icon, name and color depending on entry type
 		

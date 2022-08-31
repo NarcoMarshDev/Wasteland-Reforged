@@ -4,6 +4,8 @@ SCR_BaseGameMode GameMode_Plain2 : "{1B76F75A3175E85C}Prefabs/MP/Modes/Plain/Gam
   }
   SCR_CompositionSlotManagerComponent "{5A3D398146E91793}" {
   }
+  WR_GameModeComponent "{5A3E3425D1F6D6EB}" {
+  }
  }
  coords 125.923 1.001 130.804
 }
@@ -45,4 +47,42 @@ WR_BuildingObjectEntity {
 GenericEntity : "{193EF363CD35FDA7}Prefabs/Structures/Moveable/WRB_SilageWall_02_12m.et" {
  coords 129.859 1.001 140
  angleY 0
+}
+$grp GenericEntity : "{9C9C4BED9E19C374}Prefabs/Props/Military/Sandbags/Sandbag_01_wall_solid_burlap.et" {
+ {
+  coords 122.866 1.001 123.143
+ }
+ {
+  coords 127.241 1.001 123.374
+ }
+ {
+  coords 117.924 1.001 124.101
+ }
+ {
+  coords 115.062 1.001 119.691
+ }
+}
+$grp GenericEntity : "{B31A14BC1A0E7776}Prefabs/Props/Military/Sandbags/Sandbag_01_round_burlap.et" {
+ {
+  coords 110.377 1.001 123.196
+ }
+ {
+  coords 110.257 1.001 121.681
+ }
+}
+$grp GenericEntity : "{CD67070EFAFC28C7}Prefabs/Props/Military/Sandbags/Sandbag_01_wall_burlap.et" {
+ {
+  coords 119.701 1.001 119.776
+ }
+ {
+  coords 124.357 1.001 119.808
+ }
+}
+$grp GenericEntity : "{F0EC223F2A1094C0}Prefabs/Props/Military/Sandbags/Sandbag_01_bunker_burlap.et" {
+ {
+  coords 110.815 1.001 127.65
+ }
+ {
+  coords 116.088 1.001 136.53
+ }
 }
