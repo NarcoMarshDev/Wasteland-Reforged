@@ -177,6 +177,63 @@ class WR_Statics
 	// ============================================== OTHER ==============================================
 	// ===================================================================================================
 	
+	static void GetMaterial(IEntity entity, out string materials[], out int numMaterials)
+	{
+		VObject mesh = entity.GetVObject();
+		if (mesh)
+		{
+			numMaterials = mesh.GetMaterials(materials);
+		}
+	}
+	
+	static void SetMaterial(IEntity entity, ResourceName material, bool recursively = true)
+	{
+		//--- Remap textures of the current mesh
+		VObject mesh = entity.GetVObject();
+		if (mesh)
+		{
+			string remap;
+			string materials[256];
+			int numMats = mesh.GetMaterials(materials);
+			for (int i = 0; i < numMats; i++)
+			{
+				remap += string.Format("$remap '%1' '%2';", materials[i], material);
+			}
+			entity.SetObject(mesh, remap);
+		}
+		
+		//--- Iterate through children
+		if (recursively)
+		{
+			IEntity child = entity.GetChildren();
+			while (child)
+			{
+				SetMaterial(child, material);
+				child = child.GetSibling();
+			}
+		}
+	}
+	
+	// this is fucking sick
+	static void RestoreMaterial(IEntity entity)
+	{
+		IEntity child = entity;
+		while (child)
+		{
+			VObject vobj = child.GetVObject();
+			if (!vobj)
+			{
+				child = child.GetChildren();
+				continue;
+			}
+			ResourceName resName;
+			string remap;
+			SCR_Global.GetModelAndRemapFromResource(vobj.GetResourceName(), resName, remap);
+			child.SetObject( Resource.Load(resName).GetResource().ToVObject(), "");
+			child = child.GetChildren();
+		}
+	}
+	
 	// thanks to Chad (Discord ID 110143440817229824)
 	static IEntity SpawnPrefabOnPlayer(IEntity player, ResourceName prefabName)
 	{

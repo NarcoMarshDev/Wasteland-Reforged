@@ -7,6 +7,7 @@ class WR_BuildMenuEntry : ScriptedSelectionMenuEntry
 	protected string m_pName;
 	protected string m_pDescription;
 	protected Color m_IconColor;
+	protected array<ResourceName> m_OriginalModelPaths;
 	
 	//------------------------------------------------------------------------------------------------
 	//! Callback for when this entry is supposed to be performed
@@ -35,6 +36,7 @@ class WR_BuildMenuEntry : ScriptedSelectionMenuEntry
 					ent.GetWorldTransform(entTransform);
 					ent.GetParent().RemoveChild(ent);
 					ent.SetWorldTransform(entTransform);
+					WR_Statics.RestoreMaterial(ent);
 					break;
 			
 				case BuildMenuEntryType.SNAP:
@@ -46,6 +48,7 @@ class WR_BuildMenuEntry : ScriptedSelectionMenuEntry
 					SCR_TerrainHelper.SnapToTerrain(entTransform, GetGame().GetWorld(), true);
 					ent.GetParent().RemoveChild(ent);
 					ent.SetWorldTransform(entTransform);
+					WR_Statics.RestoreMaterial(ent);
 					break;
 			
 				case BuildMenuEntryType.LEFT:
@@ -53,9 +56,8 @@ class WR_BuildMenuEntry : ScriptedSelectionMenuEntry
 					vector mat[4];
 					ent.GetWorldTransform(mat);
 					vector entAngles = Math3D.MatrixToAngles(mat);
-					Print("old angles: " + entAngles);
 
-					entAngles[0] = entAngles[0] - 45;
+					entAngles[0] = entAngles[0] - 22.5; // these angles are 22.5 instead of 45 because this seems to run twice with auto closing the menu on selection disabled
 					if 		(entAngles[0] > 180) 	{entAngles[0] = entAngles[0] - 360;}
 					else if (entAngles[0] < -180) 	{entAngles[0] = entAngles[0] + 360;}
 					
@@ -68,9 +70,8 @@ class WR_BuildMenuEntry : ScriptedSelectionMenuEntry
 					vector mat[4];
 					ent.GetWorldTransform(mat);
 					vector entAngles = Math3D.MatrixToAngles(mat);
-					Print("old angles: " + entAngles);
 
-					entAngles[0] = entAngles[0] + 45;
+					entAngles[0] = entAngles[0] + 22.5;
 					if 		(entAngles[0] > 180) 	{entAngles[0] = entAngles[0] - 360;}
 					else if (entAngles[0] < -180) 	{entAngles[0] = entAngles[0] + 360;}
 					
@@ -140,11 +141,12 @@ class WR_BuildMenuEntry : ScriptedSelectionMenuEntry
 	}
 		
 	//------------------------------------------------------------------------------------------------
-	void WR_BuildMenuEntry(notnull ChimeraCharacter character, BuildMenuEntryType entryType)
+	void WR_BuildMenuEntry(notnull ChimeraCharacter character, array<ResourceName> resNames, BuildMenuEntryType entryType)
 	{
 		m_pCharacter = character;
 		m_pEntryType = entryType;
 		m_pDescription = "Left Click To Select";
+		m_OriginalModelPaths = resNames;
 		
 		// set entry icon, name and color depending on entry type
 		

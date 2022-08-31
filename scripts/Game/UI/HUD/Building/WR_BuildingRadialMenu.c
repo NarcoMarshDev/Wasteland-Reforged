@@ -27,6 +27,13 @@ class WR_BuildingRadialMenuComponent : SCR_RadialMenuComponent
 	SCR_CharacterControllerComponent characterController;
 	BaseWeaponComponent lastWeapon;
 	
+	ref array<ResourceName> m_CurrentModelPaths = new array<ResourceName>();
+	
+	void SetCurrentModelPaths(array<ResourceName> paths)
+	{
+		m_CurrentModelPaths = paths;
+	}
+	
 	//------------------------------------------------------------------------------------------------
 	override void EOnInit(IEntity owner)
 	{
@@ -128,10 +135,10 @@ class WR_BuildingRadialMenuComponent : SCR_RadialMenuComponent
 		
 		// TODO move all these to EOnInit, they're static so don't need to be remade every frame;
 		
-		WR_BuildMenuEntry placeEntry 	= new WR_BuildMenuEntry(controlledCharacter, BuildMenuEntryType.PLACE);
-		WR_BuildMenuEntry snapEntry 	= new WR_BuildMenuEntry(controlledCharacter, BuildMenuEntryType.SNAP);
-		WR_BuildMenuEntry leftEntry		= new WR_BuildMenuEntry(controlledCharacter, BuildMenuEntryType.LEFT);
-		WR_BuildMenuEntry rightEntry 	= new WR_BuildMenuEntry(controlledCharacter, BuildMenuEntryType.RIGHT);
+		WR_BuildMenuEntry placeEntry 	= new WR_BuildMenuEntry(controlledCharacter, m_CurrentModelPaths, BuildMenuEntryType.PLACE);
+		WR_BuildMenuEntry snapEntry 	= new WR_BuildMenuEntry(controlledCharacter, m_CurrentModelPaths, BuildMenuEntryType.SNAP);
+		WR_BuildMenuEntry leftEntry		= new WR_BuildMenuEntry(controlledCharacter, m_CurrentModelPaths, BuildMenuEntryType.LEFT);
+		WR_BuildMenuEntry rightEntry 	= new WR_BuildMenuEntry(controlledCharacter, m_CurrentModelPaths, BuildMenuEntryType.RIGHT);
 		
 		m_pRadialMenu.AddEntry(placeEntry, 0);
 		m_pRadialMenu.AddEntry(rightEntry, 0);
@@ -152,8 +159,8 @@ class WR_BuildingRadialMenuComponent : SCR_RadialMenuComponent
 	//------------------------------------------------------------------------------------------------
 	protected void OnSelection(BaseSelectionMenuEntry e, int i)
 	{
-		if (m_pRadialMenu.IsOpen())
-			m_pRadialMenu.Close(null);
+		//if (m_pRadialMenu.IsOpen())
+		//	m_pRadialMenu.Close(null);
 	}
 
 	//------------------------------------------------------------------------------------------------

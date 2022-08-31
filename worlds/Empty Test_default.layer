@@ -7,6 +7,41 @@ SCR_BaseGameMode GameMode_Plain2 : "{1B76F75A3175E85C}Prefabs/MP/Modes/Plain/Gam
  }
  coords 125.923 1.001 130.804
 }
+WR_BuildingObjectEntity {
+ components {
+  MeshObject "{5A3E341EEA49CA31}" {
+   Object "{A856215094A68333}Assets/Props/Airport/ATCPanel_E_01/ATCPanel_E_01.xob"
+  }
+  RigidBody "{5A3E341EFD3091BD}" {
+   ModelGeometry 1
+   Static 1
+  }
+  ActionsManagerComponent "{5A3E341E2E01CDE7}" {
+   ActionContexts {
+    UserActionContext "{5A3E341E7DC4480A}" {
+     ContextName "default"
+     Position PointInfo "{5A3E341E8DCF8BC3}" {
+     }
+     Radius 5
+    }
+   }
+   additionalActions {
+    WR_BuildingPickupAction "{5A3E341EB1B84282}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{5A3E341EB5604CC2}" {
+      Name "Pickup Object"
+     }
+     Duration 0.5
+    }
+   }
+  }
+  RplComponent "{5A3E341E2C7A3EF9}" {
+  }
+ }
+ coords 122.568 1.001 130.683
+}
 GenericEntity : "{193EF363CD35FDA7}Prefabs/Structures/Moveable/WRB_SilageWall_02_12m.et" {
  coords 129.859 1.001 140
  angleY 0
