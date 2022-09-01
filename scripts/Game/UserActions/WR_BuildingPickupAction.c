@@ -14,16 +14,26 @@ class WR_BuildingPickupAction: ScriptedUserAction
 		if (!m_Entity)
 			return;
 		
-		SlotManagerComponent slotManager = SlotManagerComponent.Cast(pUserEntity.FindComponent(SlotManagerComponent));
-		array<EntitySlotInfo> slots = new array<EntitySlotInfo>;
-		slotManager.GetSlotInfos(slots);
+		Print("pls");
+		array<IEntity> ownerChildren = new array<IEntity>();
+		WR_Statics.GetAllChildren(m_Entity, ownerChildren);
+		foreach (IEntity ent : ownerChildren)
+		{
+			Print("owner: " + ent);
+		}
+		array<IEntity> userChildren = new array<IEntity>();
+		WR_Statics.GetAllChildren(pUserEntity, userChildren);
+		foreach (IEntity ent : ownerChildren)
+		{
+			Print("user: " + ent);
+		}
 		
-		// what the actual fuck? replace with ESE.GetPlayerControllerFromEntity(IEntity ent); or even ESE.FindPlayerControllerComponent(IEntity ent);
-		WR_BuildingRadialMenuComponent menu = WR_BuildingRadialMenuComponent.Cast( GetGame().GetPlayerManager().GetPlayerController( GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(pUserEntity) ).FindComponent(WR_BuildingRadialMenuComponent) );
-				
+						
 		WR_Statics.SetMaterial(pOwnerEntity, "{56EBF5038622AC95}Assets/Conflict/CanBuild.emat");
-		
-		slots[0].AttachEntity(pOwnerEntity);		
+		//WR_Statics.SetEntityCollision(pOwnerEntity, EPhysicsLayerDefs.None); This crashes the entire workbench when run, wont even bring up the crash reporter	
+	
+		WR_Statics.GetEntityBuildingSlot(pUserEntity).AttachEntity(pOwnerEntity);
+		WR_Statics.DisableEntityCollisions(pOwnerEntity);
 	}
 	
 	override event bool CanBeShownScript(IEntity user)

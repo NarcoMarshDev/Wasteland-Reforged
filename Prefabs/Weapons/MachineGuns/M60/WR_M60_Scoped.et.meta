@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{371849B8D8BAACBC}Prefabs/Weapons/HeavyWeapons/HMG_M2HB_Mod.et"
+ Name "{371B7A3A68DE7283}Prefabs/Weapons/MachineGuns/M60/WR_M60_Scoped.et"
  Configurations {
   EntityTemplateResourceClass PC {
   }

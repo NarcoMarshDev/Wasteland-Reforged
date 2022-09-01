@@ -1,7 +1,7 @@
 GenericEntity : "{F54F6C453A8CB478}Prefabs/Weapons/Core/MachineGun_Base.et" {
  ID "CFBAA4B725411E45"
  components {
-  WeaponSoundComponent "{597AF5DCEDB7005E}" {
+  WeaponSoundComponent "{5A3F5CE062FB5CCD}" {
    Filenames {
     "{EE8892C4180091FD}Sounds/Weapons/HeavyWeapons/M2/Weapons_HeavyWeapons_M2_Shot.acp" "{6616B1A0537FC180}Sounds/Vehicles/Wheeled/M151A2/Vehicles_M151A2_Turret.acp" "{EC7E8631CBC17F15}Sounds/Weapons/HeavyWeapons/M2/Weapons_HeavyWeapons_M2_Handling.acp"
    }
@@ -10,7 +10,7 @@ GenericEntity : "{F54F6C453A8CB478}Prefabs/Weapons/Core/MachineGun_Base.et" {
   MeshObject "{CFBAA4B701F95D69}" {
    Object "{AD6418835A435475}Assets/Weapons/HeavyWeapons/M2HB/M2_body.xob"
   }
-  RigidBody "{597AF5DCEDB70052}" {
+  RigidBody "{5A3F5CE062FB5CC6}" {
    Mass 58
    ModelGeometry 1
   }
@@ -20,7 +20,7 @@ GenericEntity : "{F54F6C453A8CB478}Prefabs/Weapons/Core/MachineGun_Base.et" {
      Name "#AR-Weapon_M2HB_Name"
      Description "#AR-Weapon_M2HB_Description"
     }
-    ItemPhysAttributes ItemPhysicalAttributes "{597AF5DCEDB70060}" {
+    ItemPhysAttributes ItemPhysicalAttributes "{5A3F5CE062FB5CDF}" {
      Weight 38.1
      SizeSetupStrategy Volume
      ItemVolume 12000
@@ -35,12 +35,7 @@ GenericEntity : "{F54F6C453A8CB478}Prefabs/Weapons/Core/MachineGun_Base.et" {
   }
   WeaponComponent "{CFBAA4B706BA66E8}" {
    components {
-    SightsComponent "{BB23A637957CFFF8}" {
-     SightsPosition PointInfo "{BB23A63796688E69}" {
-      PivotID "eye"
-     }
-    }
-    AttachmentSlotComponent "{597AF5DCEDB70077}" {
+    AttachmentSlotComponent "{5A3F5CE062FB5CED}" {
      AttachmentSlot InventoryStorageSlot optics {
       PivotID "slot_optics"
       ChildPivotID "snap_weapon"
@@ -55,14 +50,14 @@ GenericEntity : "{F54F6C453A8CB478}Prefabs/Weapons/Core/MachineGun_Base.et" {
         Angles -90 90 0
        }
       }
-      CaseEjectingEffectComponent "{597AF5DCEDB70184}" {
+      CaseEjectingEffectComponent "{5A3F5CE062FB5CE1}" {
        ParticleEffect "{45D764EF557E02B4}Particles/Weapon/Smoke_M2.ptc"
        EffectPosition EntitySlotInfo "{52D4A6D19A301391}" {
         PivotID "barrel_muzzle"
        }
        HasSound 0
       }
-      CaseEjectingEffectComponent "{597AF5DCEDB70187}" {
+      CaseEjectingEffectComponent "{5A3F5CE062FB5CE3}" {
        ParticleEffect "{E7ACDE0ACCBCB07A}Particles/Weapon/Casing_Holder.ptc"
        EffectPosition EntitySlotInfo casing_holder {
         PivotID "barrel_chamber"
@@ -76,13 +71,13 @@ GenericEntity : "{F54F6C453A8CB478}Prefabs/Weapons/Core/MachineGun_Base.et" {
        RoundsPerMinute 600
       }
      }
-     MagazineWell MagazineWellM2HB "{597AF5DCEDB70199}" {
+     MagazineWell MagazineWellM2HB "{5A3F5CE062FB5CFB}" {
      }
      DispersionDiameter 0.4
      DispersionRange 400
      WeaponAimModifiers {
-      RecoilWeaponAimModifier "{597AF5DCEDB70195}" {
-       LinearData RecoilData "{597AF5DCEDB70190}" {
+      RecoilWeaponAimModifier "{5A3F5CE062FB5CF0}" {
+       LinearData RecoilData "{5A3F5CE062FB5CF2}" {
         "Curve X" {
          0 0.5 1 0.5
         }
@@ -96,7 +91,7 @@ GenericEntity : "{F54F6C453A8CB478}Prefabs/Weapons/Core/MachineGun_Base.et" {
         "Curve Mins" -0.001 -0.006 -0.022
         "Curve Maxs" 0 -0.005 -0.018
        }
-       AngularData RecoilData "{597AF5DCEDB701AC}" {
+       AngularData RecoilData "{5A3F5CE062FB5C0D}" {
         "Curve X" {
          0 0.5 0.019 0.411 0.055 0.539 0.11 0.474 0.216 0.497 1 0.5
         }
@@ -110,7 +105,7 @@ GenericEntity : "{F54F6C453A8CB478}Prefabs/Weapons/Core/MachineGun_Base.et" {
         "Curve Mins" -0.001 0.3 -4
         "Curve Maxs" 0.001 0.6 4
        }
-       TurnOffsetData RecoilData "{597AF5DCEDB701AD}" {
+       TurnOffsetData RecoilData "{5A3F5CE062FB5C0E}" {
         "Curve X" {
          0 0.5 0.019 0.411 0.055 0.539 0.11 0.474 0.216 0.497 1 0.5
         }
@@ -130,25 +125,29 @@ GenericEntity : "{F54F6C453A8CB478}Prefabs/Weapons/Core/MachineGun_Base.et" {
      }
      MagazineTemplate "{CC7F787C3ECF678F}Prefabs/Weapons/Magazines/Box_127x99_M2_100rnd_4Ball_1Tracer.et"
     }
+    SightsComponent "{BB23A637957CFFF8}" {
+     SightsPosition PointInfo "{BB23A63796688E69}" {
+      PivotID "eye"
+     }
+    }
+    WeaponAnimationComponent "{5A3F5CE0A6098D08}" {
+     AnimGraph "{2CEB8F15E51AA7F3}Assets/Weapons/MachineGuns/workspaces/m60.agr"
+     AnimInstance "{A21DB14BF0056E3A}Assets/Weapons/MachineGuns/workspaces/m60_weapon.asi"
+     AnimInjection AnimationAttachmentInfo "{5A3F5CE0C4E9C159}" {
+      AnimGraph "{2CEB8F15E51AA7F3}Assets/Weapons/MachineGuns/workspaces/m60.agr"
+      AnimInstance "{47194A49CC8F699D}Assets/Weapons/MachineGuns/workspaces/m60_player.asi"
+      BindingName "Weapon"
+     }
+     BindWithInjection 1
+    }
    }
    UIInfo WeaponUIInfo "{CC3BA6A2C42F09F4}" {
     Name "#AR-Weapon_M2HB_Name"
     Description "#AR-Weapon_M2HB_Description"
     Icon "{2563E9572D67ECDE}UI/Textures/WeaponIcons/weapon_M2HB.edds"
    }
-   WeaponSlotType "hmg"
   }
   ActionsManagerComponent "{A29AE67FF4D82B0F}" {
-  }
-  WeaponAnimationComponent "{597AF5DDD9C84233}" {
-   AnimGraph "{2CEB8F15E51AA7F3}Assets/Weapons/MachineGuns/workspaces/m60.agr"
-   AnimInstance "{A21DB14BF0056E3A}Assets/Weapons/MachineGuns/workspaces/m60_weapon.asi"
-   AnimInjection AnimationAttachmentInfo "{597AF5DE0F6AF034}" {
-    AnimGraph "{2CEB8F15E51AA7F3}Assets/Weapons/MachineGuns/workspaces/m60.agr"
-    AnimInstance "{47194A49CC8F699D}Assets/Weapons/MachineGuns/workspaces/m60_player.asi"
-    BindingName "Weapon"
-   }
-   BindWithInjection 1
   }
  }
  coords 2257.5 51.2 2160

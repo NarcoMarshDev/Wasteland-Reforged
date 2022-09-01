@@ -12,77 +12,68 @@ class WR_BuildMenuEntry : ScriptedSelectionMenuEntry
 	//! Callback for when this entry is supposed to be performed
 	override void OnPerform(IEntity user, BaseSelectionMenu sourceMenu)
 	{
-		SlotManagerComponent slotManager = SlotManagerComponent.Cast(m_pCharacter.FindComponent(SlotManagerComponent));
-		if (!slotManager)
+		EntitySlotInfo slot = WR_Statics.GetEntityBuildingSlot(m_pCharacter);
+		IEntity ent = slot.GetAttachedEntity();
+		if (!ent)
 			return;
 		
-		array<EntitySlotInfo> slotInfos = new array<EntitySlotInfo>;
-		slotManager.GetSlotInfos(slotInfos);
-		
-		// this may be able to be replaced by just referencing slotInfos[0] instead of using a normally single loop foreach loop
-		foreach (EntitySlotInfo slot : slotInfos)
+		switch (m_pEntryType)
 		{
-			IEntity ent = slot.GetAttachedEntity();
-			if (!ent)
-				continue;
+			case BuildMenuEntryType.PLACE:
 			
-			switch (m_pEntryType)
-			{
-				case BuildMenuEntryType.PLACE:
+				vector entTransform[4];
+				slot.DetachEntity(false);
+				ent.GetWorldTransform(entTransform);
+				ent.GetParent().RemoveChild(ent);
+				ent.SetWorldTransform(entTransform);
+				WR_Statics.RestoreMaterial(ent);
+				//WR_Statics.SetEntityCollision(ent, EPhysicsLayerDefs.Default);
+				break;
 			
-					vector entTransform[4];
-					slot.DetachEntity(false);
-					ent.GetWorldTransform(entTransform);
-					ent.GetParent().RemoveChild(ent);
-					ent.SetWorldTransform(entTransform);
-					WR_Statics.RestoreMaterial(ent);
-					break;
+			case BuildMenuEntryType.SNAP:
 			
-				case BuildMenuEntryType.SNAP:
+				vector entTransform[4];
+				vector entAngles[3];
+				slot.DetachEntity(false);
+				ent.GetWorldTransform(entTransform);
+				SCR_TerrainHelper.SnapToTerrain(entTransform, GetGame().GetWorld(), true);
+				ent.GetParent().RemoveChild(ent);
+				ent.SetWorldTransform(entTransform);
+				WR_Statics.RestoreMaterial(ent);
+				//WR_Statics.SetEntityCollision(ent, EPhysicsLayerDefs.Default);
+				break;
 			
-					vector entTransform[4];
-					vector entAngles[3];
-					slot.DetachEntity(false);
-					ent.GetWorldTransform(entTransform);
-					SCR_TerrainHelper.SnapToTerrain(entTransform, GetGame().GetWorld(), true);
-					ent.GetParent().RemoveChild(ent);
-					ent.SetWorldTransform(entTransform);
-					WR_Statics.RestoreMaterial(ent);
-					break;
-			
-				case BuildMenuEntryType.LEFT:
+			case BuildMenuEntryType.LEFT:
+				
+				vector mat[4];
+				ent.GetWorldTransform(mat);
+				vector entAngles = Math3D.MatrixToAngles(mat);
+				entAngles[0] = entAngles[0] - 22.5; // these angles are 22.5 instead of 45 because this seems to run twice with auto closing the menu on selection disabled
+				if 		(entAngles[0] > 180) 	{entAngles[0] = entAngles[0] - 360;}
+				else if (entAngles[0] < -180) 	{entAngles[0] = entAngles[0] + 360;}
 					
-					vector mat[4];
-					ent.GetWorldTransform(mat);
-					vector entAngles = Math3D.MatrixToAngles(mat);
+				Math3D.AnglesToMatrix(entAngles, mat);
+				ent.SetWorldTransform(mat);
+				break;
+			
+			case BuildMenuEntryType.RIGHT:
+			
+				vector mat[4];
+				ent.GetWorldTransform(mat);
+				vector entAngles = Math3D.MatrixToAngles(mat);
 
-					entAngles[0] = entAngles[0] - 22.5; // these angles are 22.5 instead of 45 because this seems to run twice with auto closing the menu on selection disabled
-					if 		(entAngles[0] > 180) 	{entAngles[0] = entAngles[0] - 360;}
-					else if (entAngles[0] < -180) 	{entAngles[0] = entAngles[0] + 360;}
+				entAngles[0] = entAngles[0] + 22.5;
+				if 		(entAngles[0] > 180) 	{entAngles[0] = entAngles[0] - 360;}
+				else if (entAngles[0] < -180) 	{entAngles[0] = entAngles[0] + 360;}
 					
-					Math3D.AnglesToMatrix(entAngles, mat);
-					ent.SetWorldTransform(mat);
-					break;
+				Math3D.AnglesToMatrix(entAngles, mat);
+				ent.SetWorldTransform(mat);
+				break;		
 			
-				case BuildMenuEntryType.RIGHT:
-			
-					vector mat[4];
-					ent.GetWorldTransform(mat);
-					vector entAngles = Math3D.MatrixToAngles(mat);
-
-					entAngles[0] = entAngles[0] + 22.5;
-					if 		(entAngles[0] > 180) 	{entAngles[0] = entAngles[0] - 360;}
-					else if (entAngles[0] < -180) 	{entAngles[0] = entAngles[0] + 360;}
-					
-					Math3D.AnglesToMatrix(entAngles, mat);
-					ent.SetWorldTransform(mat);
-					break;		
-			
-				default:
-					Print("No BuildMenuEntryType found", LogLevel.WARNING);
-					break;
-			}	
-		}
+			default:
+				Print("No BuildMenuEntryType found", LogLevel.WARNING);
+				break;
+		}	
 		SCR_CharacterControllerComponent.Cast( m_pCharacter.FindComponent(SCR_CharacterControllerComponent) ).SetDynamicSpeed(1.0);
 	}
 	//------------------------------------------------------------------------------------------------

@@ -1,0 +1,17 @@
+GenericEntity : "{371B7A3A68DE7283}Prefabs/Weapons/MachineGuns/M60/WR_M60_Scoped.et" {
+ ID "CFBAA4B725411E45"
+ components {
+  WeaponComponent "{CFBAA4B706BA66E8}" {
+   components {
+    AttachmentSlotComponent "{5A3F5CE62ABE2242}" {
+     AttachmentSlot InventoryStorageSlot AttachmentSlot {
+      Offset -0.008 -0.0259 0.1866
+     }
+    }
+    SightsComponent "{BB23A637957CFFF8}" {
+    }
+   }
+  }
+ }
+ coords 0 0 0
+}

@@ -62,6 +62,8 @@ class WR_BuildingRadialMenuComponent : SCR_RadialMenuComponent
 				lastWeapon = currentWeapon;
 			}
 			characterController.SelectWeapon(null);
+			
+			
 		}
 		else if (lastWeapon)
 		{
@@ -106,30 +108,7 @@ class WR_BuildingRadialMenuComponent : SCR_RadialMenuComponent
 				m_pRadialMenu.Close(owner);
 
 			return;
-		}
-
-		// Fetch the weapon, its muzzle and eventually all magazines from inventory
-		// the fact that this is done every frame is less than ideal, but for local
-		// player it's gonna be acceptable
-		
-		
-		BaseWeaponComponent weapon = controlledCharacter.GetCharacterController().GetWeaponManagerComponent().GetCurrentWeapon();
-		if (weapon)
-		{
-			WeaponSlotComponent slot = WeaponSlotComponent.Cast(weapon);
-			if (slot)
-				weapon = WeaponComponent.Cast(slot.GetWeaponEntity().FindComponent(WeaponComponent));
-
-			array<MagazineComponent> magazines = {};
-			FetchMagazines(controlledCharacter, weapon, magazines);
-			foreach (MagazineComponent magazine : magazines)
-			{
-				//SCR_ReloadMenuEntry entry = new SCR_ReloadMenuEntry(controlledCharacter, weapon, magazine);
-				//SCR_ReloadMenuEntry entry = new SCR_ReloadMenuEntry(controlledCharacter);
-				//m_pRadialMenu.AddEntry(entry, 0);
-			}
-		}
-		
+		}		
 		// TODO move all these to EOnInit, they're static so don't need to be remade every frame;
 		
 		WR_BuildMenuEntry placeEntry 	= new WR_BuildMenuEntry(controlledCharacter, BuildMenuEntryType.PLACE);

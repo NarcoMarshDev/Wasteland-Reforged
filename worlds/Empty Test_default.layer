@@ -44,45 +44,33 @@ WR_BuildingObjectEntity {
  }
  coords 122.568 1.001 130.683
 }
-GenericEntity : "{193EF363CD35FDA7}Prefabs/Structures/Moveable/WRB_SilageWall_02_12m.et" {
- coords 129.859 1.001 140
- angleY 0
+GenericEntity : "{069265A32A03B55F}Prefabs/Weapons/MachineGuns/M60/WR_M60_Scoped_v1.et" {
+ coords 124.203 1.001 127.486
 }
-$grp GenericEntity : "{9C9C4BED9E19C374}Prefabs/Props/Military/Sandbags/Sandbag_01_wall_solid_burlap.et" {
- {
-  coords 122.866 1.001 123.143
- }
- {
-  coords 127.241 1.001 123.374
- }
- {
-  coords 117.924 1.001 124.101
- }
- {
-  coords 115.062 1.001 119.691
- }
+GenericEntity : "{371849B8D8BAACBC}Prefabs/Weapons/HeavyWeapons/HMG_M2HB_Mod.et" {
+ coords 120.306 1.001 127.915
 }
-$grp GenericEntity : "{B31A14BC1A0E7776}Prefabs/Props/Military/Sandbags/Sandbag_01_round_burlap.et" {
- {
-  coords 110.377 1.001 123.196
- }
- {
-  coords 110.257 1.001 121.681
- }
+GenericEntity : "{432E37FB9C9C0D74}Prefabs/Weapons/Rifles/M16/Rifle_M16_What.et" {
+ coords 121.54 1.167 128.32
 }
-$grp GenericEntity : "{CD67070EFAFC28C7}Prefabs/Props/Military/Sandbags/Sandbag_01_wall_burlap.et" {
- {
-  coords 119.701 1.001 119.776
- }
- {
-  coords 124.357 1.001 119.808
- }
+GenericEntity : "{5E6CBF60621C39CD}Prefabs/Systems/Arsenal/AmmoBoxes/USSR/AmmoBoxArsenal_Ammunition_USSR.et" {
+ coords 128.27 1.001 131.287
 }
-$grp GenericEntity : "{F0EC223F2A1094C0}Prefabs/Props/Military/Sandbags/Sandbag_01_bunker_burlap.et" {
- {
-  coords 110.815 1.001 127.65
- }
- {
-  coords 116.088 1.001 136.53
- }
+GenericEntity : "{5FFD91CF507BFFFB}Prefabs/Systems/Arsenal/AmmoBoxes/US/AmmoBoxArsenal_Ammunition_US.et" {
+ coords 128.464 1.001 133.553
+}
+GenericEntity : "{65B0D52817821680}Prefabs/Weapons/MachineGuns/M249/WR_M249_Scoped.et" {
+ coords 126.091 1.001 128.005
+}
+GenericEntity : "{7C93700E1AC4C388}Prefabs/Systems/Arsenal/AmmoBoxes/USSR/AmmoBoxArsenal_Launcher_USSR.et" {
+ coords 126.13 1.001 130.706
+}
+GenericEntity : "{9C38B35C2CC96D4B}Prefabs/Weapons/Rifles/M16/Rifle_M16A3.et" {
+ coords 124.9 1.001 127.508
+}
+GenericEntity : "{9DB3F15199C5ACD2}Prefabs/Weapons/MachineGuns/M60/MG_M60_Mod.et" {
+ coords 122.243 1.001 128.826
+}
+GenericEntity : "{DCEF6560D567B166}Prefabs/Weapons/HeavyWeapons/HMG_M60_To_M2HB.et" {
+ coords 123.176 1.001 127.633
 }

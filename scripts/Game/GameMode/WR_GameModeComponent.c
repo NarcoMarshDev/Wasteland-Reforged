@@ -24,6 +24,7 @@ class WR_GameModeComponent : SCR_BaseGameModeComponent
 		ent.GetTransform(mat);
 		SCR_Global.SnapToTerrain(mat, GetGame().GetWorld(), true);		
 		ent.SetTransform(mat);
+		//WR_Statics.SetEntityCollision(ent, EPhysicsLayerDefs.Default);
 	}
 	
 	override void OnPlayerSpawned(int playerId, IEntity controlledEntity)

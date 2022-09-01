@@ -16,5 +16,19 @@ GenericEntity : "{6E42C85D9FC0CA5D}Prefabs/Weapons/MachineGuns/M60/MG_M60_base.e
     }
    }
   }
+  WeaponComponent "{CFBAA4B706BA66E8}" {
+   components {
+    AttachmentSlotComponent "{5A3F5CE62ABE2242}" {
+     AttachmentSlot InventoryStorageSlot AttachmentSlot {
+      PivotID "w_topcover"
+      Offset 0 0.1791 0
+      ChildPivotID "snap_weapon"
+      Prefab "{C850A33226B8F9C1}Prefabs/Weapons/Attachments/Optics/Optic_PSO1.et"
+     }
+     AttachmentType AttachmentOpticsDovetail "{5A3F5CE632F35631}" {
+     }
+    }
+   }
+  }
  }
 }

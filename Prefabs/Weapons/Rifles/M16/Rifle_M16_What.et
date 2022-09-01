@@ -1,0 +1,56 @@
+GenericEntity : "{C63227C0E70EA62E}Prefabs/Weapons/Rifles/M16/Rifle_M16A2_base.et" {
+ ID "CFBAA4B725411E45"
+ components {
+  WeaponSoundComponent "{5534745C44D1EFCF}" {
+   Filenames {
+    "{0260023DC413908D}Sounds/Weapons/HeavyWeapons/KPVT/Weapons_HeavyWeapons_KPV_Shot.acp" "{A6F3D0955462D8FE}Sounds/Weapons/Rifles/M16A2/Weapons_Rifles_M16A2_Handling.acp" "{D8F675F3468362E2}Sounds/Weapons/_SharedData/Weapons_Zeroing.acp" "{5071D9019D052481}Sounds/Impacts/Impact_Weapons_Rifles_Impacts.acp" "{BFD8C39A140E182E}Sounds/Weapons/_SharedData/Weapon_Bullet_Casings_5_56mm.acp" "{07E8D425196745F4}Sounds/Weapons/_SharedData/PickUp/Weapons_PickUp_Rifle_Plastic.acp" "{332983CC95EE1E1E}Sounds/Weapons/_SharedData/Melee/Weapons_Melee_Rifle.acp"
+   }
+  }
+  WeaponComponent "{CFBAA4B706BA66E8}" {
+   components {
+    AttachmentSlotComponent "{5534745C44D1EF58}" {
+     AttachmentSlot InventoryStorageSlot optics {
+      PivotID ""
+      Offset -0.0124 0.0907 0
+      Prefab "{C850A33226B8F9C1}Prefabs/Weapons/Attachments/Optics/Optic_PSO1.et"
+     }
+     AttachmentType AttachmentOpticsDovetail "{5A3F344250C27260}" {
+     }
+    }
+    AttachmentSlotComponent "{5A3F34411F580455}" {
+     AttachmentSlot InventoryStorageSlot Handguard {
+      PivotID "barrel_chamber"
+      Offset 0 -0.0511 0.1212
+      Prefab "{1ABABE3551512B0A}Prefabs/Weapons/Attachments/Underbarrel/UGL_GP25.et"
+     }
+     AttachmentType AttachmentHandGuard "{5A3F34411F58046A}" {
+     }
+    }
+    AttachmentSlotComponent "{5A3F3442EF3E3380}" {
+     AttachmentSlot InventoryStorageSlot AttachmentSlot {
+      Offset -0.0298 0.0802 0.586
+      Angles 0 0 90
+      Prefab "{A4AF9C38A4179880}Prefabs/Weapons/Attachments/Bayonets/Bayonet_M9.et"
+     }
+     AttachmentType BaseAttachmentType "{5A3F345D0501B31E}" {
+     }
+    }
+    MuzzleComponent "{CA6BE4D6B867541F}" {
+     FireModes {
+      BaseFireMode "{5534745C44D1EF22}" {
+       MaxBurst -1
+       RoundsPerMinute 800
+       UIName "Auto"
+      }
+     }
+     MagazineWell MagazineWellPKM "{5A3F579F359D28ED}" {
+     }
+     MagazinePosition InventoryStorageSlot "{B80A64F4C834E9CB}" {
+      Offset 0 -0.0202 -0.0352
+     }
+     MagazineTemplate "{E5E9C5897CF47F44}Prefabs/Weapons/Magazines/Box_762x54_PK_100rnd_4Ball_1Tracer.et"
+    }
+   }
+  }
+ }
+}

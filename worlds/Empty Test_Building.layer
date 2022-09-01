@@ -1,0 +1,49 @@
+GenericEntity : "{193EF363CD35FDA7}Prefabs/Structures/Moveable/WRB_SilageWall_02_12m.et" {
+ components {
+  Hierarchy "{5A3F344A02DD9424}" {
+  }
+ }
+ coords 129.859 1.001 140
+ angleY 0
+}
+GenericEntity : "{5821AF9613353C80}Prefabs/Props/Military/Sandbags/Sandbag_01_bunker_burlap_camonet.et" {
+ coords 102.563 1.001 125.4
+}
+$grp GenericEntity : "{9C9C4BED9E19C374}Prefabs/Props/Military/Sandbags/Sandbag_01_wall_solid_burlap.et" {
+ {
+  coords 102.593 1.001 114.591
+ }
+ {
+  coords 110.397 1.001 118.043
+ }
+ {
+  coords 114.772 1.001 118.274
+ }
+ {
+  coords 105.455 1.001 119.001
+ }
+}
+$grp GenericEntity : "{B31A14BC1A0E7776}Prefabs/Props/Military/Sandbags/Sandbag_01_round_burlap.et" {
+ {
+  coords 110.377 1.001 123.196
+ }
+ {
+  coords 110.257 1.001 121.681
+ }
+}
+$grp GenericEntity : "{CD67070EFAFC28C7}Prefabs/Props/Military/Sandbags/Sandbag_01_wall_burlap.et" {
+ {
+  coords 107.232 1.001 114.676
+ }
+ {
+  coords 111.888 1.001 114.708
+ }
+}
+$grp GenericEntity : "{F0EC223F2A1094C0}Prefabs/Props/Military/Sandbags/Sandbag_01_bunker_burlap.et" {
+ {
+  coords 97.841 1.001 118.612
+ }
+ {
+  coords 110.815 1.001 127.65
+ }
+}

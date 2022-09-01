@@ -177,6 +177,38 @@ class WR_Statics
 	// ============================================== OTHER ==============================================
 	// ===================================================================================================
 	
+	static void DisableEntityCollisions(IEntity ent)
+	{
+		IEntity child = ent;
+		int i = 0;
+		while (child)
+		{
+			Physics p = child.GetPhysics();
+			if (!p)
+			{
+				Print("child: " + child + " no p " + i);
+				i++;
+				child = child.GetSibling();
+				continue;
+			}
+			Print("child: " + child + " yes p " + i);
+			i++;
+			p.Destroy();
+			child = child.GetSibling();
+		}
+	}
+	
+	static EntitySlotInfo GetEntityBuildingSlot(IEntity ent)
+	{
+		SlotManagerComponent slotManager = SlotManagerComponent.Cast(ent.FindComponent(SlotManagerComponent));
+		if (!slotManager)
+			return null;
+		
+		array<EntitySlotInfo> slotArray = new array<EntitySlotInfo>;
+		slotManager.GetSlotInfos(slotArray);
+		return slotArray[0];
+	}
+	
 	static void GetMaterial(IEntity entity, out string materials[], out int numMaterials)
 	{
 		VObject mesh = entity.GetVObject();
