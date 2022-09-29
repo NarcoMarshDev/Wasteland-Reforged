@@ -1,0 +1,120 @@
+FrameWidgetClass {
+ {
+  OverlayWidgetClass "{58E0C2B3EC4E503F}" {
+   Prefab "{58E0C2B3EC4E503F}"
+   {
+    SizeLayoutWidgetClass "{589F049780D13CA5}" {
+     Prefab "{589F049780D13CA5}"
+     {
+      VerticalLayoutWidgetClass "{589F049780D13CA3}" {
+       Prefab "{589F049780D13CA3}"
+       {
+        OverlayWidgetClass "{589F0497F7A00346}" {
+         Prefab "{589F0497F7A00346}"
+         {
+          ButtonWidgetClass "{5A43199C0B820A28}" {
+           Name "BuildingModeToggle"
+           Slot OverlayWidgetSlot "{5A443D95A9B5B7FA}" {
+            HorizontalAlign 0
+            VerticalAlign 2
+            Padding 5 0 0 105
+           }
+           Color 0 0 0 0
+           components {
+            WR_BuildingToggleButtonComponent "{5A443D91DDAC17A0}" {
+            }
+           }
+           Switch toggle
+           {
+            OverlayWidgetClass "{5A43199C0B820A29}" {
+             Name "Overlay"
+             Slot ButtonWidgetSlot "{55106432A2BA5278}" {
+             }
+             {
+              ImageWidgetClass "{5A43199C0B820A2B}" {
+               Name "Image"
+               Slot OverlayWidgetSlot "{55106432EF84C21E}" {
+                HorizontalAlign 3
+                VerticalAlign 3
+               }
+               Image ""
+               Size 220 45
+               Mask "{D9CBA0596F0E0FF4}UI/Textures/icon_button.edds"
+               "Transition width" 0
+               Progress 0.056
+               "Mask Mode" "Include Below"
+               "Shadow Size Increase" 3 3
+               "Shadow Color" 0 0 0 0
+              }
+              ImageWidgetClass "{5A43199C0B820A24}" {
+               Name "Corners"
+               Slot OverlayWidgetSlot "{560858B2103D12BB}" {
+                HorizontalAlign 3
+                VerticalAlign 3
+               }
+               "Is Visible" 0
+               Image ""
+               Progress 0.491
+               "Shadow Offset" 1 1
+              }
+              TextWidgetClass "{5A43199C0B820A25}" {
+               Name "Name"
+               Slot OverlayWidgetSlot "{54D4BC2CF0FC90D0}" {
+               }
+               Clipping False
+               Color 0 0 0 1
+               Text "Building Mode : On"
+               "Min Font Size" 10
+               "Horizontal Alignment" Center
+               "Vertical Alignment" Center
+               FontProperties FontProperties "{54C883806AE51B80}" {
+                Font "{3E7733BAC8C831F6}UI/Fonts/RobotoCondensed/RobotoCondensed_Regular.fnt"
+                Bold 1
+                OutlineColor 0 0 0 1
+                ShadowSize 8
+                ShadowColor 1 1 1 1
+                ShadowOffset 10 7
+               }
+              }
+             }
+            }
+           }
+          }
+          HorizontalLayoutWidgetClass "{000000003964F597}" {
+           Prefab "{000000003964F597}"
+           {
+            VerticalLayoutWidgetClass "{58B105F76C8A2624}" {
+             Prefab "{58B105F76C8A2624}"
+             {
+              HorizontalLayoutWidgetClass "{58B105EE51990BF8}" {
+               Prefab "{58B105EE51990BF8}"
+               {
+                VerticalLayoutWidgetClass "{0000000084D42930}" {
+                 Prefab "{0000000084D42930}"
+                 {
+                  SizeLayoutWidgetClass "{566928DF01BBA893}" {
+                   Prefab "{566928DF01BBA893}"
+                   Slot LayoutSlot "{566928DF01BBAF54}" {
+                    Padding 0 0 0 0
+                    SizeMode Fill
+                    FillWeight 0.75
+                   }
+                  }
+                 }
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

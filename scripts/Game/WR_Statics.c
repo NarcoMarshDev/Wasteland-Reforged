@@ -145,6 +145,40 @@ class WR_Statics
 		return true;
 	}
 	#endif
+	
+	// ===================================================================================================
+	// ============================================== MATH ===============================================
+	// ===================================================================================================
+	
+	// See SCR_Global.FixVector180() - All these do the same thing for different data types
+	static float FixFloat180(float val)
+	{
+		if 		(val > 180)  {val -= 360;}
+		else if (val < -180) {val += 360;}
+		return val;
+	}
+	
+	static int FixInt180(int val)
+	{
+		if 		(val > 180)  {val -= 360;}
+		else if (val < -180) {val += 360;}
+		return val;
+	}
+	
+	static vector FixVector180(vector vec)
+	{
+		for (int a = 0; a < 3; a++)
+		{
+			float v = vec[a];
+			while (v > 180)
+				v -= 360;
+			while (v < -180)
+				v += 360;
+			vec[a] = v;
+		}
+		return vec;
+	}
+	
 	// ===================================================================================================
 	// =========================================== ITEM SPAWNS ===========================================
 	// ===================================================================================================
@@ -170,16 +204,82 @@ class WR_Statics
 		Print("MONEY BAG ENTITY: " + moneyBagEntity);
 
         // Destroy the money bag after 300 seconds.
-        GetGame().GetCallqueue().CallLater(WR_Statics.DeleteEntity, 300000, false, moneyBagEntity);
+        GetGame().GetCallqueue().CallLater(WR_Statics.DeleteEntity, 300000, false, moneyBagEntity); //#ESE REPLACE
+	}
+	
+	// thanks to Chad (Discord ID 110143440817229824)
+	static IEntity SpawnPrefabOnPlayer(IEntity player, ResourceName prefabName)
+	{
+		Print("=====SpawnPrefabOnPlayer=====");
+		Print("player: " + player);
+		Print("prefabName: " + prefabName);
+		
+		if (!prefabName)
+        {
+            Print("Missing Prefab: " + prefabName, LogLevel.ERROR);
+            return null;
+        }
+		
+		Resource prefab = Resource.Load(prefabName);
+		Print("prefab: " + prefab);
+		
+		// generate spawn parameters based on player location
+		EntitySpawnParams spawnParams = new EntitySpawnParams();
+        spawnParams.TransformMode = ETransformMode.WORLD;
+        player.GetWorldTransform(spawnParams.Transform);
+		Print("spawnParams: " + spawnParams);
+		
+		// spawn prefab and return it
+		return GetGame().SpawnEntityPrefab(prefab, player.GetWorld(), spawnParams);
 	}
 	
 	// ===================================================================================================
 	// ============================================== OTHER ==============================================
 	// ===================================================================================================
 	
+	static PlayerController GetPlayerControllerFromEntity(IEntity ent)
+	{
+		return GetGame().GetPlayerManager().GetPlayerController( GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(ent) );
+	}
+	
+	// ===================================================================================================
+	// ============================================= ENTITIES ============================================
+	// ===================================================================================================
+	
+	// #ESE REPLACE
+	// fixed SCR_TerrainHelper.OrientToTerrain()
+	static bool OrientToTerrain(out vector transform[4], BaseWorld world = null, bool noUnderwater = false)
+	{
+		//--- Get world
+		if (!world)
+			world = GetGame().GetWorld();
+
+		if (!world)
+			return false;
+
+		//--- Get surface basis
+		vector surfaceBasis[4];
+		if (!SCR_TerrainHelper.GetTerrainBasis(transform[3], surfaceBasis, world, noUnderwater))
+			return false;
+
+		//--- Reset pitch and roll, but preserve yaw
+		vector angles = Math3D.MatrixToAngles(transform);
+		Math3D.AnglesToMatrix(Vector(angles[0], 0, 0), transform);
+
+		//--- Combine surface and entity transformations
+		Math3D.MatrixMultiply3(surfaceBasis, transform, transform);
+
+		return true;
+	}
+	
 	static void DisableEntityCollisions(IEntity ent)
 	{
-		IEntity child = ent;
+		Physics parentPhys = ent.GetPhysics();
+		if (parentPhys)
+		{
+			parentPhys.Destroy();
+		}
+		IEntity child = ent.GetChildren();
 		int i = 0;
 		while (child)
 		{
@@ -194,6 +294,17 @@ class WR_Statics
 			Print("child: " + child + " yes p " + i);
 			i++;
 			p.Destroy();
+			child = child.GetSibling();
+		}
+	}
+	
+	static void EnableEntityCollisions(IEntity ent, int layerMask = 0xffffffff)
+	{
+		Physics.CreateStatic(ent, layerMask);
+		IEntity child = ent.GetChildren();
+		while (child)
+		{
+			Physics.CreateStatic(child, layerMask);
 			child = child.GetSibling();
 		}
 	}
@@ -266,51 +377,6 @@ class WR_Statics
 		}
 	}
 	
-	// thanks to Chad (Discord ID 110143440817229824)
-	static IEntity SpawnPrefabOnPlayer(IEntity player, ResourceName prefabName)
-	{
-		Print("=====SpawnPrefabOnPlayer=====");
-		Print("player: " + player);
-		Print("prefabName: " + prefabName);
-		
-		if (!prefabName)
-        {
-            Print("Missing Prefab: " + prefabName, LogLevel.ERROR);
-            return null;
-        }
-		
-		Resource prefab = Resource.Load(prefabName);
-		Print("prefab: " + prefab);
-		
-		// generate spawn parameters based on player location
-		EntitySpawnParams spawnParams = new EntitySpawnParams();
-        spawnParams.TransformMode = ETransformMode.WORLD;
-        player.GetWorldTransform(spawnParams.Transform);
-		Print("spawnParams: " + spawnParams);
-		
-		// spawn prefab and return it
-		return GetGame().SpawnEntityPrefab(prefab, player.GetWorld(), spawnParams);
-	}
-	
-	static void ReadFileAsArray(string path, notnull inout array<string> fileArray)
-	{
-		FileHandle file =  FileIO.OpenFile(path, FileMode.READ);
-		
-		if (!file)
-			Print("can not find file: " + file);
-			return;
-		
-		string line;
-		int chars = file.FGets(line);
-		
-		while (chars != -1)
-		{
-			fileArray.Insert(line);
-			chars = file.FGets(line);
-		}
-		file.CloseFile();
-	}
-	
 	static bool IsEntityAlive(IEntity entity)
 	{
 		DamageManagerComponent damageManager = DamageManagerComponent.Cast(entity.FindComponent(DamageManagerComponent));
@@ -332,5 +398,28 @@ class WR_Statics
 		
 		vector screenPos = workspace.ProjWorldToScreenNative(worldPos, GetGame().GetWorld());
 		return screenPos[2] > 0 && screenPos[0] > 0 && screenPos[0] < width && screenPos[1] > 0 && screenPos[1] < height);
+	}
+	
+	// ===================================================================================================
+	// ========================================== FILE HANDLING ==========================================
+	// ===================================================================================================
+	
+	static void ReadFileAsArray(string path, notnull inout array<string> fileArray)
+	{
+		FileHandle file =  FileIO.OpenFile(path, FileMode.READ);
+		
+		if (!file)
+			Print("can not find file: " + file);
+			return;
+		
+		string line;
+		int chars = file.FGets(line);
+		
+		while (chars != -1)
+		{
+			fileArray.Insert(line);
+			chars = file.FGets(line);
+		}
+		file.CloseFile();
 	}
 }

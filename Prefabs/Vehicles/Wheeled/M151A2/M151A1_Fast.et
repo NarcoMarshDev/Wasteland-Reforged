@@ -1,0 +1,57 @@
+Vehicle : "{F649585ABB3706C4}Prefabs/Vehicles/Wheeled/M151A2/M151A2.et" {
+ ID "44EC665ABD2FF04B"
+ components {
+  AICarMovementComponent "{BF6BA82CF446553F}" {
+   MaxVehicleSpeedKmh 250
+   CruiseVehicleSpeedKmh 190
+   MaxSteeringChangeS 4
+  }
+  BaseVehicleNodeComponent "{20FB66C5B2237133}" {
+   components {
+    SCR_CarControllerComponent "{20FB66C5BC92275B}" {
+     MaxStartupTime 0.2
+     Type Manual
+     ThrottleReactionTime 0.1
+     ClutchUncoupleTime 0.02
+     ClutchCoupleTime 0.07
+     UpShiftRpm 4000
+     DownShiftRpm 3000
+    }
+   }
+  }
+  SCR_VehicleDamageManagerComponent "{141326E9FD94FE40}" {
+   m_fVehicleDestroyDamage 10408.7
+  }
+  VehicleWheeledSimulation "{731B26FCA2F19855}" {
+   Simulation Wheeled "{4D8B26DEA5F25978}" {
+    Engine Engine Engine {
+     MaxPower 300
+     MaxTorque 330
+     RpmMaxPower 4800
+     RpmMaxTorque 4000
+     Steepness 22.7
+     Friction 50.7
+     RpmIdle 1000
+     RpmRedline 5000
+     RpmMax 5500
+    }
+    Axles {
+     Axle "{4D8B26DF957A8E1C}" {
+      Suspension Suspension "{4D8B26DFF8859A7B}" {
+       SpringRate 55
+       MaxTravelDown 0.1
+      }
+     }
+     Axle "{4D8B26DF8CF2F3D8}" {
+      Suspension Suspension "{4D8B26DFF8859A7B}" {
+       SpringRate 40
+       MaxTravelDown 0.1
+      }
+     }
+    }
+   }
+  }
+ }
+ coords 102.967 1.001 142.964
+ angleY 92.693
+}

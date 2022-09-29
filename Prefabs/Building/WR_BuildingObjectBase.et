@@ -1,0 +1,29 @@
+WR_BuildingObjectEntity {
+ ID "5A4571D7CCD6FC24"
+ components {
+  ActionsManagerComponent "{5A3E341E2E01CDE7}" {
+   ActionContexts {
+    UserActionContext "{5A3E341E7DC4480A}" {
+     ContextName "default"
+     Position PointInfo "{5A3E341E8DCF8BC3}" {
+     }
+     Radius 5
+    }
+   }
+   additionalActions {
+    WR_BuildingPickupAction "{5A3E341EB1B84282}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{5A3E341EB5604CC2}" {
+      Name "Pickup Object"
+     }
+     Duration 0.5
+    }
+   }
+  }
+  RplComponent "{5A3E341E2C7A3EF9}" {
+  }
+ }
+ coords 115.382 1.001 136.103
+}

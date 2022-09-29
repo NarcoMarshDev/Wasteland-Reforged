@@ -4,9 +4,10 @@ class WR_GameModeComponentClass : SCR_BaseGameModeComponentClass
 
 class WR_GameModeComponent : SCR_BaseGameModeComponent
 {
+	// ---------------------------------------------------------------------------------------------------------------- //
 	override void OnPlayerKilled(int playerId, IEntity player, IEntity killer)
 	{
-		// ==================================================== BUILDING ==================================================== //
+		// ------------------------------------------------- BUILDING ------------------------------------------------- //
 		
 		// If player dies while holding slotted entity, find it, snap to terrain, and restore it's materials
 		SlotManagerComponent slotManager = SlotManagerComponent.Cast(player.FindComponent(SlotManagerComponent));
@@ -18,15 +19,17 @@ class WR_GameModeComponent : SCR_BaseGameModeComponent
 			return;
 		
 		IEntity ent = buildingSlot.GetAttachedEntity();
-		WR_Statics.RestoreMaterial(ent);
+		if (!ent)
+			return;
+		WR_Statics.RestoreMaterial(ent); //#ESE REPLACE
 		
 		vector mat[4];
 		ent.GetTransform(mat);
 		SCR_Global.SnapToTerrain(mat, GetGame().GetWorld(), true);		
 		ent.SetTransform(mat);
-		//WR_Statics.SetEntityCollision(ent, EPhysicsLayerDefs.Default);
+		//WR_Statics.SetEntityCollision(ent, EPhysicsLayerDefs.Default); //#ESE REPLACE
 	}
-	
+	// ---------------------------------------------------------------------------------------------------------------- //
 	override void OnPlayerSpawned(int playerId, IEntity controlledEntity)
 	{
 		// find build menu component, and set it's controller component reference (yes it's awful)

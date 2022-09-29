@@ -44,6 +44,23 @@ $grp GenericEntity : "{F0EC223F2A1094C0}Prefabs/Props/Military/Sandbags/Sandbag_
   coords 97.841 1.001 118.612
  }
  {
+  components {
+   Hierarchy "{5A504B34786FFFBC}" {
+   }
+   ActionsManagerComponent "{5A3E848811CA1234}" {
+    ActionContexts {
+     UserActionContext "{5A3E848810749A30}" {
+      Position PointInfo "{5A3E848819A0AD94}" {
+      }
+     }
+    }
+   }
+  }
   coords 110.815 1.001 127.65
+  {
+   GenericEntity : "{532E2709E33FA192}Prefabs/Structures/BuildingParts/Bridges/BridgeRailingConcrete_01_pole.et" {
+    coords 5 5 5
+   }
+  }
  }
 }

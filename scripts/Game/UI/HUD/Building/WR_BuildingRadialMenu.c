@@ -26,6 +26,10 @@ class WR_BuildingRadialMenuComponent : SCR_RadialMenuComponent
 {
 	SCR_CharacterControllerComponent characterController;
 	BaseWeaponComponent lastWeapon;
+	bool m_IsEnabled = false;
+	
+	bool GetEnabled() {return m_IsEnabled;}
+	void SetEnabled(bool state) {m_IsEnabled = state;}
 	
 	void SetCharacterController(SCR_CharacterControllerComponent controller)
 	{

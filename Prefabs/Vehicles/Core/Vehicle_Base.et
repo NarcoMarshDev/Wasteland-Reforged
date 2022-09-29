@@ -1,0 +1,36 @@
+Vehicle {
+ ID "BBCBA43A9778AE21"
+ components {
+  ActionsManagerComponent "{C97BE5489221AE18}" {
+   ActionContexts {
+    UserActionContext "{5A7AAE2B8E52F1C1}" {
+     ContextName "center"
+     Position PointInfo "{5A7AAE2B9B54BB3D}" {
+      Offset 0 0.5 0
+     }
+     Radius 5
+    }
+   }
+   additionalActions {
+    WR_FlipVehicleAction "{5A7AAE2D6CEFDF60}" {
+     ParentContextList {
+      "center"
+     }
+     UIInfo UIInfo "{5A7AAE2D7B830815}" {
+      Name "Flip Vehicle"
+     }
+     Duration 4
+    }
+    WR_PushVehicleAction "{5A7AD9408498E026}" {
+     ParentContextList {
+      "center"
+     }
+     UIInfo UIInfo "{5A7AD9408A210BEB}" {
+      Name "Push Vehicle"
+     }
+     Duration 0.5
+    }
+   }
+  }
+ }
+}
