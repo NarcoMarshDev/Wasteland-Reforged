@@ -21,13 +21,13 @@ class WR_GameModeComponent : SCR_BaseGameModeComponent
 		IEntity ent = buildingSlot.GetAttachedEntity();
 		if (!ent)
 			return;
-		WR_Statics.RestoreMaterial(ent); //#ESE REPLACE
+		ESE_Entities.RestoreMaterial(ent, true); //WR_Statics.RestoreMaterial(ent); //#ESE REPLACE
 		
 		vector mat[4];
 		ent.GetTransform(mat);
 		SCR_Global.SnapToTerrain(mat, GetGame().GetWorld(), true);		
 		ent.SetTransform(mat);
-		//WR_Statics.SetEntityCollision(ent, EPhysicsLayerDefs.Default); //#ESE REPLACE
+		ESE_Entities.EnableCollisions(ent); //WR_Statics.SetEntityCollision(ent, EPhysicsLayerDefs.Default); //#ESE REPLACE
 	}
 	// ---------------------------------------------------------------------------------------------------------------- //
 	override void OnPlayerSpawned(int playerId, IEntity controlledEntity)

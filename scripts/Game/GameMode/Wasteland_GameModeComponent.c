@@ -88,7 +88,7 @@ class Wasteland_GameModeComponent: SCR_BaseGameModeComponent
 	override void OnPlayerDisconnected(int playerId)
 	{
 		SCR_ChimeraCharacter player = GetPlayerEntity(playerId);
-		if (WR_Statics.IsEntityAlive(player))
+		if (ESE_Entities.IsEntityAlive(player))
 		{			
 			int arrayIndex;
 			Wasteland_PlayerProfile profileToSave = GetPlayerProfileWithIndex(playerId, arrayIndex);

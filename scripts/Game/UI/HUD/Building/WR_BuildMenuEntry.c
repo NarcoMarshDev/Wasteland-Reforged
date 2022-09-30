@@ -24,7 +24,7 @@ class WR_BuildMenuEntry : ScriptedSelectionMenuEntry
 			vector entAngles = ent.GetAngles();
 			Print("entAngles: " + entAngles);
 			
-			vector sumAngles = WR_Statics.FixVector180( localAngles + entAngles ); //#ESE REPLACE
+			vector sumAngles = ESE_Math.FastFixVector180( localAngles + entAngles ); //#ESE REPLACE
 			Print("sumAngles: " + sumAngles);
 			
 			float len = localAngles.Length();
@@ -108,8 +108,8 @@ class WR_BuildMenuEntry : ScriptedSelectionMenuEntry
 				ent.GetWorldTransform(entTransform);
 				ent.GetParent().RemoveChild(ent);
 				ent.SetWorldTransform(entTransform);
-				WR_Statics.RestoreMaterial(ent); //#ESE REPLACE
-				WR_Statics.EnableEntityCollisions(ent); //#ESE REPLACE
+				ESE_Entities.RestoreMaterial(ent, true); //WR_Statics.RestoreMaterial(ent); //#ESE REPLACE
+				ESE_Entities.EnableCollisions(ent); //WR_Statics.EnableEntityCollisions(ent); //#ESE REPLACE
 				break;
 			
 			case BuildMenuEntryType.SNAP:
@@ -123,8 +123,8 @@ class WR_BuildMenuEntry : ScriptedSelectionMenuEntry
 				
 				SetChildTransforms(ent);			
 				
-				WR_Statics.RestoreMaterial(ent); //#ESE REPLACE
-				WR_Statics.EnableEntityCollisions(ent); //#ESE REPLACE
+				ESE_Entities.RestoreMaterial(ent, true); //WR_Statics.RestoreMaterial(ent); //#ESE REPLACE
+				ESE_Entities.EnableCollisions(ent); //WR_Statics.EnableEntityCollisions(ent); //#ESE REPLACE
 				break;
 			
 			case BuildMenuEntryType.LEFT:
@@ -133,8 +133,10 @@ class WR_BuildMenuEntry : ScriptedSelectionMenuEntry
 				ent.GetWorldTransform(mat);
 				vector entAngles = Math3D.MatrixToAngles(mat);
 				entAngles[0] = entAngles[0] - 22.5; // these angles are 22.5 instead of 45 because this seems to run twice with auto closing the menu on selection disabled
-				if 		(entAngles[0] > 180) 	{entAngles[0] = entAngles[0] - 360;} // replace with WR_Statics.FixFloat180(); //#ESE REPLACE
-				else if (entAngles[0] < -180) 	{entAngles[0] = entAngles[0] + 360;}
+				ESE_Math.FastFixFloat180(entAngles[0]);	
+			
+				//if		(entAngles[0] > 180) 	{entAngles[0] = entAngles[0] - 360;} // replace with WR_Statics.FixFloat180(); //#ESE REPLACE
+				//else if	(entAngles[0] < -180) 	{entAngles[0] = entAngles[0] + 360;}
 					
 				Math3D.AnglesToMatrix(entAngles, mat);
 				ent.SetWorldTransform(mat);
@@ -145,10 +147,12 @@ class WR_BuildMenuEntry : ScriptedSelectionMenuEntry
 				vector mat[4];
 				ent.GetWorldTransform(mat);
 				vector entAngles = Math3D.MatrixToAngles(mat);
-
 				entAngles[0] = entAngles[0] + 22.5;
-				if 		(entAngles[0] > 180) 	{entAngles[0] = entAngles[0] - 360;} //#ESE REPLACE - ESE_Math.FixFloat180();
-				else if (entAngles[0] < -180) 	{entAngles[0] = entAngles[0] + 360;}
+				ESE_Math.FastFixFloat180(entAngles[0]);
+			
+			
+				//if 		(entAngles[0] > 180) 	{entAngles[0] = entAngles[0] - 360;} //#ESE REPLACE - ESE_Math.FixFloat180();
+				//else if 	(entAngles[0] < -180) 	{entAngles[0] = entAngles[0] + 360;}
 					
 				Math3D.AnglesToMatrix(entAngles, mat);
 				ent.SetWorldTransform(mat);

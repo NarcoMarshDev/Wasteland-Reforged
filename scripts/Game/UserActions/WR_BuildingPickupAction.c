@@ -15,24 +15,24 @@ class WR_BuildingPickupAction: ScriptedUserAction
 			return;
 		
 		Print("pls");
-		array<IEntity> ownerChildren = new array<IEntity>();
-		WR_Statics.GetAllChildren(m_Entity, ownerChildren); //#ESE REPLACE
+		array<IEntity> ownerChildren = ESE.GetAllChildren(m_Entity);
+		//array<IEntity> ownerChildren = new array<IEntity>();
+		//WR_Statics.GetAllChildren(m_Entity, ownerChildren); //#ESE REPLACE
 		foreach (IEntity ent : ownerChildren)
 		{
 			Print("owner: " + ent);
 		}
-		array<IEntity> userChildren = new array<IEntity>();
-		WR_Statics.GetAllChildren(pUserEntity, userChildren); //#ESE REPLACE
+		array<IEntity> userChildren = ESE.GetAllChildren(pUserEntity);
+		//array<IEntity> userChildren = new array<IEntity>();
+		//WR_Statics.GetAllChildren(pUserEntity, userChildren); //#ESE REPLACE
 		foreach (IEntity ent : ownerChildren)
 		{
 			Print("user: " + ent);
 		}
 		
 						
-		WR_Statics.SetMaterial(pOwnerEntity, "{56EBF5038622AC95}Assets/Conflict/CanBuild.emat"); //#ESE REPLACE
-		//WR_Statics.SetEntityCollision(pOwnerEntity, EPhysicsLayerDefs.None); This crashes the entire workbench when run, wont even bring up the crash reporter	
-		
-		WR_Statics.DisableEntityCollisions(pOwnerEntity); //#ESE REPLACE
+		ESE_Entities.SetMaterial(pOwnerEntity, ESE_Aliases.AR_MAT_CANBUILD); //WR_Statics.SetMaterial(pOwnerEntity, "{56EBF5038622AC95}Assets/Conflict/CanBuild.emat"); //#ESE REPLACE
+		ESE_Entities.DisableCollisions(pOwnerEntity); //WR_Statics.DisableEntityCollisions(pOwnerEntity); //#ESE REPLACE
 		WR_Statics.GetEntityBuildingSlot(pUserEntity).AttachEntity(pOwnerEntity);
 	}
 	
@@ -41,7 +41,8 @@ class WR_BuildingPickupAction: ScriptedUserAction
 		if (!m_Entity)
 			return false;
 		
-		if (!WR_BuildingRadialMenuComponent.Cast( WR_Statics.GetPlayerControllerFromEntity(user).FindComponent(WR_BuildingRadialMenuComponent) ).GetEnabled()) //#ESE REPLACE
+		//if (!WR_BuildingRadialMenuComponent.Cast( WR_Statics.GetPlayerControllerFromEntity(user).FindComponent(WR_BuildingRadialMenuComponent) ).GetEnabled()) //#ESE REPLACE
+		if (!WR_BuildingRadialMenuComponent.Cast( ESE.GetPlayerControllerFromEntity(user).FindComponent(WR_BuildingRadialMenuComponent) ).GetEnabled())
 		{
 			return false;
 		}

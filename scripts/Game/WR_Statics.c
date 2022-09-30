@@ -15,7 +15,7 @@ class WR_Statics
 	// ===================================================================================================
 	// ============================================ HIERARCHY ============================================
 	// ===================================================================================================
-	
+	[Obsolete("Use ESE.GetAllChildren()")]
 	static void GetAllChildren(IEntity parent, notnull inout array<IEntity> allChildren)
 	{
 		if (!parent)
@@ -34,6 +34,7 @@ class WR_Statics
 	}
 	
 	// iterates through all children, outputting an array of all children matching the given class
+	[Obsolete("Use ESE.GetAllChildrenByType()")]
 	static void GetAllChildrenByClass(IEntity parent, typename childClass, notnull inout array<IEntity> allChildren)
 	{
 		if (!parent || !childClass)
@@ -99,6 +100,7 @@ class WR_Statics
 	}
 	
 	// modified GetAllChildren() that sorts non SCR_SpawnPoint entities out of the output array
+	[Obsolete("Use SCR_SpawnPoint.GetSpawnPoints()")]
 	static void GetAllSpawns(IEntity parent, notnull inout array<SCR_SpawnPoint> allChildren)
 	{
 		if (!parent)
@@ -119,7 +121,7 @@ class WR_Statics
 			child = child.GetSibling();
 		}
 	}
-	
+	[Obsolete("Use ESE_Entities.DeleteEntity()")]
 	static void DeleteEntity(IEntity ent)
 	{
 		RplComponent.DeleteRplEntity(ent, false);
@@ -151,20 +153,21 @@ class WR_Statics
 	// ===================================================================================================
 	
 	// See SCR_Global.FixVector180() - All these do the same thing for different data types
+	[Obsolete("Use ESE_Math.FixFloat180() or ESE_Math.FastFixFloat180")]
 	static float FixFloat180(float val)
 	{
 		if 		(val > 180)  {val -= 360;}
 		else if (val < -180) {val += 360;}
 		return val;
 	}
-	
+	[Obsolete("Use ESE_Math.FixInt180() or ESE_Math.FastFixInt180")]
 	static int FixInt180(int val)
 	{
 		if 		(val > 180)  {val -= 360;}
 		else if (val < -180) {val += 360;}
 		return val;
 	}
-	
+	[Obsolete("Use ESE_Math.FixVector180() or ESE_Math.FastFixVector180")]
 	static vector FixVector180(vector vec)
 	{
 		for (int a = 0; a < 3; a++)
@@ -208,6 +211,7 @@ class WR_Statics
 	}
 	
 	// thanks to Chad (Discord ID 110143440817229824)
+	[Obsolete("Use ESE_Entities.SpawnPrefabOnPlayer()")]
 	static IEntity SpawnPrefabOnPlayer(IEntity player, ResourceName prefabName)
 	{
 		Print("=====SpawnPrefabOnPlayer=====");
@@ -236,7 +240,7 @@ class WR_Statics
 	// ===================================================================================================
 	// ============================================== OTHER ==============================================
 	// ===================================================================================================
-	
+	[Obsolete("Use ESE.GetPlayerControllerFromEntity()")]
 	static PlayerController GetPlayerControllerFromEntity(IEntity ent)
 	{
 		return GetGame().GetPlayerManager().GetPlayerController( GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(ent) );
@@ -271,7 +275,7 @@ class WR_Statics
 
 		return true;
 	}
-	
+	[Obsolete("Use ESE_Entities.DisableCollisions()")]
 	static void DisableEntityCollisions(IEntity ent)
 	{
 		Physics parentPhys = ent.GetPhysics();
@@ -297,7 +301,7 @@ class WR_Statics
 			child = child.GetSibling();
 		}
 	}
-	
+	[Obsolete("Use ESE_Entities.EnableCollisions()")]
 	static void EnableEntityCollisions(IEntity ent, int layerMask = 0xffffffff)
 	{
 		Physics.CreateStatic(ent, layerMask);
@@ -319,7 +323,7 @@ class WR_Statics
 		slotManager.GetSlotInfos(slotArray);
 		return slotArray[0];
 	}
-	
+	[Obsolete("Use ESE_Entities.GetMaterial")]
 	static void GetMaterial(IEntity entity, out string materials[], out int numMaterials)
 	{
 		VObject mesh = entity.GetVObject();
@@ -328,7 +332,7 @@ class WR_Statics
 			numMaterials = mesh.GetMaterials(materials);
 		}
 	}
-	
+	[Obsolete("Use ESE_Entities.SetMaterial()")]
 	static void SetMaterial(IEntity entity, ResourceName material, bool recursively = true)
 	{
 		//--- Remap textures of the current mesh
@@ -358,6 +362,7 @@ class WR_Statics
 	}
 	
 	// this is fucking sick
+	[Obsolete("Use ESE_Entities.RestoreMaterial()")]
 	static void RestoreMaterial(IEntity entity)
 	{
 		IEntity child = entity;
@@ -376,7 +381,7 @@ class WR_Statics
 			child = child.GetChildren();
 		}
 	}
-	
+	[Obsolete("Use ESE_Entities.IsEntityAlive()")]
 	static bool IsEntityAlive(IEntity entity)
 	{
 		DamageManagerComponent damageManager = DamageManagerComponent.Cast(entity.FindComponent(DamageManagerComponent));
@@ -385,7 +390,7 @@ class WR_Statics
 		else
 			return true;
 	}
-	
+	//[Obsolete("Use ESE_Entities.IsEntityOnScreen()")] #ESE ADD
 	static bool IsEntityOnScreen(IEntity ent)
 	{
 		WorkspaceWidget workspace = GetGame().GetWorkspace();
@@ -403,7 +408,7 @@ class WR_Statics
 	// ===================================================================================================
 	// ========================================== FILE HANDLING ==========================================
 	// ===================================================================================================
-	
+	[Obsolete("Use ESE_IO.ReadFileAsArray()")]
 	static void ReadFileAsArray(string path, notnull inout array<string> fileArray)
 	{
 		FileHandle file =  FileIO.OpenFile(path, FileMode.READ);
