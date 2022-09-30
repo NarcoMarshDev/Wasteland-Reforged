@@ -15,8 +15,10 @@ class WR_PushVehicleAction: ScriptedUserAction
 		if (!world || !m_pVehicle || m_pVehicle.IsOccupied())
 			return;
 		
+		// get normalised vector pointing from player position to vehicle position
 		vector dir = vector.Direction(pUserEntity.GetOrigin(), pOwnerEntity.GetOrigin());
 		dir.Normalize();
+		// scale vector based on vehicle mass * 3
 		Physics phys = pOwnerEntity.GetPhysics();
 		dir *= phys.GetMass() * 3;
 		phys.ApplyImpulse(dir);

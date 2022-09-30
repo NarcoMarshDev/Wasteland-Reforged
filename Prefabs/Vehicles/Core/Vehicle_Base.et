@@ -1,6 +1,8 @@
 Vehicle {
  ID "BBCBA43A9778AE21"
  components {
+  WR_VehicleLockingComponent "{5A7C42BDB725BA7B}" {
+  }
   ActionsManagerComponent "{C97BE5489221AE18}" {
    ActionContexts {
     UserActionContext "{5A7AAE2B8E52F1C1}" {
@@ -29,6 +31,51 @@ Vehicle {
       Name "Push Vehicle"
      }
      Duration 0.5
+    }
+    WR_LockVehicleAction "{5A7C42BDBFCC5F09}" {
+     ParentContextList {
+      "center"
+     }
+     UIInfo UIInfo "{5A7C42BDCAD6B91E}" {
+      Name "Lock Vehicle"
+     }
+     Duration 3
+    }
+    WR_UnlockVehicleAction "{5A7C42BDBCC526C0}" {
+     ParentContextList {
+      "center"
+     }
+     UIInfo UIInfo "{5A7C42BDD7ED805B}" {
+      Name "Unlock Vehicle"
+     }
+     Duration 3
+    }
+    WR_FactionLockVehicleAction "{5A7C42BDC2E90E09}" {
+     ParentContextList {
+      "center"
+     }
+     UIInfo UIInfo "{5A7C42BDD99FC5A9}" {
+      Name "Faction Lock Vehicle"
+     }
+     Duration 3
+    }
+    WR_GroupLockVehicleAction "{5A7C42BDC0882A5C}" {
+     ParentContextList {
+      "center"
+     }
+     UIInfo UIInfo "{5A7C42BDE7B5FDB2}" {
+      Name "Group Lock Vehicle"
+     }
+     Duration 3
+    }
+    WR_AquireVehicleOwnershipAction "{5A7C42A20454C709}" {
+     ParentContextList {
+      "center"
+     }
+     UIInfo UIInfo "{5A7C42A20F0D8D78}" {
+      Name "Aquire Vehicle Ownership"
+     }
+     Duration 3
     }
    }
   }
