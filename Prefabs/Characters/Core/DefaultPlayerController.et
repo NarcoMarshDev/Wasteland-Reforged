@@ -30,6 +30,13 @@ SCR_PlayerController {
    m_iSelectionBehavior FreeMove
    m_fSelectFreeDelay 0
   }
+  SlotManagerComponent "{5A3B326D249311EA}" {
+   Slots {
+    EntitySlotInfo BuildingObjectSlot {
+     Offset 0 0.25 3
+    }
+   }
+  }
   WR_BuildingRadialMenuComponent "{59ACD3AE138DE557}" {
    m_pRadialMenu SCR_RadialMenuHandler "{59ACD3AE18313E40}" {
    }
@@ -57,14 +64,9 @@ SCR_PlayerController {
    m_iSelectionBehavior FreeMove
    m_fSelectFreeDelay 0
   }
-  WR_DebugComponent "{5A25250A90C47ADB}" {
+  WR_CurrentStorePlayerControllerComponent "{5A82B0BC805D2648}" {
   }
-  SlotManagerComponent "{5A3B326D249311EA}" {
-   Slots {
-    EntitySlotInfo BuildingObjectSlot {
-     Offset 0 0.25 3
-    }
-   }
+  WR_DebugComponent "{5A25250A90C47ADB}" {
   }
  }
  coords 0 0 0

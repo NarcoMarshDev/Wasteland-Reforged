@@ -1,0 +1,5 @@
+MatPBRBasic {
+ BCRMap "{2B229E86137A1CE3}Assets/Vehicle Store Sign.edds"
+ NormalPower 0.554
+ NMOMap "{12F7DB7333E60620}Assets/_SharedData/Wood/ST_WoodPlain_Rough_01_BCR.edds"
+}

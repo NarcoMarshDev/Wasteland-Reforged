@@ -1,0 +1,400 @@
+FrameWidgetClass "{5A8221E80589770B}" {
+ Name "rootFrame"
+ Slot FrameWidgetSlot "{56352562782996BC}" {
+  Anchor 0 0 1 1
+  PositionX 0
+  OffsetLeft 0
+  PositionY 0
+  OffsetTop 0
+  SizeX 1920
+  OffsetRight 0
+  SizeY 1080
+  OffsetBottom 0
+ }
+ components {
+  SCR_ConfigUIComponent "{5646C029527E115B}" {
+   m_ConfigPath "{17295EF80DC38D53}Configs/FieldManual/FieldManualConfigRoot.conf"
+  }
+ }
+ {
+  BlurWidgetClass "{5A8221E80589770E}" : "{352322057FD78AE1}UI/layouts/WidgetLibrary/BaseElements/WLib_Blur.layout" {
+   Name "Blur"
+   Slot FrameWidgetSlot "{562EBEBEDC7CBCD1}" {
+    Anchor 0 0 1 1
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    SizeX -1920
+    OffsetRight 0
+    SizeY -1080
+    OffsetBottom 0
+   }
+   Color 0.196 0.196 0.196 1
+  }
+  OverlayWidgetClass "{5A8221E805897700}" : "{01FD644AD2B6317D}UI/layouts/Menus/Common/MenuBackground.layout" {
+   Name "MenuBackground"
+   Slot FrameWidgetSlot "{552C9A0A8526D2AD}" {
+   }
+   {
+   }
+  }
+  OverlayWidgetClass "{5A8221E805897704}" : "{6F1E013D3D33703C}UI/layouts/WidgetLibrary/BaseElements/WLib_MenuBaseTabbed.layout" {
+   Name "MenuFrame"
+   Slot FrameWidgetSlot "{54D8A1A69BDC4E85}" {
+   }
+   {
+    SizeLayoutWidgetClass "{589F093B48C39BEF}" {
+     Prefab "{589F093B48C39BEF}"
+     {
+      VerticalLayoutWidgetClass "{589F093B48C39BEC}" {
+       Prefab "{589F093B48C39BEC}"
+       {
+        SizeLayoutWidgetClass "{589F093B48C39BEA}" {
+         Prefab "{589F093B48C39BEA}"
+         {
+          OverlayWidgetClass "{58A07816DC169F57}" {
+           Prefab "{58A07816DC169F57}"
+           {
+            TextWidgetClass "{589F093B48C39BE9}" {
+             Prefab "{589F093B48C39BE9}"
+             Text "#ar-mainmenu_fieldmanual"
+            }
+           }
+          }
+         }
+        }
+        VerticalLayoutWidgetClass "{589F093AB3EA94A2}" {
+         Prefab "{589F093AB3EA94A2}"
+         {
+          SizeLayoutWidgetClass "{0000000041B59A6F}" {
+           Prefab "{0000000041B59A6F}"
+           {
+            HorizontalLayoutWidgetClass "{54ACA2928A1FCB02}" {
+             Prefab "{54ACA2928A1FCB02}"
+             {
+              ButtonWidgetClass "{5644CE82C669B056}" {
+               Prefab "{5644CE82C669B056}"
+               {
+                SizeLayoutWidgetClass "{54A0782A39F09C6C}" {
+                 Prefab "{54A0782A39F09C6C}"
+                 {
+                  OverlayWidgetClass "{000000005E70868E}" {
+                   Prefab "{000000005E70868E}"
+                   "Is Visible" 0
+                   {
+                   }
+                  }
+                 }
+                }
+               }
+              }
+              OverlayWidgetClass "{54ACA29336E9260F}" {
+               Prefab "{54ACA29336E9260F}"
+               "Is Visible" 0
+               {
+               }
+              }
+             }
+            }
+           }
+          }
+          ImageWidgetClass "{00000000DB4F9EA9}" {
+           Prefab "{00000000DB4F9EA9}"
+           Slot LayoutSlot "{54871745AA809762}" {
+           }
+          }
+          OverlayWidgetClass "{000000001094E915}" {
+           Prefab "{000000001094E915}"
+           Slot LayoutSlot "{5454881316546B14}" {
+            Padding -2 20 0 20
+           }
+           Clipping False
+           {
+            HorizontalLayoutWidgetClass "{5A8221E805897738}" {
+             Name "HorizontalLayout0"
+             Slot OverlayWidgetSlot "{562EEA185A1A1C09}" {
+              HorizontalAlign 3
+              VerticalAlign 3
+             }
+             {
+              VerticalLayoutWidgetClass "{5A8221E805897739}" {
+               Name "MenuPanel"
+               Slot LayoutSlot "{562EEA1818FABFB9}" {
+                Padding 0 0 10 0
+                SizeMode Fill
+                FillWeight 0.333
+               }
+               Color 0.761 0.392 0.078 1
+               "Right rule" Explicit
+               "Right target" "GridLayout"
+               {
+                ButtonWidgetClass "{5A8221E80589773B}" : "{67B4F07635959DC7}UI/layouts/WidgetLibrary/EditBox/WLib_EditBoxSearch.layout" {
+                 Name "Searchbar"
+                 Slot LayoutSlot "{563522170611B8F4}" {
+                  Padding 0 0 20 0
+                 }
+                 components {
+                  SCR_EditBoxSearchComponent "{553AB38AB35B762C}" {
+                   m_sSoundHovered ""
+                   m_sSoundClicked ""
+                  }
+                  SCR_ModularButtonComponent "{5908621813945672}" {
+                   m_aEffects {
+                    SCR_ButtonEffectSound "{590862180E064195}" {
+                     m_eEvents STATE_HOVERED
+                     m_sSound "SOUND_FE_BUTTON_HOVER"
+                    }
+                   }
+                  }
+                 }
+                 {
+                  SizeLayoutWidgetClass "{5538C205B27B0F5D}" {
+                   Prefab "{5538C205B27B0F5D}"
+                   {
+                    OverlayWidgetClass "{55367D8E531FD623}" {
+                     Prefab "{55367D8E531FD623}"
+                     {
+                      HorizontalLayoutWidgetClass "{55367D8E4592BC6E}" {
+                       Prefab "{55367D8E4592BC6E}"
+                       {
+                        SizeLayoutWidgetClass "{5568B465EFB53D82}" {
+                         Prefab "{5568B465EFB53D82}"
+                         {
+                          OverlayWidgetClass "{5538C2059A570E94}" {
+                           Prefab "{5538C2059A570E94}"
+                           {
+                            EditBoxWidgetClass "{5538C2058B18F877}" {
+                             Prefab "{5538C2058B18F877}"
+                             "Placeholder text" "#AR-FieldManual_SearchBar_placeholder"
+                            }
+                           }
+                          }
+                         }
+                        }
+                       }
+                      }
+                     }
+                    }
+                   }
+                  }
+                 }
+                }
+                ScrollLayoutWidgetClass "{5A8221E80589773E}" {
+                 Name "ScrollLayout0"
+                 Slot LayoutSlot "{566A873A034F39B6}" {
+                  VerticalAlign 0
+                  SizeMode Fill
+                 }
+                 Color 0.761 0.392 0.078 1
+                 {
+                  VerticalLayoutWidgetClass "{5A8221E80589773F}" {
+                   Name "CategoryList"
+                   Slot AlignableSlot "{566A873A2153B5C4}" {
+                    HorizontalAlign 3
+                    VerticalAlign 3
+                    Padding 0 0 10 0
+                   }
+                   {
+                    WrapLayoutWidgetClass "{5A8221E805897730}" : "{0D3AF0CFA1D1F9A6}UI/layouts/Menus/FieldManual/MenuParts/FieldManual_MenuCategory.layout" {
+                     Name "CategoryTitle"
+                     Slot LayoutSlot "{58C49058CD5A5F2A}" {
+                      HorizontalAlign 3
+                     }
+                     {
+                     }
+                    }
+                    ButtonWidgetClass "{5A8221E805897732}" : "{A316FF2475A5ADAB}UI/layouts/Menus/FieldManual/MenuParts/FieldManual_MenuSubCategory.layout" {
+                     Name "SubCategoryButton"
+                     Slot LayoutSlot "{58C377A0655B0408}" {
+                      HorizontalAlign 3
+                      VerticalAlign 3
+                     }
+                     {
+                     }
+                    }
+                   }
+                  }
+                 }
+                }
+               }
+              }
+              VerticalLayoutWidgetClass "{5A8221E805897734}" {
+               Name "VerticalLayout0"
+               Slot LayoutSlot "{58C4907D0DC97D79}" {
+                SizeMode Fill
+               }
+               {
+                HorizontalLayoutWidgetClass "{5A8221E805897735}" : "{75675DAD29AE8FB3}UI/layouts/Menus/Breadcrumbs/BreadCrumbs.layout" {
+                 Name "BreadCrumbs"
+                 Slot LayoutSlot "{58C49049265979C3}" {
+                  Padding 0 0 0 20
+                 }
+                 components {
+                  SCR_BreadCrumbsComponent "{58C4DE21FF26FE22}" {
+                   m_aContent {
+                    "Category" "SubCategory" "Entry"
+                   }
+                  }
+                 }
+                }
+                ScrollLayoutWidgetClass "{5A8221E805897736}" {
+                 Name "GridScrollLayout"
+                 Slot LayoutSlot "{56352217DC7408BC}" {
+                  Padding 40 0 40 0
+                  SizeMode Fill
+                 }
+                 Color 0.761 0.392 0.078 1
+                 components {
+                  SCR_GamepadScrollComponent "{5890DC95D2B3A6B3}" {
+                  }
+                 }
+                 {
+                  GridLayoutWidgetClass "{5A8221E805897737}" {
+                   Name "GridLayout"
+                   Slot AlignableSlot "{561AC875AB30E357}" {
+                    HorizontalAlign 3
+                    VerticalAlign 3
+                   }
+                   ColumnFill {
+                    1 1 1 1 1
+                   }
+                   {
+                    ButtonWidgetClass "{5A8221E805897729}" : "{5EA88E670200AC85}UI/layouts/Menus/FieldManual/MenuParts/FieldManual_EntryTile.layout" {
+                     Name "AssetCard00"
+                     Slot GridWidgetSlot "{58EEC9E78C1697A1}" {
+                     }
+                     {
+                     }
+                    }
+                    ButtonWidgetClass "{5A8221E80589772F}" : "{5EA88E670200AC85}UI/layouts/Menus/FieldManual/MenuParts/FieldManual_EntryTile.layout" {
+                     Name "AssetCard01"
+                     Slot GridWidgetSlot "{58EEC9E78ED48384}" {
+                      Column 1
+                     }
+                     {
+                     }
+                    }
+                    ButtonWidgetClass "{5A8221E805897724}" : "{5EA88E670200AC85}UI/layouts/Menus/FieldManual/MenuParts/FieldManual_EntryTile.layout" {
+                     Name "AssetCard02"
+                     Slot GridWidgetSlot "{58EEC9E788C6F64B}" {
+                      Column 2
+                     }
+                     {
+                     }
+                    }
+                    ButtonWidgetClass "{5A8221E805897727}" : "{5EA88E670200AC85}UI/layouts/Menus/FieldManual/MenuParts/FieldManual_EntryTile.layout" {
+                     Name "AssetCard03"
+                     Slot GridWidgetSlot "{58EEC9E674BA0ABB}" {
+                      Column 3
+                     }
+                     {
+                     }
+                    }
+                    ButtonWidgetClass "{5A8221E80589775A}" : "{5EA88E670200AC85}UI/layouts/Menus/FieldManual/MenuParts/FieldManual_EntryTile.layout" {
+                     Name "AssetCard04"
+                     Slot GridWidgetSlot "{58EEC9E67F2BEFC1}" {
+                      Column 4
+                     }
+                     {
+                     }
+                    }
+                    ButtonWidgetClass "{5A8221E80589775D}" : "{5EA88E670200AC85}UI/layouts/Menus/FieldManual/MenuParts/FieldManual_EntryTile.layout" {
+                     Name "AssetCard05"
+                     Slot GridWidgetSlot "{58EEC9E67AB2ACEE}" {
+                      Row 10
+                     }
+                     {
+                     }
+                    }
+                   }
+                  }
+                 }
+                }
+                VerticalLayoutWidgetClass "{5A8221E805897751}" {
+                 Name "ReadingWidget"
+                 Slot LayoutSlot "{58C35ED8640FE58E}" {
+                  Padding 0 0 0 -20
+                  SizeMode Fill
+                 }
+                 "Is Visible" 0
+                 {
+                  VerticalLayoutWidgetClass "{5A8221E805897752}" {
+                   Name "VerticalLayout0"
+                   Slot LayoutSlot "{58C490778908FBF8}" {
+                    SizeMode Fill
+                   }
+                   {
+                    TextWidgetClass "{5A8221E805897753}" : "{B3656334DE3D701F}UI/layouts/WidgetLibrary/TextWidgets/Text_Heading3.layout" {
+                     Name "EntryTitle"
+                     Slot LayoutSlot "{58C35ED878144B79}" {
+                      Padding 40 10 0 10
+                     }
+                     Text "Entry"
+                    }
+                    OverlayWidgetClass "{5A8221E805897754}" {
+                     Name "EntryBlock"
+                     Slot LayoutSlot "{58FEC11BE575EACA}" {
+                      SizeMode Fill
+                     }
+                     Clipping True
+                     {
+                      ImageWidgetClass "{5A8221E805897755}" {
+                       Name "EntryBackground"
+                       Slot OverlayWidgetSlot "{58FEC11BEFB65A57}" {
+                        HorizontalAlign 3
+                        VerticalAlign 3
+                        Padding 0 0 0 -50
+                       }
+                       Clipping Ancestor
+                       Texture "{7AB16551B8DB2B22}UI/Textures/FieldManual/Common/Entries/background_ui.edds"
+                       Image ""
+                      }
+                      FrameWidgetClass "{5A8221E805897756}" {
+                       Name "EntryFrame"
+                       Slot OverlayWidgetSlot "{58FEC11BE57F52CC}" {
+                        HorizontalAlign 3
+                        VerticalAlign 3
+                        Padding 50 40 50 30
+                       }
+                       Clipping Ancestor
+                       Color 0.033 0.033 0.033 1
+                      }
+                      ImageWidgetClass "{5A8221E805897757}" {
+                       Name "BackgroundGradient"
+                       Slot OverlayWidgetSlot "{58FEC11609751434}" {
+                        HorizontalAlign 3
+                        VerticalAlign 2
+                       }
+                       Color 1 1 1 0.498
+                       Texture "{E3EE15C5D1B5A7FB}UI/Textures/Common/gradient_transparent_black_linear_photoshop_vertical.edds"
+                       Image ""
+                       Size 32 200
+                       "Flip Vertically" 1
+                      }
+                     }
+                    }
+                   }
+                  }
+                 }
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+        ImageWidgetClass "{58C359558B41741E}" {
+         Prefab "{58C359558B41741E}"
+         "Is Visible" 1
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}
