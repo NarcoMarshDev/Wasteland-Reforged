@@ -1,0 +1,37 @@
+GameEntity : "{5C848F741AE1CE15}Prefabs/Items/Core/ItemGameEntity_base.et" {
+ ID "56A4B11C0BE428DA"
+ components {
+  InventoryItemComponent "{56A4B11C0BE428C5}" {
+   Attributes SCR_ItemAttributeCollection "{56A4B11C0BE428F0}" {
+    ItemDisplayName UIInfo "{56A4B11C0BE428F6}" {
+     Name "Lockpick"
+     Description "Used to get into locked vehicles and doors"
+    }
+    ItemPhysAttributes ItemPhysicalAttributes "{56A4B11C0BE428FB}" {
+     Weight 0.1
+     SizeSetupStrategy Volume
+    }
+   }
+  }
+  MeshObject "{5A7D5CFB456E057C}" {
+   Object "{2637BE3512AF25A5}Assets/Items/Equipment/Accessories/Pouch_ALICE_20rnd_M14/Pouch_ALICE_20rnd_M14_item.xob"
+  }
+  RigidBody "{5A7D5CFB4CDDA8C7}" {
+   Mass 0.15
+   ModelGeometry 1
+  }
+  WR_ItemLockpickComponent "{5A7D5CF511ABE7A0}" {
+  }
+  ActionsManagerComponent "{56A4B11C0BE428FF}" {
+   additionalActions {
+    SCR_PickUpItemAction "{56A4B11C0BE428E7}" {
+     UIInfo UIInfo "{56A4B11C0BE428E5}" {
+      Name "Pick Up Lockpick"
+      Description ""
+     }
+    }
+   }
+  }
+ }
+ coords 104.083 1.001 137.144
+}

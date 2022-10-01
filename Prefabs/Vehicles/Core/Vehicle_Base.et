@@ -39,7 +39,7 @@ Vehicle {
      UIInfo UIInfo "{5A7C42BDCAD6B91E}" {
       Name "Lock Vehicle"
      }
-     Duration 3
+     Duration 1
     }
     WR_UnlockVehicleAction "{5A7C42BDBCC526C0}" {
      ParentContextList {
@@ -48,7 +48,7 @@ Vehicle {
      UIInfo UIInfo "{5A7C42BDD7ED805B}" {
       Name "Unlock Vehicle"
      }
-     Duration 3
+     Duration 1
     }
     WR_FactionLockVehicleAction "{5A7C42BDC2E90E09}" {
      ParentContextList {
@@ -57,7 +57,7 @@ Vehicle {
      UIInfo UIInfo "{5A7C42BDD99FC5A9}" {
       Name "Faction Lock Vehicle"
      }
-     Duration 3
+     Duration 1
     }
     WR_GroupLockVehicleAction "{5A7C42BDC0882A5C}" {
      ParentContextList {
@@ -66,14 +66,23 @@ Vehicle {
      UIInfo UIInfo "{5A7C42BDE7B5FDB2}" {
       Name "Group Lock Vehicle"
      }
-     Duration 3
+     Duration 1
     }
     WR_AquireVehicleOwnershipAction "{5A7C42A20454C709}" {
      ParentContextList {
       "center"
      }
      UIInfo UIInfo "{5A7C42A20F0D8D78}" {
-      Name "Aquire Vehicle Ownership"
+      Name "Aquire Vehicle Ownership (30 sec)"
+     }
+     Duration 3
+    }
+    WR_LockpickVehicleAction "{5A7D5CF5F1A9B02A}" {
+     ParentContextList {
+      "center"
+     }
+     UIInfo UIInfo "{5A7D5CF5F6132C8F}" {
+      Name "Lockpick Vehicle (30sec)"
      }
      Duration 3
     }

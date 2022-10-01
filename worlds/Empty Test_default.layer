@@ -77,8 +77,17 @@ $grp WR_BuildingObjectEntity {
 GenericEntity : "{069265A32A03B55F}Prefabs/Weapons/MachineGuns/M60/WR_M60_Scoped_v1.et" {
  coords 124.203 1.001 127.486
 }
+GenericEntity : "{06B68C58B72EAAC6}Prefabs/Items/Equipment/Backpacks/Backpack_ALICE_Medium.et" {
+ coords 102.569 1.001 135.611
+}
 GenericEntity : "{371849B8D8BAACBC}Prefabs/Weapons/HeavyWeapons/HMG_M2HB_Mod.et" {
  coords 120.306 1.001 127.915
+}
+GenericEntity : "{3DE0155EC9767B98}Prefabs/Items/Equipment/Backpacks/Backpack_Veshmeshok.et" {
+ coords 103.375 1.001 134.749
+}
+GameEntity : "{404AEFFEC8571CA4}Prefabs/Items/WR_ItemLockpick.et" {
+ coords 104.083 1.001 137.144
 }
 GenericEntity : "{432E37FB9C9C0D74}Prefabs/Weapons/Rifles/M16/Rifle_M16_What.et" {
  coords 121.54 1.167 128.32

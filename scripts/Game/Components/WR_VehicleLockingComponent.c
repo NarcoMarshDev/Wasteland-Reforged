@@ -17,12 +17,20 @@ class WR_VehicleLockingComponent: ScriptComponent
 	private int m_pOwnerPlayerId = -1;
 	private Faction m_pOwnerFaction = null;
 	private SCR_AIGroup m_pOwnerGroup = null;
+	private bool m_pHasRemoteAccess = false;
 	
 	override void EOnInit(IEntity owner)
 	{
 		
 	}
-		
+	
+	bool SendRemoteUnlockRequest(int requestingPlayerId)
+	{
+		// WR_TODO - Send request to m_pOwnerPlayerId to enable radial menu with info on who requested, and if to accept or deny
+		string requestingName = GetGame().GetPlayerManager().GetPlayerName(requestingPlayerId);
+		// check if owner is alive, return if not since it's easier to just send again then handle the ui in the respawn menu
+		return false;
+	}
 	// gets & sets
 	// ----------------------------------------------------------------
 	void SetVehicleLock(WR_VehicleLockMode mode)
@@ -67,4 +75,8 @@ class WR_VehicleLockingComponent: ScriptComponent
 		return m_pOwnerGroup;
 	}
 	// ----------------------------------------------------------------
+	bool HasRemoteAccessEnabled()
+	{
+		return m_pHasRemoteAccess;
+	}
 }

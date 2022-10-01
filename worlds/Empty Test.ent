@@ -7,3 +7,6 @@ Layer default {
 Layer Building {
  Index 1
 }
+Layer VehicleStore {
+ Index 2
+}

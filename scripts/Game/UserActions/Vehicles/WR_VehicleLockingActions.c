@@ -35,6 +35,7 @@ class WR_LockVehicleAction: WR_BaseVehicleLockingAction
 	{
 		if (!m_pVehicle) 			 {return false;}
 		if (m_pVehicle.IsOccupied()) {return false;}
+		if (!m_pLockingComponent) 	 {return false;}
 		
 		if (ESE.GetPlayerId(user) != m_pLockingComponent.GetVehicleOwner())
 		{
@@ -61,6 +62,7 @@ class WR_UnlockVehicleAction: WR_BaseVehicleLockingAction
 	{
 		if (!m_pVehicle) 			 {return false;}
 		if (m_pVehicle.IsOccupied()) {return false;}
+		if (!m_pLockingComponent) 	 {return false;}
 		
 		if (ESE.GetPlayerId(user) != m_pLockingComponent.GetVehicleOwner())
 		{
@@ -82,11 +84,12 @@ class WR_FactionLockVehicleAction: WR_BaseVehicleLockingAction
 		m_pLockingComponent.SetVehicleLock(WR_VehicleLockMode.FactionUnlocked);
 	}
 	// --------------------------------------------------------------------------------------------
-	// only allow faction locking if vehicle is unlocked
+	// only allow faction locking if vehicle is unlocked, and disallow if indipendent faction
 	override event bool CanBeShownScript(IEntity user)
 	{
 		if (!m_pVehicle) 			 {return false;}
 		if (m_pVehicle.IsOccupied()) {return false;}
+		if (!m_pLockingComponent) 	 {return false;}
 		
 		if (ESE.GetPlayerId(user) != m_pLockingComponent.GetVehicleOwner())
 		{
@@ -113,6 +116,7 @@ class WR_GroupLockVehicleAction: WR_BaseVehicleLockingAction
 	{
 		if (!m_pVehicle) 			 {return false;}
 		if (m_pVehicle.IsOccupied()) {return false;}
+		if (!m_pLockingComponent) 	 {return false;}
 		
 		if (ESE.GetPlayerId(user) != m_pLockingComponent.GetVehicleOwner())
 		{
@@ -126,3 +130,48 @@ class WR_GroupLockVehicleAction: WR_BaseVehicleLockingAction
 	}
 }
 // ------------------------------------------------------------------------------------------------
+// This will probably be disabled by default, might be a bit too much and ruin the vibe a bit.
+// Maybe as an extra you can pay for at a vehicle store, or for mission reward vehicles.
+class WR_RequestRemoteVehicleUnlockAction: WR_BaseVehicleLockingAction
+{
+	override event void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
+	{
+		super.PerformAction(pOwnerEntity, pUserEntity);
+		m_pLockingComponent.SendRemoteUnlockRequest(ESE.GetPlayerId(pUserEntity));
+	}
+	// --------------------------------------------------------------------------------------------
+	// only allow unlock request if on same faction or group if independent faction
+	override event bool CanBeShownScript(IEntity user)
+	{
+		if (!m_pVehicle) 			 {return false;}
+		if (m_pVehicle.IsOccupied()) {return false;}
+		if (!m_pLockingComponent) 	 {return false;}
+		
+		if (ESE.GetPlayerId(user) == m_pLockingComponent.GetVehicleOwner())
+		{
+			return false;
+		}
+		if (m_pLockingComponent.GetVehicleLock() == WR_VehicleLockMode.Unlocked)
+		{
+			return false;
+		}
+		if (m_pLockingComponent.HasRemoteAccessEnabled())
+		{
+			SCR_ChimeraCharacter character = SCR_ChimeraCharacter.Cast(user);
+			if (character.GetFactionKey() == "FIA")
+			{
+				if (SCR_GroupsManagerComponent.GetInstance().GetPlayerGroup(ESE.GetPlayerId(character)) == m_pLockingComponent.GetVehicleOwnerGroup())
+				{
+					return true;
+				}
+				return false;
+			}
+			else if (character.GetFaction() == m_pLockingComponent.GetVehicleOwnerFaction())
+			{
+				return true;
+			}
+			return false;
+		}
+		return false;
+	}
+}
