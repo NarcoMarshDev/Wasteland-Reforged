@@ -1,3 +1,4 @@
+// Goto line 83
 modded class SCR_GetInUserAction : SCR_CompartmentUserAction
 {
 	protected SCR_BaseLockComponent m_pLockComp;

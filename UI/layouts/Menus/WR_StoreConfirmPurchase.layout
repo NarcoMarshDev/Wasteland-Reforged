@@ -1,0 +1,81 @@
+FrameWidgetClass {
+ Name "rootFrame"
+ {
+  OverlayWidgetClass "{5A836B7793E65391}" {
+   Name "MainOverlay"
+   Slot FrameWidgetSlot "{5A836B7793E653B1}" {
+    Anchor 0.5 0.5 0.5 0.5
+    PositionX -200
+    OffsetLeft -200
+    PositionY -112.5
+    OffsetTop -112.5
+    SizeX 400
+    OffsetRight -200
+    SizeY 225
+    OffsetBottom -112.5
+   }
+   {
+    ScaleWidgetClass "{5A836B77C953739E}" {
+     Name "BackgroundScale"
+     Slot OverlayWidgetSlot "{5A836B77C95373BE}" {
+     }
+     "Scale Mode" "Scale to fill"
+     {
+      ImageWidgetClass "{5A836B77BEB1F4CA}" {
+       Name "BackgroundImage"
+       Slot OverlayWidgetSlot "{5A836B77BEB1F4EF}" {
+       }
+       Texture "{B98FB2CD75200E57}UI/Textures/MainMenu/MenuBackgroundBlank_UI.edds"
+       Image ""
+       Size 3840 2160
+      }
+     }
+    }
+    ButtonWidgetClass "{5A849A686B6CE6A0}" : "{CB8563509DEF3E0E}UI/layouts/WidgetLibrary/Buttons/WLib_NavigationButtonSmall.layout" {
+     Name "BackButton"
+     Slot OverlayWidgetSlot "{5A849A686B6CE6B6}" {
+      HorizontalAlign 0
+      VerticalAlign 2
+      Padding 25 0 10 15
+     }
+     {
+      SizeLayoutWidgetClass "{5562AD435529FB36}" {
+       Prefab "{5562AD435529FB36}"
+       {
+        OverlayWidgetClass "{000000005E70868E}" {
+         Prefab "{000000005E70868E}"
+         {
+          HorizontalLayoutWidgetClass "{00000000E3602307}" {
+           Prefab "{00000000E3602307}"
+           {
+            RichTextWidgetClass "{00000000B0FD85CE}" {
+             Prefab "{00000000B0FD85CE}"
+             FontProperties FontProperties "{546AF489DFD25402}" {
+             }
+            }
+            RichTextWidgetClass "{00000000DB061E92}" {
+             Prefab "{00000000DB061E92}"
+             Text "Cancel"
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+    ButtonWidgetClass "{5A849C0A26D668F5}" : "{CB8563509DEF3E0E}UI/layouts/WidgetLibrary/Buttons/WLib_NavigationButtonSmall.layout" {
+     Name "ConfirmButton"
+     Slot OverlayWidgetSlot "{5A849C0A26D66837}" {
+      HorizontalAlign 2
+      VerticalAlign 2
+      Padding 10 0 15 15
+     }
+     {
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,107 @@
+FrameWidgetClass {
+ {
+  OverlayWidgetClass "{589F1425072A83DE}" {
+   Prefab "{589F1425072A83DE}"
+   {
+    SizeLayoutWidgetClass "{589F093B48C39BEF}" {
+     Prefab "{589F093B48C39BEF}"
+     {
+      VerticalLayoutWidgetClass "{589F093B48C39BEC}" {
+       Prefab "{589F093B48C39BEC}"
+       {
+        VerticalLayoutWidgetClass "{589F093AB3EA94A2}" {
+         Prefab "{589F093AB3EA94A2}"
+         {
+          OverlayWidgetClass "{000000001094E915}" {
+           Prefab "{000000001094E915}"
+           {
+            HorizontalLayoutWidgetClass "{562EEA185A1A1CDE}" {
+             Prefab "{562EEA185A1A1CDE}"
+             {
+              VerticalLayoutWidgetClass "{58C4907D0DC97D3E}" {
+               Prefab "{58C4907D0DC97D3E}"
+               {
+                VerticalLayoutWidgetClass "{58C35ED8640FE556}" {
+                 Prefab "{58C35ED8640FE556}"
+                 "Is Visible" 1
+                 {
+                  VerticalLayoutWidgetClass "{58C490778908FBBB}" {
+                   Prefab "{58C490778908FBBB}"
+                   {
+                    OverlayWidgetClass "{58FEC11BE575EA60}" {
+                     Prefab "{58FEC11BE575EA60}"
+                     {
+                      ButtonWidgetClass "{5A849C05CE4C373F}" : "{CB8563509DEF3E0E}UI/layouts/WidgetLibrary/Buttons/WLib_NavigationButtonSmall.layout" {
+                       Name "ConfirmPurchaseButton"
+                       Slot OverlayWidgetSlot "{5A849C05CE4C3733}" {
+                        HorizontalAlign 0
+                        VerticalAlign 0
+                        Padding 35 35 10 0
+                       }
+                       "Z Order" 3
+                       "Is Visible" 0
+                       components {
+                        WR_StoreSpawnButtonComponent "{5A84BC4C2C106BE3}" {
+                         m_sLabel "Confirm Purchase"
+                         m_sActionName "WR_StoreConfirmPurchase"
+                        }
+                        SCR_NavigationButtonComponent "{5474BAC5DBCF129A}" {
+                         m_sLabel "Confirm Purchase"
+                         m_sActionName "WR_StoreConfirmPurchase"
+                        }
+                       }
+                       {
+                        SizeLayoutWidgetClass "{5562AD435529FB36}" {
+                         Prefab "{5562AD435529FB36}"
+                         {
+                          OverlayWidgetClass "{000000005E70868E}" {
+                           Prefab "{000000005E70868E}"
+                           {
+                            HorizontalLayoutWidgetClass "{00000000E3602307}" {
+                             Prefab "{00000000E3602307}"
+                             {
+                              RichTextWidgetClass "{00000000B0FD85CE}" {
+                               Prefab "{00000000B0FD85CE}"
+                               "Font Size" 30
+                               "Min Font Size" 30
+                              }
+                              RichTextWidgetClass "{00000000DB061E92}" {
+                               Prefab "{00000000DB061E92}"
+                               "Font Size" 30
+                               "Min Font Size" 30
+                              }
+                             }
+                            }
+                           }
+                          }
+                         }
+                        }
+                       }
+                      }
+                      ImageWidgetClass "{58FEC11BED961815}" {
+                       Prefab "{58FEC11BED961815}"
+                       Image ""
+                       Size 1500 1064
+                      }
+                     }
+                    }
+                   }
+                  }
+                 }
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

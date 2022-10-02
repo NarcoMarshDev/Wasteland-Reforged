@@ -4,6 +4,20 @@ class WR_GameModeComponentClass : SCR_BaseGameModeComponentClass
 
 class WR_GameModeComponent : SCR_BaseGameModeComponent
 {
+	ref map<int, ref WR_PlayerProfile> m_PlayerStatsMap = new map<int, ref WR_PlayerProfile>();
+	
+	override void OnPlayerConnected(int playerId)
+	{
+		// future - if (find profile for player already) { load it }
+		auto bApi = GetGame().GetBackendApi();
+		ref auto profile = new WR_PlayerProfile(playerId, bApi.GetPlayerUID(playerId));
+		m_PlayerStatsMap.Insert(playerId, profile);
+	}
+	
+	
+	
+	
+	
 	// ---------------------------------------------------------------------------------------------------------------- //
 	override void OnPlayerKilled(int playerId, IEntity player, IEntity killer)
 	{

@@ -1095,7 +1095,7 @@ SCR_ChimeraCharacter {
    }
   }
   WR_StoreComponent "{5A82B0B50CAF9C28}" {
-   m_StoreType 1
+   m_StoreType VehicleStore
   }
   SCR_InventoryStorageManagerComponent "{5A8221FD100B7769}" {
    InitialInventoryItems {

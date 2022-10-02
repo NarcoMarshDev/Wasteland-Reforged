@@ -11,7 +11,7 @@ class WR_StoreComponentClass: ScriptComponentClass
 
 class WR_StoreComponent: ScriptComponent
 {
-	[Attribute(desc: "0: Gun Store, 1: Vehicle Store, 2: General Store")]
+	[Attribute(defvalue: SCR_Enum.GetDefault(WR_StoreType.GunStore), uiwidget: UIWidgets.ComboBox, desc: "0: Gun Store, 1: Vehicle Store, 2: General Store", enums: ParamEnumArray.FromEnum(WR_StoreType))]
 	protected WR_StoreType m_StoreType;
 	
 	

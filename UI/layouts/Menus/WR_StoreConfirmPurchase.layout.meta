@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{E5DD57085C40E5E1}UI/layouts/Menus/WR_StoreConfirmPurchase.layout"
+ Configurations {
+  LayoutResourceClass PC {
+  }
+  LayoutResourceClass XBOX_ONE : PC {
+  }
+  LayoutResourceClass XBOX_SERIES : PC {
+  }
+  LayoutResourceClass PS4 : PC {
+  }
+  LayoutResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -18,6 +18,8 @@ class WR_BaseStoreOpenAction: ScriptedUserAction
 		// send reference of this store to the player's WR_CurrentStorePlayerControllerComponent
 		WR_CurrentStorePlayerControllerComponent.Cast(GetGame().GetPlayerController().FindComponent(WR_CurrentStorePlayerControllerComponent)).SetCurrentStoreEntity(pOwnerEntity);
 				
+		// This addon uses a modified version of the field manual UI for all the store interfaces, checks are done however to ensure the modifications are only done
+		// when the menu is loaded by this action, so any other additions to the field manual config should work fine when opened normally from the pause menu.
 		
 		GetGame().GetMenuManager().OpenMenu(ChimeraMenuPreset.FieldManualDialog);
 	}
@@ -27,6 +29,7 @@ class WR_BaseStoreOpenAction: ScriptedUserAction
 		return true;
 	}
 }
+// Don't think the inherited classes are needed anymore due to all the checks being done in the UI code.
 // ------------------------------------------------------------------------------------------------
 // Vehicle store
 class WR_VehicleStoreOpenAction: WR_BaseStoreOpenAction
