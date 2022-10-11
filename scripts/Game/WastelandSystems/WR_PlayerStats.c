@@ -9,6 +9,9 @@ class WR_PlayerProfile
 	int m_Kills = 0;
 	int m_Deaths = 0;
 	
+	bool m_IsAlive = false;
+	vector m_LastLocation[4];
+	
 	protected SCR_ChimeraCharacter m_PlayerCharacter = null;
 	// ---------------------------------------------------------------- Methods -------------------------------------------------------- //
 	void SetPlayerCharacter(SCR_ChimeraCharacter character)

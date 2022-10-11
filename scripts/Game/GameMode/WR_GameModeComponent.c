@@ -4,14 +4,30 @@ class WR_GameModeComponentClass : SCR_BaseGameModeComponentClass
 
 class WR_GameModeComponent : SCR_BaseGameModeComponent
 {
-	ref map<int, ref WR_PlayerProfile> m_PlayerStatsMap = new map<int, ref WR_PlayerProfile>();
+	// ------------------------------------------------ Persistent player ID and profiles ------------------------------------------------ //
+	protected static const string WR_PERSISTENT_ID_FILE_PATH = "$profile:WastelandReforgedPersistentID.txt";
+	
+	ref map<int, ref WR_PlayerProfile> m_PlayerProfileMap = new map<int, ref WR_PlayerProfile>();
+	
+	// Is this unnecessary because the player profiles are strong refs?
+	void UpdatePlayerProfile(WR_PlayerProfile prof)
+	{
+		int playerId = prof.m_PlayerId;
+		m_PlayerProfileMap.Set(playerId, prof);
+		
+	}
+	
+	override void EOnInit(IEntity owner)
+	{
+		
+	}
 	
 	override void OnPlayerConnected(int playerId)
 	{
 		// future - if (find profile for player already) { load it }
 		auto bApi = GetGame().GetBackendApi();
-		ref auto profile = new WR_PlayerProfile(playerId, bApi.GetPlayerUID(playerId));
-		m_PlayerStatsMap.Insert(playerId, profile);
+		ref auto profile = new WR_PlayerProfile(playerId, bApi.GetPlayerUID(playerId), cash: 1500);
+		m_PlayerProfileMap.Insert(playerId, profile);
 	}
 	
 	

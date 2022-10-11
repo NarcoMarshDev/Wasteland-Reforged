@@ -1,3 +1,4 @@
+// #WR_OBSOLETE - Old build menu version, not being used anymore
 // #define ENABLED
 
 #ifdef ENABLED

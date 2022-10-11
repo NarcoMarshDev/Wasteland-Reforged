@@ -250,7 +250,7 @@ class WR_Statics
 	// ============================================= ENTITIES ============================================
 	// ===================================================================================================
 	
-	// #ESE REPLACE
+	// #ESE_REPLACE
 	// fixed SCR_TerrainHelper.OrientToTerrain()
 	static bool OrientToTerrain(out vector transform[4], BaseWorld world = null, bool noUnderwater = false)
 	{
@@ -275,6 +275,35 @@ class WR_Statics
 
 		return true;
 	}
+	// #ESE_REPLACE
+	// fixed SCR_TerrainHelper.SnapAndOrientToTerrain()
+	static bool SnapAndOrientToTerrain(out vector transform[4], BaseWorld world = null, bool noUnderwater = false, float height = 0)
+	{
+		//--- Get world
+		if (!world)
+			world = GetGame().GetWorld();
+
+		if (!world)
+			return false;
+
+		//--- Get surface basis
+		vector surfaceBasis[4];
+		if (!SCR_TerrainHelper.GetTerrainBasis(transform[3], surfaceBasis, world, noUnderwater))
+			return false;
+
+		//--- Set position to surface
+		transform[3] = surfaceBasis[3];
+
+		//--- Reset pitch and roll, but preserve yaw
+		vector angles = Math3D.MatrixToAngles(transform);
+		Math3D.AnglesToMatrix(Vector(angles[0], 0, 0), transform);
+
+		//--- Combine surface and entity transformations
+		Math3D.MatrixMultiply3(surfaceBasis, transform, transform);
+
+		return true;
+	}
+	
 	[Obsolete("Use ESE_Entities.DisableCollisions()")]
 	static void DisableEntityCollisions(IEntity ent)
 	{

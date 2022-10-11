@@ -1,7 +1,7 @@
 class WR_EventListenerComponentClass: ScriptComponentClass
 {	
 };
-
+// #WR_OBSOLETE
 class WR_EventListenerComponent: ScriptComponent
 {
 	protected InputManager m_InputManager;

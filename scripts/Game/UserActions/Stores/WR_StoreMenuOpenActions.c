@@ -29,6 +29,7 @@ class WR_BaseStoreOpenAction: ScriptedUserAction
 		return true;
 	}
 }
+// #WR_OBSOLETE - Maybe(?)
 // Don't think the inherited classes are needed anymore due to all the checks being done in the UI code.
 // ------------------------------------------------------------------------------------------------
 // Vehicle store

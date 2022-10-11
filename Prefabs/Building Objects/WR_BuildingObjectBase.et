@@ -1,0 +1,31 @@
+WR_BuildingObjectEntity {
+ ID "5A93013CE9E65299"
+ components {
+  Hierarchy "{5A93013B6DC337F1}" {
+  }
+  ActionsManagerComponent "{5A930138FC949820}" {
+   ActionContexts {
+    UserActionContext "{5A93013902BFE660}" {
+     ContextName "default"
+     Position PointInfo "{5A93013915C4A33E}" {
+     }
+     Radius 4
+    }
+   }
+   additionalActions {
+    WR_BuildingPickupAction "{5A9301392651857B}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{5A93013928A8547D}" {
+      Name "Pickup Object"
+      Icon "{55B22CEB4340AB0E}UI/Textures/UserActions/pickupaction.edds"
+     }
+     Duration 0.5
+    }
+   }
+  }
+  RplComponent "{5A93013B06307FEC}" {
+  }
+ }
+}

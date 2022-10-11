@@ -43,11 +43,11 @@ FrameWidgetClass {
                        components {
                         WR_StoreSpawnButtonComponent "{5A84BC4C2C106BE3}" {
                          m_sLabel "Confirm Purchase"
-                         m_sActionName "WR_StoreConfirmPurchase"
+                         m_sActionName "CharacterJump"
                         }
                         SCR_NavigationButtonComponent "{5474BAC5DBCF129A}" {
                          m_sLabel "Confirm Purchase"
-                         m_sActionName "WR_StoreConfirmPurchase"
+                         m_sActionName "CharacterJump"
                         }
                        }
                        {

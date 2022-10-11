@@ -14,6 +14,7 @@ class WR_BuildingPickupAction: ScriptedUserAction
 		if (!m_Entity)
 			return;
 		
+		// #WR_TODO - Clean this up, just a bunch of checks for something from ages ago, think both foreach loops can go
 		Print("pls");
 		array<IEntity> ownerChildren = ESE.GetAllChildren(m_Entity);
 		//array<IEntity> ownerChildren = new array<IEntity>();
@@ -43,6 +44,11 @@ class WR_BuildingPickupAction: ScriptedUserAction
 		
 		//if (!WR_BuildingRadialMenuComponent.Cast( WR_Statics.GetPlayerControllerFromEntity(user).FindComponent(WR_BuildingRadialMenuComponent) ).GetEnabled()) //#ESE REPLACE
 		if (!WR_BuildingRadialMenuComponent.Cast( ESE.GetPlayerControllerFromEntity(user).FindComponent(WR_BuildingRadialMenuComponent) ).GetEnabled())
+		{
+			return false;
+		}
+		
+		if (WR_Statics.GetEntityBuildingSlot(user).GetAttachedEntity())
 		{
 			return false;
 		}

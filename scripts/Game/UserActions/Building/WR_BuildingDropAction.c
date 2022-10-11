@@ -1,3 +1,4 @@
+// #WR_OBSOLETE
 class WR_BuildingDropAction: ScriptedUserAction
 {
 	ActionsManagerComponent m_ActionsManagerComponent = null;

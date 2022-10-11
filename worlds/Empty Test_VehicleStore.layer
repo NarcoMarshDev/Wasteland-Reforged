@@ -1339,6 +1339,38 @@ SCR_ChimeraCharacter {
    coords 0 -0.7 1
    Flags 1027
   }
+  $grp WR_StoreSpawnSlot {
+   {
+    angleY -180
+   }
+   {
+    angleY -180
+   }
+   {
+    angleY -180
+   }
+   {
+    angleY -180
+   }
+   {
+    angleY -180
+   }
+   {
+    angleY -180
+   }
+   {
+    angleY -180
+   }
+   {
+    angleY -180
+   }
+   {
+    angleY -180
+   }
+   {
+    angleY -180
+   }
+  }
   $grp GenericEntity : "{547D462165B175C2}Prefabs/Props/Furniture/CupboardOld_01_small.et" {
    {
     coords -1.3 0 1
@@ -1350,4 +1382,7 @@ SCR_ChimeraCharacter {
    }
   }
  }
+}
+WR_BuildingObjectEntity : "{7AA616A701D143CF}Prefabs/Building Objects/WR_BuildingObjectBase.et" {
+ coords 98.404 1 127.987
 }
