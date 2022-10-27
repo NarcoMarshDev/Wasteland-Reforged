@@ -14,13 +14,13 @@ class WR_StoreComponent: ScriptComponent
 	[Attribute(defvalue: SCR_Enum.GetDefault(WR_StoreType.GunStore), uiwidget: UIWidgets.ComboBox, desc: "0: Gun Store, 1: Vehicle Store, 2: General Store", enums: ParamEnumArray.FromEnum(WR_StoreType))]
 	protected WR_StoreType m_StoreType;
 	
-	array<IEntity> m_SpawnSlots;
-	
-	override void EOnInit(IEntity owner)
+	ref array<IEntity> m_SpawnSlots = new array<IEntity>();
+		
+	override void OnPostInit(IEntity owner)
 	{
-		m_SpawnSlots = ESE.GetAllChildrenByType(GetOwner(), WR_StoreSpawnSlot);
+		
 	}
-	
+		
 	WR_StoreType GetStoreType()
 	{
 		return m_StoreType;
@@ -31,8 +31,13 @@ class WR_StoreComponent: ScriptComponent
 		return this.GetOwner();
 	}
 	
-	WR_StoreSpawnSlot GetRandomSpawnSlot()
+	void RegisterSpawnSlot(WR_StoreSpawnSlot slot)
 	{
-		return WR_StoreSpawnSlot.Cast( m_SpawnSlots.GetRandomElement() );
+		m_SpawnSlots.Insert(slot);
+	}
+	
+	IEntity GetRandomSpawnSlot()
+	{
+		return m_SpawnSlots.GetRandomElement();
 	}
 }

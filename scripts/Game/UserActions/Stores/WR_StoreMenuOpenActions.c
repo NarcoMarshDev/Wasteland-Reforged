@@ -12,7 +12,7 @@ class WR_BaseStoreOpenAction: ScriptedUserAction
 		World world = GetGame().GetWorld();
 		if (!world)
 			return;
-		
+				
 		// get the store that this action relates to
 		WR_StoreComponent store = WR_StoreComponent.Cast( pOwnerEntity.FindComponent(WR_StoreComponent) );
 		// send reference of this store to the player's WR_CurrentStorePlayerControllerComponent

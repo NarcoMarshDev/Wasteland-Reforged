@@ -8,5 +8,8 @@ SCR_ChimeraCharacter {
     }
    }
   }
+  WR_TestingComponent "{5A9EFEF446F3425B}" {
+  }
  }
+ coords 0 0 0
 }

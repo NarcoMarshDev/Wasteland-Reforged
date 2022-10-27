@@ -1,3 +1,6 @@
+// HUGE TODO
+// This whole store ui based on the field manual needs to be completely rewritten to be portable to arma 4
+
 modded class SCR_FieldManualUI : MenuRootBase
 {
 	protected TextWidget m_wMenuTitle;

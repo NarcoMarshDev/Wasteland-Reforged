@@ -7,92 +7,7 @@ class WR_BuildMenuEntry : ScriptedSelectionMenuEntry
 	protected string m_pName;
 	protected string m_pDescription;
 	protected Color m_IconColor;
-	
-	//------------------------------------------------------------------------------------------------
-	// Recursively sets all descendants world position manually to avoid engine bug with children not following parent entities properly when unslotted
-	// DUMB LMAO JUST NEEDED TO DO IEntity.Update() I'm so fucking stupid lol, I was working on a fix for like 3 months and it was one line
-	void SetChildTransforms(IEntity ent)
-	{
-		IEntity child = ent.GetChildren();
-		while (child)
-		{
-			vector childLocalTransform[4];
-			child.GetLocalTransform(childLocalTransform);
-			Print("childLocalTransform: " + childLocalTransform[3]);
-			vector childLocalAngles = childLocalTransform.VectorToAngles();
-			Print("childLocalAngles: " + childLocalAngles);
-			
-			vector parentTransform[4];
-			ent.GetTransform(parentTransform);
-			vector parentWorldAngles = parentTransform.VectorToAngles();
-			Print("parentWorldAngles: " + parentWorldAngles);
-			
-			vector sumAngles = ESE_Math.FastFixVector180( childLocalAngles + parentWorldAngles ); //#ESE REPLACE
-			Print("sumAngles: " + sumAngles);
-			
-			float len = vector.DistanceXZ("0 0 0", childLocalTransform);
-			Print("len: " + len);
-			
-			// use direction from sumAngles and distance from len to move child to correct world position
-			
-			float x = 0;
-			float y = 0;
-			float z = 0;
-			
-			Print("x: " + x);
-			Print("y: " + y);
-			Print("z: " + z);
-			
-			child = child.GetSibling();
-		}
 		
-		
-		
-		#ifdef BROKEN
-		IEntity child = ent.GetChildren();
-		while (child)
-		{
-			vector localTransform[4];
-			child.GetLocalTransform(localTransform);
-			
-			vector worldTransform[4];
-			child.GetWorldTransform(worldTransform);
-			
-			vector pos = ent.CoordToParent(localTransform);
-			Print("parent pos: " + ent.GetOrigin());
-			Print("localTransform: " + localTransform[3]);
-			Print("worldTransform: " + worldTransform[3]);
-			Print(pos);
-			
-			child.SetOrigin(pos);
-			
-			if (child.GetChildren())
-			{
-				SetChildTransforms(child);
-			}
-			child = child.GetSibling();
-		}
-		
-		
-		
-		IEntity child = ent.GetChildren();
-		while (child)
-		{
-			vector localTransform[4];
-			child.GetLocalTransform(localTransform);
-			Print("localTransform: " + localTransform[3]);
-			vector newPos = child.GetParent().GetOrigin() + localTransform[3];
-			child.SetOrigin(newPos);
-			
-			if (child.GetChildren())
-			{
-				SetChildTransforms(child);
-			}
-			child = child.GetSibling();
-		}
-		#endif
-	}
-			
 	//------------------------------------------------------------------------------------------------
 	//! Callback for when this entry is supposed to be performed
 	override void OnPerform(IEntity user, BaseSelectionMenu sourceMenu)
@@ -109,12 +24,13 @@ class WR_BuildMenuEntry : ScriptedSelectionMenuEntry
 				vector entTransform[4];
 				slot.DetachEntity(false);
 				ent.GetWorldTransform(entTransform);
+				ESE_Entities.SnapToGround(entTransform, ent, 2, false);
 				ent.GetParent().RemoveChild(ent);
 				ent.SetWorldTransform(entTransform);
 				ent.Update();
 				
-				ESE_Entities.RestoreMaterial(ent, true); //WR_Statics.RestoreMaterial(ent); //#ESE REPLACE
-				ESE_Entities.EnableCollisions(ent); //WR_Statics.EnableEntityCollisions(ent); //#ESE REPLACE			
+				ESE_Entities.RestoreMaterial(ent, true);
+				ESE_Entities.EnableCollisions(ent);
 				break;
 			
 			case BuildMenuEntryType.SNAP:
@@ -122,13 +38,14 @@ class WR_BuildMenuEntry : ScriptedSelectionMenuEntry
 				vector entTransform[4];
 				slot.DetachEntity(false);
 				ent.GetWorldTransform(entTransform);
-				SCR_TerrainHelper.SnapToTerrain(entTransform, GetGame().GetWorld(), true);
+				//SCR_TerrainHelper.SnapToTerrain(entTransform, GetGame().GetWorld(), true);
+				ESE_Entities.SnapAndOrientToGround(entTransform, ent, 10, false);
 				ent.GetParent().RemoveChild(ent);
 				ent.SetWorldTransform(entTransform);
 				ent.Update();
 								
-				ESE_Entities.RestoreMaterial(ent, true); //WR_Statics.RestoreMaterial(ent); //#ESE REPLACE
-				ESE_Entities.EnableCollisions(ent); //WR_Statics.EnableEntityCollisions(ent); //#ESE REPLACE
+				ESE_Entities.RestoreMaterial(ent, true);
+				ESE_Entities.EnableCollisions(ent);
 				break;
 			
 			case BuildMenuEntryType.LEFT:
@@ -137,11 +54,7 @@ class WR_BuildMenuEntry : ScriptedSelectionMenuEntry
 				ent.GetWorldTransform(mat);
 				vector entAngles = Math3D.MatrixToAngles(mat);
 				entAngles[0] = entAngles[0] - 22.5; // these angles are 22.5 instead of 45 because this seems to run twice with auto closing the menu on selection disabled
-				ESE_Math.FastFixFloat180(entAngles[0]);	
-			
-				//if		(entAngles[0] > 180) 	{entAngles[0] = entAngles[0] - 360;} // replace with WR_Statics.FixFloat180(); //#ESE REPLACE
-				//else if	(entAngles[0] < -180) 	{entAngles[0] = entAngles[0] + 360;}
-					
+				ESE_Math.FastFixFloat180(entAngles[0]);						
 				Math3D.AnglesToMatrix(entAngles, mat);
 				ent.SetWorldTransform(mat);
 				break;
@@ -152,12 +65,7 @@ class WR_BuildMenuEntry : ScriptedSelectionMenuEntry
 				ent.GetWorldTransform(mat);
 				vector entAngles = Math3D.MatrixToAngles(mat);
 				entAngles[0] = entAngles[0] + 22.5;
-				ESE_Math.FastFixFloat180(entAngles[0]);
-			
-			
-				//if 		(entAngles[0] > 180) 	{entAngles[0] = entAngles[0] - 360;} //#ESE REPLACE - ESE_Math.FixFloat180();
-				//else if 	(entAngles[0] < -180) 	{entAngles[0] = entAngles[0] + 360;}
-					
+				ESE_Math.FastFixFloat180(entAngles[0]);					
 				Math3D.AnglesToMatrix(entAngles, mat);
 				ent.SetWorldTransform(mat);
 				break;		

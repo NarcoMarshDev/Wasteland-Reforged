@@ -8,6 +8,7 @@ class WR_EventListenerComponent: ScriptComponent
 	
 	override void EOnInit(IEntity owner)
 	{
+		Print("This is used somewhere!", LogLevel.WARNING);
 		m_InputManager = GetGame().GetInputManager();
 	}
 	

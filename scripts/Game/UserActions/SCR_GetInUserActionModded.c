@@ -49,7 +49,7 @@ modded class SCR_GetInUserAction : SCR_CompartmentUserAction
 			return false;
 		
 		IEntity owner = compartment.GetOwner();
-		Vehicle vehicle = Vehicle.Cast(SCR_Global.GetMainParent(owner, true));
+		Vehicle vehicle = Vehicle.Cast(SCR_EntityHelper.GetMainParent(owner, true));
 		if (vehicle)
 		{
 			Faction characterFaction = character.GetFaction();

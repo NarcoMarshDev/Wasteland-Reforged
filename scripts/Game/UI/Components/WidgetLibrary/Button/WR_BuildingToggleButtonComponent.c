@@ -8,9 +8,13 @@ class WR_BuildingToggleButtonComponent : SCR_ButtonBaseComponent
 	
 	override void HandlerAttached(Widget w)
 	{
+		Print(w);
 		m_wImage = ImageWidget.Cast(w.FindAnyWidget("Image"));
 		m_wText = TextWidget.Cast(w.FindAnyWidget("Name"));
 		PlayerController controller = GetGame().GetPlayerController();
+		Print(controller);
+		Print(m_wImage);
+		Print(m_wText);
 		if (!controller)
 			return;
 		
@@ -42,6 +46,7 @@ class WR_BuildingToggleButtonComponent : SCR_ButtonBaseComponent
 	
 	override bool OnMouseEnter(Widget w, int x, int y)
 	{
+		Print("Entered");
 		m_wImage.SetShadowColor(Color.FromRGBA(194, 100, 20, 255));
 		super.OnMouseEnter(w, x, y);
 		return false;
@@ -49,6 +54,7 @@ class WR_BuildingToggleButtonComponent : SCR_ButtonBaseComponent
 	
 	override bool OnMouseLeave(Widget w, Widget enterW, int x, int y)
 	{
+		Print("Leaving");
 		m_wImage.SetShadowColor(Color.FromRGBA(0,0,0,0));
 		super.OnMouseLeave(w, enterW, x, y);
 		return false;

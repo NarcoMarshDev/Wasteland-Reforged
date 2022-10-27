@@ -55,7 +55,7 @@ class WR_GameModeComponent : SCR_BaseGameModeComponent
 		
 		vector mat[4];
 		ent.GetTransform(mat);
-		SCR_Global.SnapToTerrain(mat, GetGame().GetWorld(), true);		
+		SCR_TerrainHelper.SnapToTerrain(mat, GetGame().GetWorld(), true); //#ESE_REPLACE - ESE_Entities.SnapToGround()
 		ent.SetTransform(mat);
 		ESE_Entities.EnableCollisions(ent); //WR_Statics.SetEntityCollision(ent, EPhysicsLayerDefs.Default); //#ESE REPLACE
 	}

@@ -20,7 +20,7 @@ class WR_TownTrigger: SCR_BaseTriggerEntity
 		{
 			if (child.IsInherited(WR_SpawnPoint))
 			{
-				WR_SpawnPoint.Cast(child).GetInfo().SetName(m_sTownName);
+				SCR_OverridableUIInfo.Cast( WR_SpawnPoint.Cast(child).GetInfo() ).SetName(m_sTownName); // to replace modded SCR_UIName with SetName() method
 				//WR_SpawnPoint.Cast(child).SetVisibleInDeployMapOnly(false);
 				// create new data object with faction key and spawn point
 				ref WR_TownFactionData data = new WR_TownFactionData(WR_SpawnPoint.Cast(child).GetFactionKey(), WR_SpawnPoint.Cast(child)); // not the issue
