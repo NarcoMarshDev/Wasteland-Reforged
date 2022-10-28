@@ -119,6 +119,31 @@ modded class SCR_FieldManualUI : MenuRootBase
 			Close();
 			return;
 		}
+			// modded, change menu title depending on store type, use normal field manual title if no store
+		if (m_StoreReference)
+		{
+			string title;
+			switch (m_StoreType)
+			{
+				case WR_StoreType.GunStore:
+					title = "Gun Store";
+					break;
+				
+				case WR_StoreType.VehicleStore:
+					title = "Vehicle Store";
+					break;
+				
+				case WR_StoreType.GeneralStore:
+					title = "General Store";
+					break;
+				
+				default:
+					title = "Unknown Store";
+					break;
+			}
+			menuTitle.SetText(title);
+		}
+		//m_wMenuTitle.SetText(m_ConfigRoot.m_sTitle);
 
 		Widget tabViewRoot = menuFrame.FindAnyWidget("TabViewRoot0");
 		if (!tabViewRoot)
@@ -643,6 +668,8 @@ modded class SCR_FieldManualUI : MenuRootBase
 		string title = category.m_sTitle;
 		if (m_StoreReference)
 		{
+			Print(storeTypeMap.Get(title));
+			Print(m_StoreType);
 			if (!category.m_bEnabled || storeTypeMap.Get(title) != m_StoreType)
 			{
 				return true;
@@ -705,6 +732,10 @@ modded class SCR_FieldManualUI : MenuRootBase
 					if (m_StoreReference)
 					{
 						WR_FieldManualConfigEntry_Store newEntry = WR_FieldManualConfigEntry_Store.Cast(entry);
+						if (!newEntry)
+						{
+							continue;
+						}
 						newEntry.m_iPrice = ESE_Math.CeilToNearestMultiple(newEntry.m_iPrice * m_fPriceScaleFactor, 10);
 						newEntry.m_sTitle = newEntry.m_sTitle + "\nPrice: " + newEntry.m_iPrice;
 						m_aAllEntries.Insert(entry);
@@ -751,35 +782,7 @@ modded class SCR_FieldManualUI : MenuRootBase
 		m_wFirstSubCategoryButton = null;
 		m_mWidgetSubCategoryMap.Clear();
 		SCR_WidgetHelper.RemoveAllChildren(m_wMenuCategoryList);
-
-		if (m_wMenuTitle)
-		{
-			// modded, change menu title depending on store type, use normal field manual title if no store
-			if (m_StoreReference)
-			{
-				string title = "bruh";
-				switch (m_StoreType)
-				{
-					case WR_StoreType.GunStore:
-						title = "Gun Store";
-						break;
-					
-					case WR_StoreType.VehicleStore:
-						title = "Vehicle Store";
-						break;
-					
-					case WR_StoreType.GeneralStore:
-						title = "General Store";
-						break;
-					
-					default:
-						title = "Unknown Store";
-						break;
-				}
-				m_wMenuTitle.SetText(title);
-			}
-			m_wMenuTitle.SetText(m_ConfigRoot.m_sTitle);
-		}
+				
 /*
 		if (m_MenuTabView)
 		{

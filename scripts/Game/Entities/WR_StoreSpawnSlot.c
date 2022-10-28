@@ -4,22 +4,33 @@ class WR_StoreSpawnSlotClass: GenericEntityClass
 
 class WR_StoreSpawnSlot: GenericEntity
 {
-	protected bool m_bIsOccupied = false;
 	WR_StoreComponent m_StoreComponent;
+	IEntity m_LastOccupant = null;
+	float m_fLastOccupiedTime = 0;
 	
 	override void EOnInit(IEntity owner)
 	{
 		m_StoreComponent = WR_StoreComponent.Cast( GetParent().FindComponent(WR_StoreComponent) );
 		m_StoreComponent.RegisterSpawnSlot(this);
 	}
-	
-	bool IsOccupied()
+		
+	void SetOccupant(IEntity ent)
 	{
-		return m_bIsOccupied;
+		m_LastOccupant = ent;
+		// return without updating the last occupied time if occupant is set to null
+		if (!ent)
+			return;
+		
+		m_fLastOccupiedTime = GetGame().GetWorld().GetWorldTime();
 	}
 	
-	void SetOccupied(bool state)
+	IEntity GetOccupant()
 	{
-		m_bIsOccupied = state;
+		return m_LastOccupant;
+	}
+	
+	float GetLastOccupiedTime()
+	{
+		return m_fLastOccupiedTime;
 	}
 }

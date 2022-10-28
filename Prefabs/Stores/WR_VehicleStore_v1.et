@@ -1,4 +1,5 @@
 SCR_ChimeraCharacter {
+ ID "5AB831656DBE73E7"
  components {
   ControllersManagerComponent "{5A8221FD100A17EE}" {
   }
@@ -1243,6 +1244,7 @@ SCR_ChimeraCharacter {
  angleY -180
  {
   GenericEntity {
+   ID "5AB831656DBE73E0"
    components {
     MeshObject "{5A8221D7B644FA87}" {
      Object "{3C138FBF4F83E7C7}Assets/Structures/Signs/Military/SignRectangle_01_140x100.xob"
@@ -1341,76 +1343,7 @@ SCR_ChimeraCharacter {
   }
   $grp WR_StoreSpawnSlot {
    {
-    components {
-     Hierarchy "{5A9C6741B295AD83}" {
-     }
-     RplComponent "{5AB340C7566DDEC7}" {
-     }
-    }
-    coords 10 0 10
-    angleY -180
-   }
-   {
-    components {
-     Hierarchy "{5A9C6741B5DCCCE3}" {
-     }
-     RplComponent "{5AB340C7880775A2}" {
-     }
-    }
-    coords 0 0 10
-    angleY -180
-   }
-   {
-    components {
-     Hierarchy "{5A9C6741BAEA0277}" {
-     }
-     RplComponent "{5AB340C78D9AAE98}" {
-     }
-    }
-    coords -10 0 10
-    angleY -180
-   }
-   {
-    components {
-     Hierarchy "{5A9C6741B828137E}" {
-     }
-     RplComponent "{5AB340C793A58CC9}" {
-     }
-    }
-    coords 10 0 20
-    angleY -180
-   }
-   {
-    components {
-     Hierarchy "{5A9C6741BD7A1FC0}" {
-     }
-     RplComponent "{5AB340C792673DC9}" {
-     }
-    }
-    coords 0 0 20
-    angleY -180
-   }
-   {
-    components {
-     Hierarchy "{5A9C6741C28D9D56}" {
-     }
-     RplComponent "{5AB340C7972E352B}" {
-     }
-    }
-    coords -10 0 20
-    angleY -180
-   }
-   {
-    components {
-     Hierarchy "{5A9C6741C00009A2}" {
-     }
-     RplComponent "{5AB340C79A491201}" {
-     }
-    }
-    coords 10 0 30
-    angleY -180
-   }
-   {
+    ID "5AB831656DB956BC"
     components {
      Hierarchy "{5A9C6741C64FA85D}" {
      }
@@ -1421,6 +1354,7 @@ SCR_ChimeraCharacter {
     angleY -180
    }
    {
+    ID "5AB831656DB956BD"
     components {
      Hierarchy "{5A9C6741CBEAFEAC}" {
      }
@@ -1430,29 +1364,99 @@ SCR_ChimeraCharacter {
     coords -10 0 30
     angleY -180
    }
+   {
+    ID "5AB831656DB98BF6"
+    components {
+     Hierarchy "{5A9C6741B828137E}" {
+     }
+     RplComponent "{5AB340C793A58CC9}" {
+     }
+    }
+    coords 10 0 20
+    angleY -180
+   }
+   {
+    ID "5AB831656DB98BF7"
+    components {
+     Hierarchy "{5A9C6741BAEA0277}" {
+     }
+     RplComponent "{5AB340C78D9AAE98}" {
+     }
+    }
+    coords -10 0 10
+    angleY -180
+   }
+   {
+    ID "5AB831656DB98C45"
+    components {
+     Hierarchy "{5A9C6741BD7A1FC0}" {
+     }
+     RplComponent "{5AB340C792673DC9}" {
+     }
+    }
+    coords 0 0 20
+    angleY -180
+   }
+   {
+    ID "5AB831656DB9938D"
+    components {
+     Hierarchy "{5A9C6741C00009A2}" {
+     }
+     RplComponent "{5AB340C79A491201}" {
+     }
+    }
+    coords 10 0 30
+    angleY -180
+   }
+   {
+    ID "5AB831656DB99392"
+    components {
+     Hierarchy "{5A9C6741C28D9D56}" {
+     }
+     RplComponent "{5AB340C7972E352B}" {
+     }
+    }
+    coords -10 0 20
+    angleY -180
+   }
+   {
+    ID "5AB831656DB9FF45"
+    components {
+     Hierarchy "{5A9C6741B295AD83}" {
+     }
+     RplComponent "{5AB340C7566DDEC7}" {
+     }
+    }
+    coords 10 0 10
+    angleY -180
+   }
+   {
+    ID "5AB831656DB9FF47"
+    components {
+     Hierarchy "{5A9C6741B5DCCCE3}" {
+     }
+     RplComponent "{5AB340C7880775A2}" {
+     }
+    }
+    coords 0 0 10
+    angleY -180
+   }
   }
   $grp GenericEntity : "{547D462165B175C2}Prefabs/Props/Furniture/CupboardOld_01_small.et" {
    {
-    components {
-    }
-    coords -1.3 0 1
-    angleY 180
-   }
-   {
+    ID "5AB831656DB956B4"
     components {
     }
     coords 0 0 1
     angleY 180
    }
+   {
+    ID "5AB831656DB956BB"
+    components {
+    }
+    coords -1.3 0 1
+    angleY 180
+   }
   }
  }
-}
-GenericEntity : "{569C0E9792A6D39A}Prefabs/Props/Military/Training/Obstacles/ObstacleRamp_01_start.et" {
- coords 130.815 1.001 127.301
-}
-WR_BuildingObjectEntity : "{7AA616A701D143CF}Prefabs/Building Objects/WR_BuildingObjectBase.et" {
- coords 98.404 1 127.987
-}
-SCR_DestructibleBuildingEntity : "{915C5B7F7C2767E4}PrefabsEditable/Auto/Structures/Industrial/Repair/E_RampVehicle_01_metal.et" {
- coords 136.318 0.001 126.484
 }

@@ -1,8 +1,8 @@
 enum WR_StoreType
 {
-	GunStore,
-	VehicleStore,
-	GeneralStore
+	GunStore = 1,
+	VehicleStore = 2,
+	GeneralStore = 3
 }
 
 class WR_StoreComponentClass: ScriptComponentClass
@@ -11,7 +11,7 @@ class WR_StoreComponentClass: ScriptComponentClass
 
 class WR_StoreComponent: ScriptComponent
 {
-	[Attribute(defvalue: SCR_Enum.GetDefault(WR_StoreType.GunStore), uiwidget: UIWidgets.ComboBox, desc: "0: Gun Store, 1: Vehicle Store, 2: General Store", enums: ParamEnumArray.FromEnum(WR_StoreType))]
+	[Attribute(defvalue: SCR_Enum.GetDefault(WR_StoreType.GunStore), uiwidget: UIWidgets.ComboBox, desc: "1: Gun Store, 2: Vehicle Store, 3: General Store", enums: ParamEnumArray.FromEnum(WR_StoreType))]
 	protected WR_StoreType m_StoreType;
 	
 	ref array<IEntity> m_SpawnSlots = new array<IEntity>();
@@ -39,5 +39,31 @@ class WR_StoreComponent: ScriptComponent
 	IEntity GetRandomSpawnSlot()
 	{
 		return m_SpawnSlots.GetRandomElement();
+	}
+	// Returns first valid unoccupied spawn slot, if all are occupied it will delete the first slot to make it valid.
+	// Because of this behaviour make sure stores have plenty of slots, especially general or building stores so you can buy lots of walls etc. all at once.
+	WR_StoreSpawnSlot GetValidSpawnSlot()
+	{
+		foreach (IEntity ent: m_SpawnSlots)
+		{
+			WR_StoreSpawnSlot slot = WR_StoreSpawnSlot.Cast(ent);
+			IEntity occupant = slot.GetOccupant();
+			// if no occupant, it's valid
+			if (!occupant)
+			{
+				return slot;
+			}
+			// if distance between last occupant and spawn slot it more than 20 meters, set occupant to null and it's valid
+			if (vector.Distance( occupant.GetOrigin(), slot.GetOrigin() ) >= 20)
+			{
+				slot.SetOccupant(null);
+				return slot;
+			}
+		}
+		// last resort if none of the slots are valid, get the first one and delete it's last occupant, set it's occupant to null and make it valid
+		WR_StoreSpawnSlot slot = WR_StoreSpawnSlot.Cast(m_SpawnSlots[0]);
+		ESE_Entities.DeleteEntity(slot.GetOccupant()); // the poor guy with this vehicle will get it deleted :c
+		slot.SetOccupant(null);
+		return slot;
 	}
 }

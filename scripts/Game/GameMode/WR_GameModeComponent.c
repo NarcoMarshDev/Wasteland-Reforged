@@ -5,7 +5,7 @@ class WR_GameModeComponentClass : SCR_BaseGameModeComponentClass
 class WR_GameModeComponent : SCR_BaseGameModeComponent
 {
 	// ------------------------------------------------ Persistent player ID and profiles ------------------------------------------------ //
-	protected static const string WR_PERSISTENT_ID_FILE_PATH = "$profile:WastelandReforgedPersistentID.txt";
+	static const string WR_PERSISTENT_ID_FILE_PATH = "$profile:WastelandReforgedPersistentID.txt";
 	
 	ref map<int, ref WR_PlayerProfile> m_PlayerProfileMap = new map<int, ref WR_PlayerProfile>();
 	
@@ -26,7 +26,7 @@ class WR_GameModeComponent : SCR_BaseGameModeComponent
 	{
 		// future - if (find profile for player already) { load it }
 		auto bApi = GetGame().GetBackendApi();
-		ref auto profile = new WR_PlayerProfile(playerId, bApi.GetPlayerUID(playerId), cash: 1500);
+		ref auto profile = new WR_PlayerProfile(playerId, bApi.GetPlayerUID(playerId), cash: 150000);
 		m_PlayerProfileMap.Insert(playerId, profile);
 	}
 	
