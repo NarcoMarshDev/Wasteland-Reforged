@@ -18,15 +18,20 @@ class WR_AquireVehicleOwnershipAction: ScriptedUserAction
 			return;
 		
 		// animate player
-		AnimationPlayerComponent animComponent = AnimationPlayerComponent.Cast(pUserEntity.FindComponent(AnimationPlayerComponent));
-		if (!animComponent)
-			return;
+		//AnimationPlayerComponent animComponent = AnimationPlayerComponent.Cast(pUserEntity.FindComponent(AnimationPlayerComponent));
+		//if (!animComponent)
+		//	return;
 		
-		ResourceName anim = "{38CDB5E221E3C389}anims/anm/player/locomotion/unarmed/Swimming/p_swim_death.anm";
-		animComponent.Prepare(anim, 0, 1, true);
-		animComponent.Play(pUserEntity);
+		//ResourceName anim = "{38CDB5E221E3C389}anims/anm/player/locomotion/unarmed/Swimming/p_swim_death.anm";
+		//animComponent.Prepare(anim, 0, 1, true);
+		//animComponent.Play(pUserEntity);
 		
 		m_pLockingComponent.SetVehicleOwner(ESE.GetPlayerId(pUserEntity));
+	}
+	
+	override event bool CanBePerformedScript(IEntity user)
+	{
+		return true;
 	}
 		
 	override event bool CanBeShownScript(IEntity user)
