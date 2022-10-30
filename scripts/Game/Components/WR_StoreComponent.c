@@ -18,7 +18,33 @@ class WR_StoreComponent: ScriptComponent
 		
 	override void OnPostInit(IEntity owner)
 	{
-		
+		SetEventMask(owner, EntityEvent.INIT);
+	}
+	
+	override void EOnInit(IEntity owner)
+	{
+		// #WR_TODO - Make the map icon work properly here
+		SCR_MapDescriptorComponent desc = SCR_MapDescriptorComponent.Cast(owner.FindComponent(SCR_MapDescriptorComponent));
+		Print(desc);
+		if (desc)
+		{
+			MapItem item = desc.Item();
+			Print(item);
+			if (!item)
+			{
+				return;
+			}
+			item.SetVisible(true);
+			string image = item.GetImageDef();
+			Print(image);
+			//item.SetImageDef("Slot_Supplies");
+			
+			MapDescriptorProps props = item.GetProps();
+			props.SetIconSize(32, 0.25, 0.25);
+			props.SetFrontColor(Color.Red);
+			props.SetTextVisible(false);
+			props.Activate(true);
+		}
 	}
 		
 	WR_StoreType GetStoreType()

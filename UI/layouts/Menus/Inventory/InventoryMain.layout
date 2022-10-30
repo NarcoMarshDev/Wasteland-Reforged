@@ -12,16 +12,20 @@ FrameWidgetClass {
         OverlayWidgetClass "{589F0497F7A00346}" {
          Prefab "{589F0497F7A00346}"
          {
-          ButtonWidgetClass "{5AB75BABE0CB4425}" : "{CB8563509DEF3E0E}UI/layouts/WidgetLibrary/Buttons/WLib_NavigationButtonSmall.layout" {
-           Name "NavigationButton0"
-           Slot OverlayWidgetSlot "{5AB75BABE0CB443B}" {
+          ButtonWidgetClass "{5AB941F99835FBBE}" : "{CB8563509DEF3E0E}UI/layouts/WidgetLibrary/Buttons/WLib_NavigationButtonSmall.layout" {
+           Name "BuildingModeButton"
+           Slot OverlayWidgetSlot "{5AB941F99835FBD4}" {
             HorizontalAlign 0
             VerticalAlign 2
             Padding 5 0 10 105
            }
+           "Is Enabled" 0
+           "Is Visible" 0
            components {
             SCR_NavigationButtonComponent "{5474BAC5DBCF129A}" {
-             m_sLabel "Building Toggle"
+             m_bMouseOverToFocus 1
+             m_bCanBeToggled 1
+             m_bShowBorderOnFocus 1
             }
            }
           }
@@ -32,8 +36,6 @@ FrameWidgetClass {
             VerticalAlign 2
             Padding 5 0 0 105
            }
-           "Is Enabled" 0
-           "Is Visible" 0
            Color 0 0 0 0
            components {
             WR_BuildingToggleButtonComponent "{5A443D91DDAC17A0}" {

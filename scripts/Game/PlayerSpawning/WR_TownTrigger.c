@@ -3,7 +3,7 @@
 class WR_TownTriggerClass: SCR_BaseTriggerEntityClass
 {
 };
-
+// #WR_TODO - Change this so it only requires a friendly in the territory to spawn, not population majority, maybe have it an option though
 class WR_TownTrigger: SCR_BaseTriggerEntity 
 {
 	[Attribute("", UIWidgets.EditBox, "Related entity")]
@@ -20,7 +20,7 @@ class WR_TownTrigger: SCR_BaseTriggerEntity
 		{
 			if (child.IsInherited(WR_SpawnPoint))
 			{
-				SCR_OverridableUIInfo.Cast( WR_SpawnPoint.Cast(child).GetInfo() ).SetName(m_sTownName); // to replace modded SCR_UIName with SetName() method
+				WR_SpawnPoint.Cast(child).GetInfo()._WR_SetName(m_sTownName); // to replace modded SCR_UIName with SetName() method
 				//WR_SpawnPoint.Cast(child).SetVisibleInDeployMapOnly(false);
 				// create new data object with faction key and spawn point
 				ref WR_TownFactionData data = new WR_TownFactionData(WR_SpawnPoint.Cast(child).GetFactionKey(), WR_SpawnPoint.Cast(child)); // not the issue

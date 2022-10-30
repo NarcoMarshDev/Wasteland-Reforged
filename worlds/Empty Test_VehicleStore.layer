@@ -905,7 +905,6 @@ SCR_ChimeraCharacter {
    "Tag categories" 1
   }
   WR_StoreComponent "{5A82B0B50CAF9C28}" {
-   m_StoreType VehicleStore
   }
   CharacterGrenadeSlotComponent "{5A8221FD100A9656}" {
    isThrowable 1

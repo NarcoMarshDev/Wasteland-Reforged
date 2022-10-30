@@ -1,0 +1,59 @@
+SCR_ChimeraCharacter : "{894A63F3A25D00B0}Prefabs/Stores/WR_VehicleStore_v1.et" {
+ components {
+  SCR_MapDescriptorComponent "{5A8221FD100B719B}" {
+   MapItemDescriptor 1
+   MainType "Water Pump"
+   UnitType "Undetermined/ Unknown"
+   Scale 1
+  }
+ }
+ coords 4650.832 27.909 11148.588
+ angleY 63.232
+ {
+  WR_StoreSpawnSlot {
+   ID "5AB831656DB956BC"
+   coords 37.247 0 38.714
+   angleY -153.694
+  }
+  WR_StoreSpawnSlot {
+   ID "5AB831656DB956BD"
+   coords 28.286 0 43.146
+   angleY -153.694
+  }
+  WR_StoreSpawnSlot {
+   ID "5AB831656DB98BF6"
+   coords 41.781 0 25.317
+   angleY -153.694
+  }
+  WR_StoreSpawnSlot {
+   ID "5AB831656DB98BF7"
+   coords 19.422 0 25.216
+   angleY -153.694
+  }
+  WR_StoreSpawnSlot {
+   ID "5AB831656DB98C45"
+   coords 32.817 0 29.749
+   angleY -153.694
+  }
+  WR_StoreSpawnSlot {
+   ID "5AB831656DB9938D"
+   coords 46.214 0 34.28
+   angleY -153.694
+  }
+  WR_StoreSpawnSlot {
+   ID "5AB831656DB99392"
+   coords 23.853 0 34.183
+   angleY -153.694
+  }
+  WR_StoreSpawnSlot {
+   ID "5AB831656DB9FF45"
+   coords 37.351 0 16.353
+   angleY -153.694
+  }
+  WR_StoreSpawnSlot {
+   ID "5AB831656DB9FF47"
+   coords 28.386 0 20.785
+   angleY -153.694
+  }
+ }
+}

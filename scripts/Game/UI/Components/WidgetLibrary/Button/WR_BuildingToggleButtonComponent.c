@@ -1,3 +1,68 @@
+#ifdef WR_BROKEN
+class WR_BuildingToggleButtonComponent : SCR_NavigationButtonComponent
+{
+	WR_BuildingRadialMenuComponent m_MenuComponent;
+	SCR_NavigationButtonComponent m_NavButton;
+	
+	override void HandlerAttached(Widget w)
+	{
+		m_NavButton = SCR_NavigationButtonComponent.Cast( w.FindHandler(SCR_NavigationButtonComponent) );
+		PlayerController controller = GetGame().GetPlayerController();
+		if (!controller)
+			return;
+		
+		m_MenuComponent = WR_BuildingRadialMenuComponent.Cast( controller.FindComponent(WR_BuildingRadialMenuComponent) );
+		if (!m_MenuComponent)
+		{
+			return;
+		}
+		UpdateLabel();
+		super.HandlerAttached(w);
+	}
+	
+	override bool OnClick(Widget w, int x, int y, int button)
+	{
+		super.OnClick(w, x, y, button);
+		Print("Clicked");
+		m_MenuComponent.SetEnabled(!m_MenuComponent.GetEnabled());
+		UpdateLabel();
+		return false;
+	}
+	
+	override bool OnMouseEnter(Widget w, int x, int y)
+	{
+		Print("Entered");
+		super.OnMouseEnter(w, x, y);
+		return false;
+	}
+	
+	override bool OnMouseLeave(Widget w, Widget enterW, int x, int y)
+	{
+		Print("Leaving");
+		super.OnMouseLeave(w, enterW, x, y);
+		return false;
+	}
+	
+	void UpdateLabel()
+	{
+		if (m_MenuComponent.GetEnabled())
+		{
+			m_NavButton.SetLabel("Building Mode: On");
+			SetLabel("Building Mode: On");
+			return;
+		}
+		m_NavButton.SetLabel("Building Mode: Off");
+		SetLabel("Building Mode: Off");
+	}
+}
+#endif
+
+
+
+
+
+
+//#ifdef WR_BROKEN
 class WR_BuildingToggleButtonComponent : SCR_ButtonBaseComponent
 {
 	ImageWidget m_wImage;
@@ -77,3 +142,4 @@ class WR_BuildingToggleButtonComponent : SCR_ButtonBaseComponent
 		Print("toggled: " + m_bIsToggled);
 	}
 }
+//#endif
