@@ -29,7 +29,7 @@ class WR_PlayerProfile
 		return true;
 	}
 		
-	void WR_PlayerProfile(int playerId, string playerGUID, int cash=0, int bank=0, int kills=0, int deaths=0, SCR_ChimeraCharacter character=null)
+	void WR_PlayerProfile(int playerId=-1, string playerGUID="", int cash=0, int bank=0, int kills=0, int deaths=0, SCR_ChimeraCharacter character=null)
 	{
 		m_PlayerId = playerId;
 		m_PlayerGUID = playerGUID;

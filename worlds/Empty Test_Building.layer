@@ -6,3 +6,11 @@ GenericEntity : "{193EF363CD35FDA7}Prefabs/Structures/Moveable/WRB_SilageWall_02
  coords 129.859 1.001 140
  angleY 0
 }
+WR_BuildingObjectEntity : "{7AA616A701D143CF}Prefabs/Building Objects/WR_BuildingObjectBase.et" {
+ coords 103.955 1.001 125.564
+ {
+  SCR_DestructibleBuildingEntity : "{EE5219B38424AB12}Prefabs/Structures/Military/Bunkers/Bunker_01/Bunker_01_3fp.et" {
+   coords 0 0 0
+  }
+ }
+}

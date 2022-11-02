@@ -9,6 +9,8 @@ SCR_BaseGameMode GameMode_Plain2 : "{1B76F75A3175E85C}Prefabs/MP/Modes/Plain/Gam
   }
   WR_GameModeComponent "{5A3E3425D1F6D6EB}" {
   }
+  WR_PersistentSaveManagerComponent "{5AC32D1A9CF083A0}" {
+  }
  }
  coords 125.923 1.001 130.804
 }

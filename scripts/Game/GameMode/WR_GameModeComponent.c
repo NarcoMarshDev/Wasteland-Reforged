@@ -9,6 +9,7 @@ class WR_GameModeComponent : SCR_BaseGameModeComponent
 	
 	ref map<int, ref WR_PlayerProfile> m_PlayerProfileMap = new map<int, ref WR_PlayerProfile>();
 	
+	// ---------------------------------------------------------------------------------------------------------------- //
 	// Is this unnecessary because the player profiles are strong refs?
 	void UpdatePlayerProfile(WR_PlayerProfile prof)
 	{
@@ -16,27 +17,28 @@ class WR_GameModeComponent : SCR_BaseGameModeComponent
 		m_PlayerProfileMap.Set(playerId, prof);
 		
 	}
-	
+	// ---------------------------------------------------------------------------------------------------------------- //
 	override void EOnInit(IEntity owner)
 	{
-		
+
 	}
-	
+	// ---------------------------------------------------------------------------------------------------------------- //
 	override void OnPlayerConnected(int playerId)
 	{
 		// future - if (find profile for player already) { load it }
 		auto bApi = GetGame().GetBackendApi();
 		ref auto profile = new WR_PlayerProfile(playerId, bApi.GetPlayerUID(playerId), cash: 150000);
 		m_PlayerProfileMap.Insert(playerId, profile);
-	}
-	
-	
-	
-	
+	}	
 	
 	// ---------------------------------------------------------------------------------------------------------------- //
 	override void OnPlayerKilled(int playerId, IEntity player, IEntity killer)
 	{
+		//WR_SaveConfigRoot root = SCR_ConfigHelperT<WR_SaveConfigRoot>.GetConfigObject(persistentSavePath);
+
+		
+		
+		
 		// ------------------------------------------------- BUILDING ------------------------------------------------- //
 		
 		// If player dies while holding slotted entity, find it, snap to terrain, and restore it's materials
@@ -51,18 +53,24 @@ class WR_GameModeComponent : SCR_BaseGameModeComponent
 		IEntity ent = buildingSlot.GetAttachedEntity();
 		if (!ent)
 			return;
-		ESE_Entities.RestoreMaterial(ent, true); //WR_Statics.RestoreMaterial(ent); //#ESE REPLACE
+		ESE_Entities.RestoreMaterial(ent, true);
 		
 		vector mat[4];
 		ent.GetTransform(mat);
-		SCR_TerrainHelper.SnapToTerrain(mat, GetGame().GetWorld(), true); //#ESE_REPLACE - ESE_Entities.SnapToGround()
+		ESE_Entities.SnapAndOrientToGround(mat, ent, 5, true); // #ESE_TEST
 		ent.SetTransform(mat);
-		ESE_Entities.EnableCollisions(ent); //WR_Statics.SetEntityCollision(ent, EPhysicsLayerDefs.Default); //#ESE REPLACE
+		ESE_Entities.EnableCollisions(ent);
+		ent.Update();
 	}
 	// ---------------------------------------------------------------------------------------------------------------- //
 	override void OnPlayerSpawned(int playerId, IEntity controlledEntity)
 	{
 		// find build menu component, and set it's controller component reference (yes it's awful)
 		WR_BuildingRadialMenuComponent.Cast( GetGame().GetPlayerManager().GetPlayerController(playerId).FindComponent(WR_BuildingRadialMenuComponent) ).SetCharacterController(SCR_CharacterControllerComponent.Cast( controlledEntity.FindComponent(SCR_CharacterControllerComponent) ));
+	}
+	
+	override void OnPostInit(IEntity owner)
+	{
+		SetEventMask(owner, EntityEvent.INIT);
 	}
 }

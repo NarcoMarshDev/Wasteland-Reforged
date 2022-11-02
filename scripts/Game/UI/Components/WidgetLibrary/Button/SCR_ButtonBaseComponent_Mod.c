@@ -59,10 +59,10 @@ modded class SCR_ButtonBaseComponent : SCR_WLibComponentBase
 	{
 		super.HandlerAttached(w);
 		m_wBackground = w.FindAnyWidget("Background");
-		Print("---------------");
-		Print(w.GetName());
-		Print(m_wBackground);
-		Print("---------------");
+		//Print("---------------");
+		//Print(w.GetName());
+		//Print(m_wBackground);
+		//Print("---------------");
 		m_wBorder = w.FindAnyWidget("Border");
 		if (m_wBorder && m_bUseColorization)
 			m_wBorder.SetOpacity(0);
@@ -80,7 +80,7 @@ modded class SCR_ButtonBaseComponent : SCR_WLibComponentBase
 	//------------------------------------------------------------------------------------------------
 	override override bool OnClick(Widget w, int x, int y, int button)
 	{
-		Print("ITS CLICKING!!!!!!!!");
+		//Print("ITS CLICKING!!!!!!!!");
 		super.OnClick(w, x, y, button);
 		if (button != 0)
 			return false;

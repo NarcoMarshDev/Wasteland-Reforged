@@ -25,11 +25,11 @@ class WR_StoreComponent: ScriptComponent
 	{
 		// #WR_TODO - Make the map icon work properly here
 		SCR_MapDescriptorComponent desc = SCR_MapDescriptorComponent.Cast(owner.FindComponent(SCR_MapDescriptorComponent));
-		Print(desc);
+		//Print(desc);
 		if (desc)
 		{
 			MapItem item = desc.Item();
-			Print(item);
+			//Print(item);
 			if (!item)
 			{
 				return;
